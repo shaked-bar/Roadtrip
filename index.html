@@ -4,6 +4,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Southwest Road Trip | December 22-31, 2025</title>
   
+  <!-- ╔══════════════════════════════════════════════════════════════╗ -->
+  <!-- ║                    META & SEO TAGS                            ║ -->
+  <!-- ╚══════════════════════════════════════════════════════════════╝ -->
+  
   <!-- Open Graph / WhatsApp / Facebook Preview -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://shaked-bar.github.io/Roadtrip/">
@@ -24,7 +28,14 @@
   <meta name="theme-color" content="#6366f1">
   
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  
+  <!-- ╔══════════════════════════════════════════════════════════════╗ -->
+  <!-- ║                       CSS STYLES                              ║ -->
+  <!-- ╚══════════════════════════════════════════════════════════════╝ -->
   <style>
+    /* ═══════════════════════════════════════════════════════════════
+       BASE STYLES - Reset, Body, Container
+       ═══════════════════════════════════════════════════════════════ */
     * {
       margin: 0;
       padding: 0;
@@ -48,7 +59,9 @@
       padding: 20px;
     }
     
-    /* Header */
+    /* ═══════════════════════════════════════════════════════════════
+       HEADER - Logo, date picker, buttons
+       ═══════════════════════════════════════════════════════════════ */
     .header {
       background: rgba(255,255,255,0.95);
       backdrop-filter: blur(20px);
@@ -174,7 +187,9 @@
       background: #4b5563;
     }
     
-    /* Dark Mode Styles */
+    /* ═══════════════════════════════════════════════════════════════
+       DARK MODE - All dark theme overrides
+       ═══════════════════════════════════════════════════════════════ */
     body.dark-mode {
       background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
       color: #e5e7eb;
@@ -578,7 +593,9 @@
       border-color: #3b82f6;
     }
     
-    /* Stats Grid */
+    /* ═══════════════════════════════════════════════════════════════
+       STATS CARDS - Days, Hours, KM, Budget, Places, Elevation
+       ═══════════════════════════════════════════════════════════════ */
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -637,6 +654,11 @@
       padding: 16px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       border: 1px solid #fed7aa;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
     
     .stat-card .icon {
@@ -647,6 +669,7 @@
       align-items: center;
       justify-content: center;
       font-size: 20px;
+      margin: 0 auto 8px auto;
       margin-bottom: 8px;
     }
     
@@ -671,7 +694,9 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
     
-    /* Modal */
+    /* ═══════════════════════════════════════════════════════════════
+       MODALS - Popup dialogs for stats details & road story
+       ═══════════════════════════════════════════════════════════════ */
     .modal-overlay {
       position: fixed;
       top: 0;
@@ -831,6 +856,33 @@
     
     body.dark-mode .progress-bar {
       background: #374151;
+    }
+    
+    /* Dark mode: Force dark text on light background boxes in modals */
+    body.dark-mode .modal [style*="background:#fef3c7"],
+    body.dark-mode .modal [style*="background:#dbeafe"],
+    body.dark-mode .modal [style*="background:#dcfce7"],
+    body.dark-mode .modal [style*="background:#fce7f3"],
+    body.dark-mode .modal [style*="background:#fee2e2"],
+    body.dark-mode .modal [style*="background:#f3e8ff"],
+    body.dark-mode .modal [style*="background:#fed7aa"],
+    body.dark-mode .modal [style*="background:#fca5a5"],
+    body.dark-mode .modal [style*="background:#e5e7eb"],
+    body.dark-mode .modal [style*="background:#f9fafb"] {
+      color: #1f2937 !important;
+    }
+    
+    body.dark-mode .modal [style*="background:#fef3c7"] *,
+    body.dark-mode .modal [style*="background:#dbeafe"] *,
+    body.dark-mode .modal [style*="background:#dcfce7"] *,
+    body.dark-mode .modal [style*="background:#fce7f3"] *,
+    body.dark-mode .modal [style*="background:#fee2e2"] *,
+    body.dark-mode .modal [style*="background:#f3e8ff"] *,
+    body.dark-mode .modal [style*="background:#fed7aa"] *,
+    body.dark-mode .modal [style*="background:#fca5a5"] *,
+    body.dark-mode .modal [style*="background:#e5e7eb"] *,
+    body.dark-mode .modal [style*="background:#f9fafb"] * {
+      color: #1f2937 !important;
     }
     
     /* Road Story Button */
@@ -1215,7 +1267,9 @@
       background: #fed7aa;
     }
     
-    /* Day Cards */
+    /* ═══════════════════════════════════════════════════════════════
+       DAY CARDS - Itinerary for each day
+       ═══════════════════════════════════════════════════════════════ */
     .section-title {
       font-size: 1.5rem;
       font-weight: 700;
@@ -1580,7 +1634,9 @@
       display: none !important;
     }
     
-    /* ========== MOBILE OPTIMIZATIONS ========== */
+    /* ═══════════════════════════════════════════════════════════════
+       MOBILE OPTIMIZATIONS - Responsive design for phones & tablets
+       ═══════════════════════════════════════════════════════════════ */
     
     /* Mobile: Road Story / Explore buttons */
     @media (max-width: 768px) {
@@ -1907,7 +1963,13 @@
     }
   </style>
 </head>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗ -->
+<!-- ║                     HTML STRUCTURE                            ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════╝ -->
+
 <body class="dark-mode">
+  <!-- ═══ HEADER: Logo, Date Picker, Theme Toggle ═══ -->
   <header class="header">
     <div class="header-content">
       <div class="logo">
@@ -1941,35 +2003,41 @@
   <div class="container">
     <!-- Stats -->
     <div class="stats-grid">
-      <div class="stat-card clickable" onclick="showModal('days')">
-        <div class="icon" style="background:#ffedd5;">📅</div>
-        <div class="value">10</div>
-        <div class="label" id="daysLabel">days</div>
+      <!-- 1. Time & Pace -->
+      <div class="stat-card clickable" onclick="showModal('time')">
+        <div class="icon" style="background:#fef3c7;">⏱️</div>
+        <div class="value" id="timeValue">Balanced</div>
+        <div class="label" id="timeLabel">pace</div>
       </div>
-      <div class="stat-card clickable" onclick="showModal('hours')">
-        <div class="icon" style="background:#dbeafe;">🚗</div>
-        <div class="value">~40</div>
-        <div class="label" id="hoursLabel">hours</div>
-      </div>
+      <!-- 2. Distance & Driving -->
       <div class="stat-card clickable" onclick="showModal('distance')">
-        <div class="icon" style="background:#dcfce7;">📍</div>
-        <div class="value">~3,400</div>
-        <div class="label">km</div>
+        <div class="icon" style="background:#dbeafe;">🚗</div>
+        <div class="value">3,400</div>
+        <div class="label" id="distanceLabel">km</div>
       </div>
+      <!-- 3. Budget & Logistics -->
       <div class="stat-card clickable" onclick="showModal('budget')">
         <div class="icon" style="background:#f3e8ff;">💰</div>
-        <div class="value">~$3,070</div>
+        <div class="value">$3,070</div>
         <div class="label" id="budgetLabel">budget</div>
       </div>
-      <div class="stat-card clickable" onclick="showModal('places')">
-        <div class="icon" style="background:#dcfce7;">📍</div>
+      <!-- 4. Stops & Places -->
+      <div class="stat-card clickable" onclick="showModal('stops')">
+        <div class="icon" style="background:#dcfce7;">🏨</div>
         <div class="value">22+</div>
-        <div class="label" id="placesLabel">places</div>
+        <div class="label" id="stopsLabel">places</div>
       </div>
-      <div class="stat-card clickable" onclick="showModal('elevation')">
-        <div class="icon" style="background:#e0e7ff;">⛰️</div>
-        <div class="value">2,200m</div>
-        <div class="label" id="elevationLabel">max altitude</div>
+      <!-- 5. Activity & Difficulty -->
+      <div class="stat-card clickable" onclick="showModal('activity')">
+        <div class="icon" style="background:#ffedd5;">🥾</div>
+        <div class="value" id="activityValue">Moderate</div>
+        <div class="label" id="activityLabel">activity</div>
+      </div>
+      <!-- 6. Experience -->
+      <div class="stat-card clickable" onclick="showModal('experience')">
+        <div class="icon" style="background:#fce7f3;">⭐</div>
+        <div class="value">9/10</div>
+        <div class="label" id="experienceLabel">wow!</div>
       </div>
     </div>
 
@@ -4067,23 +4135,33 @@
     </div>
   </div>
 
+  <!-- ╔══════════════════════════════════════════════════════════════╗ -->
+  <!-- ║                      JAVASCRIPT                              ║ -->
+  <!-- ╚══════════════════════════════════════════════════════════════╝ -->
   <script>
-    // Language state
+    /* ═══════════════════════════════════════════════════════════════
+       STATE VARIABLES - Global state for the app
+       ═══════════════════════════════════════════════════════════════ */
     let currentLang = 'en';
     let showUrgentOnly = false;
     let checkedItems = {};
 
-    // Translations
+    /* ═══════════════════════════════════════════════════════════════
+       TRANSLATIONS - English & Hebrew text
+       ═══════════════════════════════════════════════════════════════ */
     const t = {
       en: {
         title: 'Southwest Road Trip',
         subtitle: 'December 22-31, 2025',
         langText: 'עברית',
-        daysLabel: 'days',
-        hoursLabel: 'hours',
+        timeLabel: 'pace',
+        timeValue: 'Balanced',
+        distanceLabel: 'km',
         budgetLabel: 'budget',
-        placesLabel: 'places',
-        elevationLabel: 'max altitude',
+        stopsLabel: 'places',
+        activityLabel: 'activity',
+        activityValue: 'Moderate',
+        experienceLabel: 'wow!',
         mapsText: 'Open in Google Maps',
         checklistTitle: 'Booking Checklist - Must Book Ahead',
         filterText: 'Urgent Only',
@@ -4124,11 +4202,14 @@
         title: 'טיול דרום-מערב ארה"ב',
         subtitle: '22-31 דצמבר 2025',
         langText: 'English',
-        daysLabel: 'ימים',
-        hoursLabel: 'שעות',
+        timeLabel: 'קצב',
+        timeValue: 'מאוזן',
+        distanceLabel: 'ק"מ',
         budgetLabel: 'תקציב',
-        placesLabel: 'מקומות',
-        elevationLabel: 'גובה מקס׳',
+        stopsLabel: 'מקומות',
+        activityLabel: 'פעילות',
+        activityValue: 'בינוני',
+        experienceLabel: 'וואו!',
         mapsText: 'פתח בגוגל מפות',
         checklistTitle: 'רשימת הזמנות - חובה להזמין מראש',
         filterText: 'דחופים בלבד',
@@ -4183,7 +4264,9 @@
       { id: 12, category: 'restaurant', item: 'Elote Cafe, Sedona', itemHe: 'Elote Cafe סדונה', dayOffset: 8, time: '12:00 PM', timeHe: '12:00', priority: 'medium', notes: 'Book 2 weeks ahead!', notesHe: 'הזמינו שבועיים מראש!', url: 'https://elotecafe.com' },
     ];
 
-    // Trip days data
+    /* ═══════════════════════════════════════════════════════════════
+       TRIP DATA - 10 days of itinerary (routes, hotels, activities)
+       ═══════════════════════════════════════════════════════════════ */
     const tripDays = [
       {
         day: 1, dayOffset: 0,
@@ -4718,200 +4801,861 @@
       
       let content = '';
       
-      if (type === 'days') {
-        title.innerHTML = isHe ? '📅 לוח זמנים' : '📅 Trip Timeline';
-        content = tripDays.map(day => {
-          const date = getDateFromOffset(day.dayOffset);
+      /* ═══════════════════════════════════════════════════════════════
+         1. TIME & PACE - "האם זה רגוע או מתיש?"
+         ═══════════════════════════════════════════════════════════════ */
+      if (type === 'time') {
+        title.innerHTML = isHe ? '⏱️ זמן וקצב' : '⏱️ Time & Pace';
+        
+        // Quick summary
+        content = `
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px;">
+            <div style="background:#fef3c7;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">10</div>
+              <div style="font-size:0.75rem;color:#92400e;">${isHe ? 'ימים' : 'Days'}</div>
+            </div>
+            <div style="background:#dbeafe;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">4h</div>
+              <div style="font-size:0.75rem;color:#1e40af;">${isHe ? 'ממוצע/יום' : 'Avg/Day'}</div>
+            </div>
+            <div style="background:#dcfce7;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">2</div>
+              <div style="font-size:0.75rem;color:#166534;">${isHe ? 'ימי מנוחה' : 'Rest Days'}</div>
+            </div>
+            <div style="background:#fce7f3;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">🟡</div>
+              <div style="font-size:0.75rem;color:#9d174d;">Balanced</div>
+            </div>
+          </div>
+        `;
+        
+        // Day by day breakdown
+        const dayDetails = [
+          { day: 1, hours: 6, load: 80, type: isHe ? 'נהיגה כבדה' : 'Heavy drive', icon: '🚗' },
+          { day: 2, hours: 4, load: 50, type: isHe ? 'מאוזן' : 'Balanced', icon: '⚖️' },
+          { day: 3, hours: 0, load: 20, type: isHe ? '😴 מנוחה' : '😴 Rest', icon: '🎨' },
+          { day: 4, hours: 5, load: 70, type: isHe ? 'נהיגה + שקיעה' : 'Drive + Sunset', icon: '🌅' },
+          { day: 5, hours: 2.5, load: 50, type: isHe ? 'קצר + אטרקציות' : 'Short + Attractions', icon: '📸' },
+          { day: 6, hours: 2.5, load: 60, type: 'Antelope + Zion', icon: '⛰️' },
+          { day: 7, hours: 4.5, load: 50, type: isHe ? 'מאוזן' : 'Balanced', icon: '🏜️' },
+          { day: 8, hours: 0, load: 30, type: isHe ? '😴 מנוחה (הליכות)' : '😴 Rest (hikes)', icon: '🥾' },
+          { day: 9, hours: 5.5, load: 70, type: 'Sedona + Saguaro', icon: '🌵' },
+          { day: 10, hours: 10, load: 100, type: isHe ? '🚗 הביתה' : '🚗 Home', icon: '🏠' },
+        ];
+        
+        content += `
+          <div style="font-weight:700;margin-bottom:12px;">📅 ${isHe ? 'פירוט לפי יום' : 'Day by Day'}</div>
+        `;
+        
+        dayDetails.forEach(d => {
+          const date = getDateFromOffset(d.day - 1);
           const dayNum = date.getDate();
-          const dayName = isHe ? dayNamesHe[date.getDay()] : dayNames[date.getDay()];
-          return `
-            <div class="modal-row">
-              <span class="modal-row-label"><strong>${isHe ? 'יום' : 'Day'} ${day.day}</strong> · ${dayName} ${dayNum}</span>
-              <span class="modal-row-value">${day.driveHours}h</span>
-            </div>
-            <div class="modal-row-sub">${isHe ? day.fromHe : day.from} → ${isHe ? day.toHe : day.to}</div>
-          `;
-        }).join('');
-      }
-      
-      else if (type === 'hours') {
-        title.innerHTML = isHe ? '🚗 שעות נסיעה' : '🚗 Driving Hours';
-        const maxHours = 10;
-        let total = 0;
-        content = tripDays.map(day => {
-          total += day.driveHours;
-          const pct = (day.driveHours / maxHours) * 100;
-          const isRest = day.driveHours === 0;
-          return `
-            <div class="modal-row">
-              <span class="modal-row-label" style="min-width:60px;">${isHe ? 'יום' : 'Day'} ${day.day}</span>
-              <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
-              <span class="modal-row-value" style="min-width:50px;text-align:right;">${day.driveHours}h ${isRest ? (isHe ? '🛏️' : '🛏️') : ''}</span>
-            </div>
-          `;
-        }).join('');
-        content += `
-          <div class="modal-row total">
-            <span class="modal-row-label">${isHe ? 'סה"כ' : 'Total'}</span>
-            <span class="modal-row-value">~${total}h</span>
-          </div>
-          <div class="modal-row">
-            <span class="modal-row-label">${isHe ? 'ממוצע ליום' : 'Average/day'}</span>
-            <span class="modal-row-value">${(total/10).toFixed(1)}h</span>
-          </div>
-        `;
-      }
-      
-      else if (type === 'distance') {
-        title.innerHTML = isHe ? '📍 מרחקים' : '📍 Distance';
-        const distances = [680, 420, 0, 480, 200, 190, 400, 0, 520, 1100];
-        let total = 0;
-        content = tripDays.map((day, i) => {
-          total += distances[i];
-          return `
-            <div class="modal-row">
-              <span class="modal-row-label">${isHe ? 'יום' : 'Day'} ${day.day}: ${isHe ? day.fromHe : day.from} → ${isHe ? day.toHe : day.to}</span>
-              <span class="modal-row-value">${distances[i]} km</span>
-            </div>
-          `;
-        }).join('');
-        content += `
-          <div class="modal-row total">
-            <span class="modal-row-label">${isHe ? 'סה"כ' : 'Total'}</span>
-            <span class="modal-row-value">~${total.toLocaleString()} km</span>
-          </div>
-          <div class="modal-row">
-            <span class="modal-row-label">${isHe ? 'במיילים' : 'In miles'}</span>
-            <span class="modal-row-value">~${Math.round(total * 0.621).toLocaleString()} mi</span>
-          </div>
-        `;
-      }
-      
-      else if (type === 'budget') {
-        title.innerHTML = isHe ? '💰 פירוט תקציב' : '💰 Budget Breakdown';
-        const items = [
-          { icon: '🛏️', label: isHe ? 'מלונות (9 לילות)' : 'Hotels (9 nights)', value: '$1,450' },
-          { icon: '⛽', label: isHe ? 'דלק' : 'Gas', value: '$400', sub: '~3,400km × $0.12/km' },
-          { icon: '🍽️', label: isHe ? 'אוכל' : 'Food', value: '$600', sub: '$60/day × 10 days' },
-          { icon: '🎫', label: isHe ? 'כרטיסים וסיורים' : 'Tickets & Tours', value: '$350' },
-          { icon: '🎁', label: isHe ? 'שונות' : 'Misc', value: '$270' },
-        ];
-        content = items.map(item => `
-          <div class="modal-row">
-            <span class="modal-row-label">${item.icon} ${item.label}</span>
-            <span class="modal-row-value">${item.value}</span>
-          </div>
-          ${item.sub ? `<div class="modal-row-sub">${item.sub}</div>` : ''}
-        `).join('');
-        content += `
-          <div class="modal-row total">
-            <span class="modal-row-label">${isHe ? 'סה"כ משוער' : 'Total Estimated'}</span>
-            <span class="modal-row-value">~$3,070</span>
-          </div>
-          <div class="modal-row">
-            <span class="modal-row-label">${isHe ? 'לאדם (2 אנשים)' : 'Per person (2 people)'}</span>
-            <span class="modal-row-value">~$1,535</span>
-          </div>
-        `;
-      } else if (type === 'places') {
-        title.innerHTML = isHe ? '🏞️ מקומות בטיול' : '🏞️ Places to Visit';
-        
-        const parks = [
-          { name: 'White Sands NP', nameHe: 'וייט סנדס', state: 'NM', icon: '🏜️' },
-          { name: 'Grand Canyon NP', nameHe: 'גרנד קניון', state: 'AZ', icon: '🏜️' },
-          { name: 'Zion NP', nameHe: 'זאיון', state: 'UT', icon: '⛰️' },
-          { name: 'Saguaro NP', nameHe: 'סגוארו', state: 'AZ', icon: '🌵' },
-          { name: 'Monument Valley', nameHe: 'מוניומנט ואלי', state: 'AZ/UT', icon: '🏜️' },
-          { name: 'Antelope Canyon', nameHe: 'אנטילופ קניון', state: 'AZ', icon: '📸' },
-        ];
-        
-        const states = [
-          { name: 'Texas', nameHe: 'טקסס', abbr: 'TX', color: '#a855f7', textColor: '#fff' },
-          { name: 'New Mexico', nameHe: 'ניו מקסיקו', abbr: 'NM', color: '#fbbf24', textColor: '#1f2937' },
-          { name: 'Arizona', nameHe: 'אריזונה', abbr: 'AZ', color: '#ef4444', textColor: '#fff' },
-          { name: 'Utah', nameHe: 'יוטה', abbr: 'UT', color: '#22c55e', textColor: '#fff' },
-        ];
-        
-        const cities = [
-          'Alamogordo', 'Santa Fe', 'Page', 'Springdale', 'Tusayan', 'Tucson', 'Sedona', 'Flagstaff', 'Kayenta', 'Kanab', 'Farmington', 'Albuquerque'
-        ];
-        
-        content = `
-          <div style="margin-bottom:16px;">
-            <div style="font-weight:700;margin-bottom:8px;">🏞️ ${isHe ? 'פארקים לאומיים (6)' : 'National Parks (6)'}</div>
-            ${parks.map(p => `
-              <div class="modal-row">
-                <span class="modal-row-label">${p.icon} ${isHe ? p.nameHe : p.name}</span>
-                <span class="modal-row-value" style="background:#22c55e;color:#fff;padding:4px 10px;border-radius:10px;font-size:0.75rem;font-weight:600;">${p.state}</span>
+          content += `
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;padding:8px;background:${d.hours === 0 ? '#dcfce7' : '#f9fafb'};border-radius:8px;">
+              <span style="font-weight:600;min-width:50px;">${isHe ? 'יום' : 'Day'} ${d.day}</span>
+              <span style="font-size:0.75rem;color:#6b7280;min-width:35px;">Dec ${dayNum}</span>
+              <div style="flex:1;background:#e5e7eb;border-radius:4px;height:8px;overflow:hidden;">
+                <div style="background:${d.load > 70 ? '#ef4444' : d.load > 40 ? '#fbbf24' : '#22c55e'};width:${d.load}%;height:100%;"></div>
               </div>
-            `).join('')}
-          </div>
-          
-          <div style="margin-bottom:16px;">
-            <div style="font-weight:700;margin-bottom:8px;">🗺️ ${isHe ? 'מדינות (4)' : 'States (4)'}</div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;">
-              ${states.map(s => `
-                <span style="background:${s.color};color:${s.textColor};padding:8px 14px;border-radius:12px;font-weight:600;">
-                  ${isHe ? s.nameHe : s.name}
-                </span>
-              `).join('')}
+              <span style="font-weight:600;min-width:35px;">${d.hours}h</span>
+              <span style="font-size:0.75rem;">${d.icon}</span>
             </div>
-          </div>
-          
-          <div>
-            <div style="font-weight:700;margin-bottom:8px;">🏙️ ${isHe ? 'ערים ועיירות (12+)' : 'Cities & Towns (12+)'}</div>
-            <div style="font-size:0.85rem;color:#6b7280;line-height:1.8;">
-              ${cities.join(' · ')}
+          `;
+        });
+        
+        // Rest days detail
+        content += `
+          <div style="margin-top:20px;background:#dcfce7;padding:16px;border-radius:12px;">
+            <div style="font-weight:700;margin-bottom:8px;">😴 ${isHe ? 'ימי מנוחה' : 'Rest Days'}</div>
+            <div style="font-size:0.9rem;">
+              <div style="margin-bottom:8px;">
+                <strong>${isHe ? 'יום 3' : 'Day 3'}</strong> - Santa Fe<br/>
+                <span style="color:#166534;">${isHe ? 'אמנות, Meow Wolf, גלריות' : 'Art, Meow Wolf, galleries'}</span>
+              </div>
+              <div>
+                <strong>${isHe ? 'יום 8' : 'Day 8'}</strong> - Grand Canyon<br/>
+                <span style="color:#166534;">${isHe ? 'הליכות, תצפיות, זריחה ושקיעה' : 'Hikes, viewpoints, sunrise & sunset'}</span>
+              </div>
             </div>
           </div>
         `;
-      } else if (type === 'elevation') {
-        title.innerHTML = isHe ? '⛰️ שינויי גובה' : '⛰️ Elevation Profile';
         
-        const elevations = [
-          { loc: 'Round Rock, TX', locHe: 'ראונד רוק', elev: 220, unit: 'm', icon: '🏠', day: 1 },
-          { loc: 'White Sands, NM', locHe: 'וייט סנדס', elev: 1200, unit: 'm', icon: '🏜️', day: 1 },
-          { loc: 'Santa Fe, NM', locHe: 'סנטה פה', elev: 2200, unit: 'm', icon: '🎨', day: 2 },
-          { loc: 'Monument Valley', locHe: 'מוניומנט ואלי', elev: 1700, unit: 'm', icon: '🏜️', day: 4 },
-          { loc: 'Page, AZ', locHe: 'פייג\'', elev: 1200, unit: 'm', icon: '📸', day: 5 },
-          { loc: 'Zion NP, UT', locHe: 'זאיון', elev: 1200, unit: 'm', icon: '⛰️', day: 6 },
-          { loc: 'Grand Canyon, AZ', locHe: 'גרנד קניון', elev: 2134, unit: 'm', icon: '🏜️', day: 7 },
-          { loc: 'Tucson, AZ', locHe: 'טוסון', elev: 728, unit: 'm', icon: '🌵', day: 9 },
-        ];
-        
-        const maxElev = 2200;
-        
-        content = `
-          <div style="margin-bottom:16px;">
-            <div style="font-weight:700;margin-bottom:12px;">📈 ${isHe ? 'פרופיל גובה לפי יום' : 'Elevation by Day'}</div>
-            ${elevations.map(e => {
-              const pct = (e.elev / maxElev) * 100;
-              return `
-                <div style="margin-bottom:8px;">
-                  <div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:4px;">
-                    <span>${e.icon} ${isHe ? e.locHe : e.loc}</span>
-                    <span style="font-weight:600;">${e.elev.toLocaleString()}m</span>
-                  </div>
-                  <div style="background:#e5e7eb;border-radius:4px;height:8px;overflow:hidden;">
-                    <div style="background:linear-gradient(90deg,#22c55e,#eab308,#ef4444);width:${pct}%;height:100%;border-radius:4px;"></div>
-                  </div>
-                </div>
-              `;
-            }).join('')}
-          </div>
-          
-          <div style="background:#fef3c7;border-radius:12px;padding:12px;margin-top:16px;">
-            <div style="font-weight:700;margin-bottom:8px;">⚠️ ${isHe ? 'אזהרות גובה' : 'Altitude Warnings'}</div>
-            <div style="font-size:0.85rem;color:#92400e;">
-              <div style="margin-bottom:4px;">• ${isHe ? 'סנטה פה וגרנד קניון מעל 2,000 מטר' : 'Santa Fe & Grand Canyon above 2,000m'}</div>
-              <div style="margin-bottom:4px;">• ${isHe ? 'שתו הרבה מים!' : 'Drink lots of water!'}</div>
-              <div>• ${isHe ? 'הטמפרטורה יורדת ~6°C לכל 1,000 מטר' : 'Temperature drops ~6°C per 1,000m'}</div>
+        // Double nights
+        content += `
+          <div style="margin-top:16px;background:#dbeafe;padding:16px;border-radius:12px;">
+            <div style="font-weight:700;margin-bottom:8px;">🏨 ${isHe ? 'לילות כפולים' : 'Double Nights'}</div>
+            <div style="font-size:0.9rem;">
+              <div style="margin-bottom:4px;">• <strong>Santa Fe</strong> - 2 ${isHe ? 'לילות' : 'nights'} (Dec 23-24)</div>
+              <div>• <strong>Grand Canyon</strong> - 2 ${isHe ? 'לילות' : 'nights'} (Dec 28-29)</div>
             </div>
           </div>
-          
-          <div class="modal-row total" style="margin-top:16px;">
-            <span class="modal-row-label">📊 ${isHe ? 'הפרש גובה מקסימלי' : 'Max Elevation Difference'}</span>
-            <span class="modal-row-value">~2,000m</span>
+        `;
+        
+        // Pace rating
+        content += `
+          <div style="margin-top:20px;text-align:center;">
+            <div style="font-weight:700;margin-bottom:8px;">⚡ ${isHe ? 'דירוג קצב' : 'Pace Rating'}</div>
+            <div style="display:flex;justify-content:center;align-items:center;gap:8px;">
+              <span style="color:#22c55e;">🟢 Relaxed</span>
+              <span style="font-size:1.5rem;">━━━━</span>
+              <span style="background:#fbbf24;color:#1f2937;padding:4px 12px;border-radius:20px;font-weight:700;">🟡 Balanced ← ${isHe ? 'אתה כאן' : 'You'}</span>
+              <span style="font-size:1.5rem;">━━━━</span>
+              <span style="color:#ef4444;">🔴 Fast</span>
+            </div>
+          </div>
+        `;
+      }
+      
+      /* ═══════════════════════════════════════════════════════════════
+         2. DISTANCE & DRIVING - "כמה באמת ננהג?"
+         ═══════════════════════════════════════════════════════════════ */
+      else if (type === 'distance') {
+        title.innerHTML = isHe ? '🚗 מרחק ונהיגה' : '🚗 Distance & Driving';
+        
+        // Quick summary
+        content = `
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px;">
+            <div style="background:#dbeafe;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">3,400</div>
+              <div style="font-size:0.75rem;color:#1e40af;">km ${isHe ? 'סה"כ' : 'total'}</div>
+            </div>
+            <div style="background:#f3e8ff;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">~40h</div>
+              <div style="font-size:0.75rem;color:#7c3aed;">${isHe ? 'שעות נהיגה' : 'driving'}</div>
+            </div>
+            <div style="background:#dcfce7;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">60%</div>
+              <div style="font-size:0.75rem;color:#166534;">Scenic</div>
+            </div>
+            <div style="background:#fef3c7;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">❌</div>
+              <div style="font-size:0.75rem;color:#92400e;">${isHe ? 'נהיגת לילה' : 'Night driving'}</div>
+            </div>
+          </div>
+        `;
+        
+        // Day by day distances
+        const distances = [
+          { day: 1, from: 'Round Rock', to: 'Alamogordo', km: 680, hours: 6, type: '🛣️ Highway' },
+          { day: 2, from: 'Alamogordo', to: 'Santa Fe', km: 420, hours: 4, type: '🏜️ Scenic' },
+          { day: 3, from: 'Santa Fe', to: 'Santa Fe', km: 0, hours: 0, type: '—' },
+          { day: 4, from: 'Santa Fe', to: 'Monument Valley', km: 480, hours: 5, type: '🏜️ Scenic' },
+          { day: 5, from: 'Monument Valley', to: 'Page', km: 200, hours: 2.5, type: '🎬 Iconic!' },
+          { day: 6, from: 'Page', to: 'Springdale', km: 200, hours: 2.5, type: '🏜️ Scenic' },
+          { day: 7, from: 'Springdale', to: 'Grand Canyon', km: 400, hours: 4.5, type: '⛰️ Mixed' },
+          { day: 8, from: 'Grand Canyon', to: 'Grand Canyon', km: 0, hours: 0, type: '—' },
+          { day: 9, from: 'Grand Canyon', to: 'Tucson', km: 520, hours: 5.5, type: '⛰️ Mountain' },
+          { day: 10, from: 'Tucson', to: 'Round Rock', km: 1100, hours: 10, type: '🛣️ Highway' },
+        ];
+        
+        content += `<div style="font-weight:700;margin-bottom:12px;">📍 ${isHe ? 'פירוט לפי יום' : 'Day by Day'}</div>`;
+        
+        let totalKm = 0;
+        distances.forEach(d => {
+          totalKm += d.km;
+          content += `
+            <div style="padding:8px;background:${d.km === 0 ? '#dcfce7' : '#f9fafb'};border-radius:8px;margin-bottom:8px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-weight:600;">${isHe ? 'יום' : 'Day'} ${d.day}</span>
+                <span style="font-weight:700;color:${d.km > 500 ? '#ef4444' : '#1f2937'};">${d.km} km</span>
+              </div>
+              <div style="font-size:0.85rem;color:#6b7280;margin-top:4px;">
+                ${d.from} → ${d.to} · ${d.hours}h · ${d.type}
+              </div>
+            </div>
+          `;
+        });
+        
+        // Total
+        content += `
+          <div style="background:#1f2937;color:#fff;padding:12px;border-radius:12px;margin-top:16px;display:flex;justify-content:space-between;">
+            <span style="font-weight:600;">${isHe ? 'סה"כ' : 'Total'}</span>
+            <span style="font-weight:700;">${totalKm.toLocaleString()} km (~${Math.round(totalKm * 0.621).toLocaleString()} mi)</span>
+          </div>
+        `;
+        
+        // Road types
+        content += `
+          <div style="margin-top:20px;">
+            <div style="font-weight:700;margin-bottom:12px;">🛣️ ${isHe ? 'סוגי כבישים' : 'Road Types'}</div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;">
+              <div style="background:#dcfce7;padding:12px;border-radius:12px;text-align:center;">
+                <div style="font-size:1.2rem;font-weight:700;">40%</div>
+                <div style="font-size:0.75rem;">🏜️ Scenic</div>
+              </div>
+              <div style="background:#fef3c7;padding:12px;border-radius:12px;text-align:center;">
+                <div style="font-size:1.2rem;font-weight:700;">20%</div>
+                <div style="font-size:0.75rem;">⛰️ Mountain</div>
+              </div>
+              <div style="background:#e5e7eb;padding:12px;border-radius:12px;text-align:center;">
+                <div style="font-size:1.2rem;font-weight:700;">40%</div>
+                <div style="font-size:0.75rem;">🛣️ Highway</div>
+              </div>
+            </div>
+          </div>
+        `;
+        
+        // Special roads
+        content += `
+          <div style="margin-top:20px;background:#fef3c7;padding:16px;border-radius:12px;">
+            <div style="font-weight:700;margin-bottom:8px;">🎬 ${isHe ? 'כבישים מיוחדים' : 'Special Roads'}</div>
+            <div style="font-size:0.9rem;">
+              <div style="margin-bottom:8px;">• <strong>Forrest Gump Road</strong> (${isHe ? 'יום' : 'Day'} 5) - ${isHe ? 'הכביש הישר המפורסם!' : 'The famous straight road!'}</div>
+              <div style="margin-bottom:8px;">• <strong>Zion Tunnel</strong> (${isHe ? 'יום' : 'Day'} 6) - ${isHe ? 'מנהרה דרמטית בהר' : 'Dramatic mountain tunnel'}</div>
+              <div style="margin-bottom:8px;">• <strong>Desert View Drive</strong> (${isHe ? 'יום' : 'Day'} 8) - 40km ${isHe ? 'על שפת הקניון' : 'along canyon rim'}</div>
+              <div>• <strong>Oak Creek Canyon</strong> (${isHe ? 'יום' : 'Day'} 9) - ${isHe ? 'ירידה הררית יפהפייה' : 'Beautiful mountain descent'}</div>
+            </div>
+          </div>
+        `;
+        
+        // Gas stops
+        content += `
+          <div style="margin-top:16px;background:#fee2e2;padding:16px;border-radius:12px;">
+            <div style="font-weight:700;margin-bottom:8px;">⛽ ${isHe ? 'עצירות דלק חובה' : 'Must-Stop Gas'}</div>
+            <div style="font-size:0.9rem;">
+              <div style="margin-bottom:4px;">• <strong>${isHe ? 'יום' : 'Day'} 1</strong> - Fort Stockton (${isHe ? '200 ק"מ ללא תחנות!' : '200km no stations!'})</div>
+              <div style="margin-bottom:4px;">• <strong>${isHe ? 'יום' : 'Day'} 4</strong> - Farmington (${isHe ? 'לפני Navajo' : 'before Navajo'})</div>
+              <div>• <strong>${isHe ? 'יום' : 'Day'} 10</strong> - Las Cruces, Fort Stockton (${isHe ? 'יום ארוך' : 'long day'})</div>
+            </div>
+          </div>
+        `;
+      }
+      
+      /* ═══════════════════════════════════════════════════════════════
+         3. BUDGET & LOGISTICS - "האם זה ריאלי בשבילי?"
+         ═══════════════════════════════════════════════════════════════ */
+      else if (type === 'budget') {
+        title.innerHTML = isHe ? '💰 תקציב ולוגיסטיקה' : '💰 Budget & Logistics';
+        
+        // Quick summary
+        content = `
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px;">
+            <div style="background:#f3e8ff;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">$3,070</div>
+              <div style="font-size:0.75rem;color:#7c3aed;">${isHe ? 'סה"כ' : 'Total'}</div>
+            </div>
+            <div style="background:#dbeafe;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">$307</div>
+              <div style="font-size:0.75rem;color:#1e40af;">${isHe ? 'ליום' : '/day'}</div>
+            </div>
+            <div style="background:#dcfce7;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">$1,535</div>
+              <div style="font-size:0.75rem;color:#166534;">${isHe ? 'לאדם' : '/person'}</div>
+            </div>
+            <div style="background:#fef3c7;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">Mid</div>
+              <div style="font-size:0.75rem;color:#92400e;">${isHe ? 'רמה' : 'Level'}</div>
+            </div>
+          </div>
+        `;
+        
+        // Lodging breakdown
+        content += `
+          <div style="font-weight:700;margin-bottom:12px;">🏨 ${isHe ? 'לינה (9 לילות)' : 'Lodging (9 nights)'} - $1,440</div>
+        `;
+        
+        const hotels = [
+          { nights: 1, city: 'Alamogordo', hotel: 'Fairfield Inn', price: 110 },
+          { nights: 2, city: 'Santa Fe', hotel: 'Drury Plaza', price: 165, special: isHe ? '🍺 Happy Hour חינם!' : '🍺 Free Happy Hour!' },
+          { nights: 1, city: 'Monument Valley', hotel: 'The View Hotel', price: 250, special: isHe ? '⭐ נוף מהחדר!' : '⭐ Room with view!' },
+          { nights: 1, city: 'Page', hotel: 'Hyatt Place', price: 165 },
+          { nights: 1, city: 'Springdale', hotel: 'Hampton Inn', price: 155 },
+          { nights: 2, city: 'Grand Canyon', hotel: 'Bright Angel', price: 200, special: isHe ? '⭐ על שפת הקניון!' : '⭐ On the rim!' },
+          { nights: 1, city: 'Tucson', hotel: 'Hilton', price: 135 },
+        ];
+        
+        hotels.forEach(h => {
+          content += `
+            <div style="padding:8px;background:#f9fafb;border-radius:8px;margin-bottom:8px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span><strong>${h.nights}</strong> ${isHe ? (h.nights > 1 ? 'לילות' : 'לילה') : (h.nights > 1 ? 'nights' : 'night')} · ${h.city}</span>
+                <span style="font-weight:700;">$${h.price * h.nights}</span>
+              </div>
+              <div style="font-size:0.8rem;color:#6b7280;">${h.hotel} · $${h.price}/${isHe ? 'לילה' : 'night'}</div>
+              ${h.special ? `<div style="font-size:0.8rem;color:#166534;margin-top:4px;">${h.special}</div>` : ''}
+            </div>
+          `;
+        });
+        
+        // Gas
+        content += `
+          <div style="margin-top:20px;font-weight:700;margin-bottom:12px;">⛽ ${isHe ? 'דלק' : 'Gas'} - $400</div>
+          <div style="background:#f9fafb;padding:12px;border-radius:8px;">
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+              <span>${isHe ? 'ק"מ כולל' : 'Total km'}</span><span>3,400</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+              <span>${isHe ? 'צריכה (רכב בינוני)' : 'Consumption (mid car)'}</span><span>10L/100km</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+              <span>${isHe ? 'ליטרים' : 'Liters'}</span><span>~340L</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;">
+              <span>${isHe ? 'מחיר ממוצע' : 'Avg price'}</span><span>$1.20/L</span>
+            </div>
+          </div>
+        `;
+        
+        // Food
+        content += `
+          <div style="margin-top:20px;font-weight:700;margin-bottom:12px;">🍽️ ${isHe ? 'אוכל' : 'Food'} - $600</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;">
+            <div style="background:#fef3c7;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.2rem;font-weight:700;">$15</div>
+              <div style="font-size:0.75rem;">${isHe ? 'בוקר' : 'Breakfast'}</div>
+            </div>
+            <div style="background:#fed7aa;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.2rem;font-weight:700;">$20</div>
+              <div style="font-size:0.75rem;">${isHe ? 'צהריים' : 'Lunch'}</div>
+            </div>
+            <div style="background:#fca5a5;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.2rem;font-weight:700;">$25</div>
+              <div style="font-size:0.75rem;">${isHe ? 'ערב' : 'Dinner'}</div>
+            </div>
+          </div>
+        `;
+        
+        // Tickets
+        content += `
+          <div style="margin-top:20px;font-weight:700;margin-bottom:12px;">🎫 ${isHe ? 'כניסות וסיורים' : 'Tickets & Tours'} - $350</div>
+        `;
+        const tickets = [
+          { name: 'White Sands NP', price: 25 },
+          { name: 'Grand Canyon NP', price: 35 },
+          { name: 'Zion NP', price: 35 },
+          { name: 'Saguaro NP', price: 25 },
+          { name: 'Antelope Canyon Tour', price: 100 },
+          { name: 'Meow Wolf (×2)', price: 90 },
+        ];
+        tickets.forEach(t => {
+          content += `
+            <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #e5e7eb;">
+              <span>${t.name}</span><span style="font-weight:600;">$${t.price}</span>
+            </div>
+          `;
+        });
+        
+        // Budget pie chart (text version)
+        content += `
+          <div style="margin-top:20px;font-weight:700;margin-bottom:12px;">📊 ${isHe ? 'חלוקת תקציב' : 'Budget Split'}</div>
+          <div style="font-size:0.9rem;">
+            <div style="margin-bottom:4px;">🏨 Lodging <span style="float:right;font-weight:600;">47%</span></div>
+            <div style="background:#e5e7eb;border-radius:4px;height:8px;margin-bottom:8px;"><div style="background:#8b5cf6;width:47%;height:100%;border-radius:4px;"></div></div>
+            
+            <div style="margin-bottom:4px;">⛽ Gas <span style="float:right;font-weight:600;">13%</span></div>
+            <div style="background:#e5e7eb;border-radius:4px;height:8px;margin-bottom:8px;"><div style="background:#ef4444;width:13%;height:100%;border-radius:4px;"></div></div>
+            
+            <div style="margin-bottom:4px;">🍽️ Food <span style="float:right;font-weight:600;">20%</span></div>
+            <div style="background:#e5e7eb;border-radius:4px;height:8px;margin-bottom:8px;"><div style="background:#22c55e;width:20%;height:100%;border-radius:4px;"></div></div>
+            
+            <div style="margin-bottom:4px;">🎫 Tickets <span style="float:right;font-weight:600;">11%</span></div>
+            <div style="background:#e5e7eb;border-radius:4px;height:8px;margin-bottom:8px;"><div style="background:#3b82f6;width:11%;height:100%;border-radius:4px;"></div></div>
+            
+            <div style="margin-bottom:4px;">🎁 Other <span style="float:right;font-weight:600;">9%</span></div>
+            <div style="background:#e5e7eb;border-radius:4px;height:8px;"><div style="background:#fbbf24;width:9%;height:100%;border-radius:4px;"></div></div>
+          </div>
+        `;
+        
+        // Budget flexibility
+        content += `
+          <div style="margin-top:20px;background:#dbeafe;padding:16px;border-radius:12px;">
+            <div style="font-weight:700;margin-bottom:8px;">💳 ${isHe ? 'גמישות תקציב' : 'Budget Flexibility'}</div>
+            <div style="font-size:0.9rem;">
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+                <span>🟢 Budget</span><span>$2,200</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px;background:#fbbf24;padding:4px 8px;border-radius:8px;font-weight:700;">
+                <span>🟡 Mid (${isHe ? 'אתה' : 'You'})</span><span>$3,070</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;">
+                <span>🔴 Comfort+</span><span>$4,000+</span>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+      
+      /* ═══════════════════════════════════════════════════════════════
+         4. STOPS & PLACES - "כמה פעמים אני אורז?"
+         ═══════════════════════════════════════════════════════════════ */
+      else if (type === 'stops') {
+        title.innerHTML = isHe ? '🏨 עצירות ומקומות' : '🏨 Stops & Places';
+        
+        // Quick summary
+        content = `
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px;">
+            <div style="background:#f3e8ff;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">7</div>
+              <div style="font-size:0.75rem;color:#7c3aed;">${isHe ? 'מלונות שונים' : 'Hotels'}</div>
+            </div>
+            <div style="background:#dbeafe;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">9</div>
+              <div style="font-size:0.75rem;color:#1e40af;">${isHe ? 'לילות' : 'Nights'}</div>
+            </div>
+            <div style="background:#dcfce7;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">6</div>
+              <div style="font-size:0.75rem;color:#166534;">${isHe ? 'פארקים' : 'Parks'}</div>
+            </div>
+            <div style="background:#fef3c7;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">4</div>
+              <div style="font-size:0.75rem;color:#92400e;">${isHe ? 'מדינות' : 'States'}</div>
+            </div>
+          </div>
+        `;
+        
+        // Hotels by day
+        content += `<div style="font-weight:700;margin-bottom:12px;">🏨 ${isHe ? 'לינות לפי יום' : 'Lodging by Day'}</div>`;
+        
+        const hotels = [
+          { nights: 'Dec 22', city: 'Alamogordo, NM', hotel: 'Fairfield Inn', special: isHe ? 'ליד White Sands' : 'Near White Sands' },
+          { nights: 'Dec 23-24', city: 'Santa Fe, NM', hotel: 'Drury Plaza', special: '🍺 Happy Hour!' },
+          { nights: 'Dec 25', city: 'Monument Valley', hotel: 'The View Hotel', special: '⭐ ' + (isHe ? 'נוף מהחדר!' : 'Room with view!') },
+          { nights: 'Dec 26', city: 'Page, AZ', hotel: 'Hyatt Place', special: isHe ? 'ליד Antelope' : 'Near Antelope' },
+          { nights: 'Dec 27', city: 'Springdale, UT', hotel: 'Hampton Inn', special: isHe ? 'שער לזאיון' : 'Zion gateway' },
+          { nights: 'Dec 28-29', city: 'Grand Canyon, AZ', hotel: 'Bright Angel', special: '⭐ ' + (isHe ? 'על שפת הקניון!' : 'On the rim!') },
+          { nights: 'Dec 30', city: 'Tucson, AZ', hotel: 'Hilton', special: isHe ? 'לפני הביתה' : 'Before home' },
+        ];
+        
+        hotels.forEach(h => {
+          const isDouble = h.nights.includes('-');
+          content += `
+            <div style="padding:10px;background:${isDouble ? '#dcfce7' : '#f9fafb'};border-radius:8px;margin-bottom:8px;">
+              <div style="display:flex;justify-content:space-between;">
+                <span style="font-weight:600;">${h.city}</span>
+                <span style="font-size:0.8rem;background:#e5e7eb;padding:2px 8px;border-radius:10px;">${h.nights}</span>
+              </div>
+              <div style="font-size:0.85rem;color:#6b7280;margin-top:4px;">${h.hotel} · ${h.special}</div>
+            </div>
+          `;
+        });
+        
+        // Packing rhythm
+        content += `
+          <div style="margin-top:20px;font-weight:700;margin-bottom:12px;">🔄 ${isHe ? 'קצב החלפת מלונות' : 'Hotel Change Rhythm'}</div>
+          <div style="font-size:0.9rem;">
+        `;
+        const rhythm = ['📦', '📦', '😴', '📦', '📦', '📦', '📦', '😴', '📦', '🏠'];
+        rhythm.forEach((r, i) => {
+          content += `<span style="display:inline-block;padding:4px 8px;margin:2px;background:${r === '😴' ? '#dcfce7' : r === '🏠' ? '#dbeafe' : '#f9fafb'};border-radius:6px;">${isHe ? 'יום' : 'D'}${i+1} ${r}</span>`;
+        });
+        content += `</div>`;
+        
+        // National Parks
+        content += `
+          <div style="margin-top:20px;font-weight:700;margin-bottom:12px;">🏞️ ${isHe ? 'פארקים לאומיים (6)' : 'National Parks (6)'}</div>
+        `;
+        const parks = [
+          { name: 'White Sands NP', icon: '🏜️', state: 'NM', day: '1-2', time: isHe ? 'שקיעה + זריחה' : 'Sunset + Sunrise' },
+          { name: 'Monument Valley', icon: '🏜️', state: 'AZ/UT', day: '4-5', time: isHe ? 'שקיעה + זריחה' : 'Sunset + Sunrise' },
+          { name: 'Antelope Canyon', icon: '📸', state: 'AZ', day: '6', time: isHe ? 'בוקר' : 'Morning' },
+          { name: 'Zion NP', icon: '⛰️', state: 'UT', day: '6-7', time: isHe ? 'אחה"צ + בוקר' : 'Afternoon + Morning' },
+          { name: 'Grand Canyon NP', icon: '🏜️', state: 'AZ', day: '7-8', time: '1.5 ' + (isHe ? 'ימים' : 'days') },
+          { name: 'Saguaro NP', icon: '🌵', state: 'AZ', day: '9', time: isHe ? 'שקיעה' : 'Sunset' },
+        ];
+        
+        parks.forEach(p => {
+          content += `
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px;border-bottom:1px solid #e5e7eb;">
+              <span>${p.icon} ${p.name}</span>
+              <span style="font-size:0.8rem;background:#22c55e;color:#fff;padding:2px 8px;border-radius:10px;">${p.state}</span>
+            </div>
+          `;
+        });
+        
+        // States
+        content += `
+          <div style="margin-top:20px;font-weight:700;margin-bottom:12px;">🗺️ ${isHe ? 'מדינות (4)' : 'States (4)'}</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#a855f7;color:#fff;padding:8px 14px;border-radius:12px;font-weight:600;">Texas</span>
+            <span style="background:#fbbf24;color:#1f2937;padding:8px 14px;border-radius:12px;font-weight:600;">New Mexico</span>
+            <span style="background:#ef4444;color:#fff;padding:8px 14px;border-radius:12px;font-weight:600;">Arizona</span>
+            <span style="background:#22c55e;color:#fff;padding:8px 14px;border-radius:12px;font-weight:600;">Utah</span>
+          </div>
+        `;
+        
+        // Cities
+        content += `
+          <div style="margin-top:20px;font-weight:700;margin-bottom:8px;">🏙️ ${isHe ? 'ערים ועיירות (12+)' : 'Cities & Towns (12+)'}</div>
+          <div style="font-size:0.85rem;color:#6b7280;line-height:1.8;">
+            Alamogordo · Santa Fe · Farmington · Kayenta · Page · Kanab · Springdale · Tusayan · Grand Canyon Village · Flagstaff · Sedona · Tucson
+          </div>
+        `;
+        
+        // Elevation
+        content += `
+          <div style="margin-top:20px;font-weight:700;margin-bottom:12px;">⛰️ ${isHe ? 'טווח גבהים' : 'Elevation Range'}</div>
+        `;
+        const elevations = [
+          { loc: 'Round Rock, TX', elev: 220 },
+          { loc: 'White Sands', elev: 1200 },
+          { loc: 'Santa Fe', elev: 2200, high: true },
+          { loc: 'Monument Valley', elev: 1700 },
+          { loc: 'Grand Canyon', elev: 2134, high: true },
+          { loc: 'Tucson', elev: 728 },
+        ];
+        elevations.forEach(e => {
+          const pct = (e.elev / 2200) * 100;
+          content += `
+            <div style="margin-bottom:6px;">
+              <div style="display:flex;justify-content:space-between;font-size:0.85rem;">
+                <span>${e.loc}</span>
+                <span style="font-weight:600;${e.high ? 'color:#ef4444;' : ''}">${e.elev}m</span>
+              </div>
+              <div style="background:#e5e7eb;border-radius:4px;height:6px;overflow:hidden;">
+                <div style="background:linear-gradient(90deg,#22c55e,#eab308,#ef4444);width:${pct}%;height:100%;"></div>
+              </div>
+            </div>
+          `;
+        });
+        
+        content += `
+          <div style="margin-top:12px;background:#fef3c7;padding:12px;border-radius:12px;font-size:0.85rem;">
+            ⚠️ ${isHe ? 'סנטה פה וגרנד קניון מעל 2,000 מטר - שתו הרבה מים!' : 'Santa Fe & Grand Canyon above 2,000m - drink lots of water!'}
+          </div>
+        `;
+      }
+      
+      /* ═══════════════════════════════════════════════════════════════
+         5. ACTIVITY & DIFFICULTY - "האם זה מתאים לי פיזית?"
+         ═══════════════════════════════════════════════════════════════ */
+      else if (type === 'activity') {
+        title.innerHTML = isHe ? '🥾 פעילות וקושי' : '🥾 Activity & Difficulty';
+        
+        // Quick summary
+        content = `
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px;">
+            <div style="background:#dcfce7;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">${isHe ? 'קלה-בינונית' : 'Easy-Mod'}</div>
+              <div style="font-size:0.75rem;color:#166534;">${isHe ? 'רמת הליכה' : 'Walk level'}</div>
+            </div>
+            <div style="background:#fef3c7;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">4-5</div>
+              <div style="font-size:0.75rem;color:#92400e;">${isHe ? 'טרקים' : 'Hikes'}</div>
+            </div>
+            <div style="background:#fee2e2;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">2,200m</div>
+              <div style="font-size:0.75rem;color:#991b1b;">${isHe ? 'גובה מקס' : 'Max altitude'}</div>
+            </div>
+            <div style="background:#dbeafe;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">🟡</div>
+              <div style="font-size:0.75rem;color:#1e40af;">Moderate</div>
+            </div>
+          </div>
+        `;
+        
+        // Hikes by day
+        content += `<div style="font-weight:700;margin-bottom:12px;">🥾 ${isHe ? 'טרקים לפי יום' : 'Hikes by Day'}</div>`;
+        
+        const hikes = [
+          { day: 1, name: 'White Sands Dunes Walk', dist: '1-2 km', diff: '🟢', diffText: isHe ? 'קל' : 'Easy', must: true },
+          { day: 2, name: 'Canyon Road Walk', dist: '1.5 km', diff: '🟢', diffText: isHe ? 'קל' : 'Easy', must: false },
+          { day: 5, name: 'Horseshoe Bend Trail', dist: '1.2 km', diff: '🟢', diffText: isHe ? 'קל' : 'Easy', must: true },
+          { day: 6, name: 'Canyon Overlook Trail', dist: '1.6 km', diff: '🟢', diffText: isHe ? 'קל' : 'Easy', must: true },
+          { day: 7, name: "Pa'rus Trail", dist: '3 km', diff: '🟢', diffText: isHe ? 'קל' : 'Easy', must: false },
+          { day: 8, name: 'South Kaibab to Ooh Aah', dist: '2.9 km', diff: '🟡', diffText: isHe ? 'בינוני' : 'Moderate', must: true, star: true },
+          { day: 8, name: 'Rim Trail', dist: '3-5 km', diff: '🟢', diffText: isHe ? 'קל' : 'Easy', must: true },
+        ];
+        
+        hikes.forEach(h => {
+          content += `
+            <div style="padding:10px;background:#f9fafb;border-radius:8px;margin-bottom:8px;${h.star ? 'border:2px solid #fbbf24;' : ''}">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-weight:600;">${h.name}</span>
+                <span style="font-size:0.8rem;">${h.diff} ${h.diffText}</span>
+              </div>
+              <div style="font-size:0.85rem;color:#6b7280;margin-top:4px;">
+                ${isHe ? 'יום' : 'Day'} ${h.day} · ${h.dist} · ${h.must ? (isHe ? '✅ חובה' : '✅ Must') : (isHe ? 'אופציה' : 'Optional')}
+                ${h.star ? ' · ⭐ ' + (isHe ? 'מומלץ!' : 'Recommended!') : ''}
+              </div>
+            </div>
+          `;
+        });
+        
+        // Effort by day
+        content += `<div style="margin-top:20px;font-weight:700;margin-bottom:12px;">💪 ${isHe ? 'רמת מאמץ לפי יום' : 'Effort by Day'}</div>`;
+        
+        const effort = [
+          { day: 1, level: 1, desc: isHe ? 'הליכה קלה על דיונות' : 'Light dune walk' },
+          { day: 2, level: 1, desc: isHe ? 'הליכה עירונית' : 'Urban walking' },
+          { day: 3, level: 2, desc: 'Meow Wolf + ' + (isHe ? 'גלריות' : 'galleries') },
+          { day: 4, level: 1, desc: isHe ? 'Valley Drive (מהרכב)' : 'Valley Drive (from car)' },
+          { day: 5, level: 2, desc: 'Horseshoe Bend (1.2 km)' },
+          { day: 6, level: 3, desc: 'Canyon Overlook' },
+          { day: 7, level: 2, desc: "Pa'rus Trail" },
+          { day: 8, level: 4, desc: 'South Kaibab + Rim ⭐' },
+          { day: 9, level: 2, desc: 'Sedona + Saguaro' },
+          { day: 10, level: 0, desc: isHe ? 'נהיגה בלבד 🚗' : 'Driving only 🚗' },
+        ];
+        
+        effort.forEach(e => {
+          content += `
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+              <span style="min-width:45px;font-weight:600;">${isHe ? 'יום' : 'Day'} ${e.day}</span>
+              <div style="display:flex;gap:2px;">
+                ${Array(5).fill(0).map((_, i) => `<span style="width:18px;height:8px;background:${i < e.level ? '#22c55e' : '#e5e7eb'};border-radius:2px;"></span>`).join('')}
+              </div>
+              <span style="font-size:0.8rem;color:#6b7280;">${e.desc}</span>
+            </div>
+          `;
+        });
+        
+        // Altitude exposure
+        content += `
+          <div style="margin-top:20px;background:#fee2e2;padding:16px;border-radius:12px;">
+            <div style="font-weight:700;margin-bottom:8px;">⛰️ ${isHe ? 'חשיפה לגובה' : 'Altitude Exposure'}</div>
+            <div style="font-size:0.9rem;">
+              <div style="margin-bottom:8px;">
+                <strong>Santa Fe</strong> - 2,200m<br/>
+                <span style="color:#991b1b;">⚠️ ${isHe ? 'שתו הרבה מים!' : 'Drink lots of water!'}</span>
+              </div>
+              <div>
+                <strong>Grand Canyon</strong> - 2,134m<br/>
+                <span style="color:#991b1b;">⚠️ ${isHe ? 'קר + יבש' : 'Cold + dry'}</span>
+              </div>
+            </div>
+            <div style="margin-top:12px;font-size:0.85rem;padding:8px;background:#fecaca;border-radius:8px;">
+              <strong>${isHe ? 'תסמינים אפשריים:' : 'Possible symptoms:'}</strong> ${isHe ? 'כאב ראש, עייפות, קוצר נשימה' : 'Headache, fatigue, shortness of breath'}<br/>
+              <strong>${isHe ? 'פתרון:' : 'Solution:'}</strong> ${isHe ? 'שתייה, מנוחה, הסתגלות הדרגתית' : 'Hydration, rest, gradual acclimatization'}
+            </div>
+          </div>
+        `;
+        
+        // Cold warning
+        content += `
+          <div style="margin-top:16px;background:#dbeafe;padding:16px;border-radius:12px;">
+            <div style="font-weight:700;margin-bottom:8px;">🌡️ ${isHe ? 'קור קיצוני' : 'Extreme Cold'}</div>
+            <div style="font-size:0.9rem;">
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+                <span>Grand Canyon ${isHe ? 'לילה' : 'night'}</span>
+                <span style="font-weight:700;color:#1e40af;">-8°C</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+                <span>Santa Fe ${isHe ? 'בוקר' : 'morning'}</span>
+                <span style="font-weight:700;color:#1e40af;">-6°C</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;">
+                <span>Monument Valley ${isHe ? 'לילה' : 'night'}</span>
+                <span style="font-weight:700;color:#1e40af;">-5°C</span>
+              </div>
+            </div>
+            <div style="margin-top:8px;font-size:0.85rem;padding:8px;background:#bfdbfe;border-radius:8px;">
+              👕 ${isHe ? 'שכבות! כובע! כפפות!' : 'Layers! Hat! Gloves!'}
+            </div>
+          </div>
+        `;
+        
+        // Accessibility
+        content += `
+          <div style="margin-top:16px;">
+            <div style="font-weight:700;margin-bottom:8px;">♿ ${isHe ? 'נגישות' : 'Accessibility'}</div>
+            <div style="font-size:0.9rem;">
+              <div style="margin-bottom:4px;">✅ ${isHe ? 'רוב התצפיות נגישות' : 'Most viewpoints accessible'}</div>
+              <div style="margin-bottom:4px;">✅ Rim Trail ${isHe ? 'סלול' : 'paved'}</div>
+              <div style="margin-bottom:4px;">✅ ${isHe ? 'שאטלים בפארקים' : 'Park shuttles'}</div>
+              <div style="margin-bottom:4px;">⚠️ South Kaibab - ${isHe ? 'תלול' : 'steep'}</div>
+              <div>⚠️ Antelope - ${isHe ? 'סולמות' : 'ladders'}</div>
+            </div>
+          </div>
+        `;
+        
+        // Difficulty rating
+        content += `
+          <div style="margin-top:20px;text-align:center;">
+            <div style="font-weight:700;margin-bottom:8px;">💪 ${isHe ? 'דירוג קושי כללי' : 'Overall Difficulty'}</div>
+            <div style="display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;">
+              <span style="color:#22c55e;">🟢 Easy</span>
+              <span>━━━━</span>
+              <span style="background:#fbbf24;color:#1f2937;padding:4px 12px;border-radius:20px;font-weight:700;">🟡 Moderate ← ${isHe ? 'אתה' : 'You'}</span>
+              <span>━━━━</span>
+              <span style="color:#ef4444;">🔴 Hard</span>
+            </div>
+            <div style="margin-top:12px;font-size:0.85rem;color:#6b7280;">
+              ${isHe ? 'מתאים לכל אחד בכושר סביר, ללא בעיות גב/ברכיים' : 'Suitable for anyone with reasonable fitness, no back/knee issues'}
+            </div>
+          </div>
+        `;
+      }
+      
+      /* ═══════════════════════════════════════════════════════════════
+         6. EXPERIENCE - "כמה זה מתאים לי?"
+         ═══════════════════════════════════════════════════════════════ */
+      else if (type === 'experience') {
+        title.innerHTML = isHe ? '⭐ חוויה' : '⭐ Experience';
+        
+        // Quick summary
+        content = `
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px;">
+            <div style="background:#dcfce7;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">90%</div>
+              <div style="font-size:0.75rem;color:#166534;">${isHe ? 'התאמה' : 'Fit'}</div>
+            </div>
+            <div style="background:#dbeafe;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">${isHe ? 'נמוך' : 'Low'}</div>
+              <div style="font-size:0.75rem;color:#1e40af;">${isHe ? 'עומס תיירים' : 'Crowds'}</div>
+            </div>
+            <div style="background:#fef3c7;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">${isHe ? 'בינוני' : 'Medium'}</div>
+              <div style="font-size:0.75rem;color:#92400e;">${isHe ? 'סיכון מזג אוויר' : 'Weather risk'}</div>
+            </div>
+            <div style="background:#fce7f3;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">9/10</div>
+              <div style="font-size:0.75rem;color:#9d174d;">⭐ Wow!</div>
+            </div>
+          </div>
+        `;
+        
+        // Trip type tags
+        content += `
+          <div style="font-weight:700;margin-bottom:12px;">🎭 ${isHe ? 'סוג הטיול' : 'Trip Type'}</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;">
+            <span style="background:#dcfce7;padding:6px 12px;border-radius:20px;">🏜️ Desert ✓</span>
+            <span style="background:#dcfce7;padding:6px 12px;border-radius:20px;">⛰️ Parks ✓</span>
+            <span style="background:#dcfce7;padding:6px 12px;border-radius:20px;">🚗 Road Trip ✓</span>
+            <span style="background:#dcfce7;padding:6px 12px;border-radius:20px;">📸 Photo ✓</span>
+            <span style="background:#dcfce7;padding:6px 12px;border-radius:20px;">🌅 Sunsets ✓</span>
+            <span style="background:#dcfce7;padding:6px 12px;border-radius:20px;">🎬 Iconic ✓</span>
+            <span style="background:#dcfce7;padding:6px 12px;border-radius:20px;">🥾 Light Hiking ✓</span>
+            <span style="background:#fef3c7;padding:6px 12px;border-radius:20px;">🏙️ Cities ~</span>
+            <span style="background:#fef3c7;padding:6px 12px;border-radius:20px;">🎢 Adventure ~</span>
+            <span style="background:#fee2e2;padding:6px 12px;border-radius:20px;">🏖️ Beach ✗</span>
+          </div>
+        `;
+        
+        // Special sunsets
+        content += `
+          <div style="font-weight:700;margin-bottom:12px;">🌅 ${isHe ? 'שקיעות מיוחדות (8!)' : 'Special Sunsets (8!)'}</div>
+        `;
+        const sunsets = [
+          { day: 1, loc: 'White Sands', rating: 5 },
+          { day: 4, loc: 'Monument Valley', rating: 5 },
+          { day: 5, loc: 'Horseshoe Bend', rating: 5 },
+          { day: 6, loc: 'Zion Canyon Overlook', rating: 4 },
+          { day: 7, loc: 'Hopi Point, GC', rating: 5 },
+          { day: 8, loc: 'Hopi Point, GC', rating: 5 },
+          { day: 9, loc: 'Saguaro NP', rating: 5 },
+        ];
+        sunsets.forEach(s => {
+          content += `
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #e5e7eb;">
+              <span>${isHe ? 'יום' : 'Day'} ${s.day} - ${s.loc}</span>
+              <span>${'⭐'.repeat(s.rating)}${'☆'.repeat(5-s.rating)}</span>
+            </div>
+          `;
+        });
+        
+        // Iconic moments
+        content += `
+          <div style="margin-top:20px;font-weight:700;margin-bottom:12px;">🎬 ${isHe ? 'רגעים איקוניים' : 'Iconic Moments'}</div>
+        `;
+        const moments = [
+          { icon: '🏜️', name: 'White Sands Sunset', day: 1, why: isHe ? 'דיונות לבנות + שמיים ורודים' : 'White dunes + pink skies' },
+          { icon: '🎨', name: 'Meow Wolf', day: 3, why: isHe ? 'אמנות אינטראקטיבית מטורפת' : 'Insane interactive art' },
+          { icon: '🏜️', name: 'Monument Valley Sunrise', day: 5, why: isHe ? 'הצוקים המפורסמים' : 'The famous buttes' },
+          { icon: '🎬', name: 'Forrest Gump Point', day: 5, why: '"Run Forrest Run!"' },
+          { icon: '📸', name: 'Antelope Canyon', day: 6, why: isHe ? 'קרני אור בקניון' : 'Light beams in canyon' },
+          { icon: '🏜️', name: 'Grand Canyon First View', day: 7, why: isHe ? 'רגע שמשנה חיים' : 'Life-changing moment' },
+          { icon: '🌵', name: 'Saguaro Silhouettes', day: 9, why: isHe ? 'קקטוסים ענקיים בשקיעה' : 'Giant cacti at sunset' },
+        ];
+        moments.forEach(m => {
+          content += `
+            <div style="padding:10px;background:#f9fafb;border-radius:8px;margin-bottom:8px;">
+              <div style="font-weight:600;">${m.icon} ${m.name}</div>
+              <div style="font-size:0.85rem;color:#6b7280;">${isHe ? 'יום' : 'Day'} ${m.day} · ${m.why}</div>
+            </div>
+          `;
+        });
+        
+        // Weather risk
+        content += `
+          <div style="margin-top:20px;background:#fef3c7;padding:16px;border-radius:12px;">
+            <div style="font-weight:700;margin-bottom:8px;">🌧️ ${isHe ? 'סיכון מזג אוויר (דצמבר)' : 'Weather Risk (December)'}</div>
+            <div style="font-size:0.9rem;">
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+                <span>❄️ ${isHe ? 'שלג בגרנד קניון' : 'Snow at Grand Canyon'}</span>
+                <span>30%</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+                <span>🌧️ ${isHe ? 'גשם' : 'Rain'}</span>
+                <span>20%</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+                <span>💨 ${isHe ? 'רוחות חזקות' : 'Strong winds'}</span>
+                <span>25%</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;">
+                <span>🌫️ ${isHe ? 'ערפל' : 'Fog'}</span>
+                <span>10%</span>
+              </div>
+            </div>
+          </div>
+        `;
+        
+        // Crowd levels
+        content += `
+          <div style="margin-top:16px;">
+            <div style="font-weight:700;margin-bottom:8px;">👥 ${isHe ? 'עומס תיירים' : 'Crowd Levels'}</div>
+            <div style="font-size:0.9rem;">
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+                <span>White Sands</span><span style="color:#22c55e;">🟢 ${isHe ? 'נמוך' : 'Low'}</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+                <span>Santa Fe</span><span style="color:#fbbf24;">🟡 ${isHe ? 'בינוני' : 'Medium'} (${isHe ? 'חג המולד' : 'Christmas'})</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+                <span>Monument Valley</span><span style="color:#22c55e;">🟢 ${isHe ? 'נמוך' : 'Low'}</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+                <span>Antelope Canyon</span><span style="color:#fbbf24;">🟡 ${isHe ? 'בינוני' : 'Medium'}</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+                <span>Grand Canyon</span><span style="color:#fbbf24;">🟡 ${isHe ? 'בינוני' : 'Medium'} (${isHe ? 'חורף' : 'winter'})</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;">
+                <span>Sedona</span><span style="color:#fbbf24;">🟡 ${isHe ? 'בינוני' : 'Medium'}</span>
+              </div>
+            </div>
+          </div>
+        `;
+        
+        // Ratings
+        content += `
+          <div style="margin-top:20px;font-weight:700;margin-bottom:12px;">⭐ ${isHe ? 'דירוגים' : 'Ratings'}</div>
+          <div style="font-size:0.9rem;">
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+              <span>🏜️ Scenery</span>
+              <span>⭐⭐⭐⭐⭐ 5/5</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+              <span>📸 Photography</span>
+              <span>⭐⭐⭐⭐⭐ 5/5</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+              <span>🎢 Adventure</span>
+              <span>⭐⭐⭐⭐☆ 4/5</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+              <span>😴 Relaxation</span>
+              <span>⭐⭐⭐☆☆ 3/5</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+              <span>🍽️ Food</span>
+              <span>⭐⭐⭐⭐☆ 4/5</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;">
+              <span>💰 Value</span>
+              <span>⭐⭐⭐⭐☆ 4/5</span>
+            </div>
+          </div>
+        `;
+        
+        // Overall
+        content += `
+          <div style="margin-top:20px;background:linear-gradient(135deg,#fce7f3,#dbeafe);padding:20px;border-radius:16px;text-align:center;">
+            <div style="font-size:2.5rem;font-weight:700;">9/10</div>
+            <div style="font-size:1.2rem;font-weight:600;color:#9d174d;">⭐ WOW! ⭐</div>
+            <div style="font-size:0.9rem;color:#6b7280;margin-top:8px;">
+              ${isHe ? 'טיול מושלם לאוהבי נופים, צילום, ופארקים לאומיים' : 'Perfect trip for scenery lovers, photographers, and park enthusiasts'}
+            </div>
           </div>
         `;
       }
@@ -4924,6 +5668,11 @@
       if (event && event.target !== document.getElementById('modalOverlay')) return;
       document.getElementById('modalOverlay').classList.remove('open');
     }
+    
+    /* ═══════════════════════════════════════════════════════════════
+       ROAD STORY DATA - Detailed info for each day's journey
+       (Towns, scenery, stops, food, wildlife, history, etc.)
+       ═══════════════════════════════════════════════════════════════ */
     
     // Road Story Data - Day 1
     const roadStoryDay1 = {
@@ -6211,6 +6960,9 @@
       }
     }
 
+    /* ═══════════════════════════════════════════════════════════════
+       UI FUNCTIONS - Render and update the interface
+       ═══════════════════════════════════════════════════════════════ */
     function updateUI() {
       const tr = t[currentLang];
       const isHe = currentLang === 'he';
@@ -6221,11 +6973,14 @@
       document.getElementById('langText').textContent = tr.langText;
       
       // Update stats
-      document.getElementById('daysLabel').textContent = tr.daysLabel;
-      document.getElementById('hoursLabel').textContent = tr.hoursLabel;
+      document.getElementById('timeLabel').textContent = tr.timeLabel;
+      document.getElementById('timeValue').textContent = tr.timeValue;
+      document.getElementById('distanceLabel').textContent = tr.distanceLabel;
       document.getElementById('budgetLabel').textContent = tr.budgetLabel;
-      document.getElementById('placesLabel').textContent = tr.placesLabel;
-      document.getElementById('elevationLabel').textContent = tr.elevationLabel;
+      document.getElementById('stopsLabel').textContent = tr.stopsLabel;
+      document.getElementById('activityLabel').textContent = tr.activityLabel;
+      document.getElementById('activityValue').textContent = tr.activityValue;
+      document.getElementById('experienceLabel').textContent = tr.experienceLabel;
       document.getElementById('mapsText').textContent = tr.mapsText;
       
       // Update checklist
