@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Southwest Road Trip | December 20-29, 2025</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #fef3c7 0%, #ffedd5 50%, #fee2e2 100%);
+      min-height: 100vh;
+      color: #1f2937;
+    }
+    
+    [dir="rtl"] {
+      font-family: 'Heebo', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    /* Header */
+    .header {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid #fed7aa;
+      padding: 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    
+    .header-content {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #f97316, #dc2626);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      box-shadow: 0 4px 12px rgba(249,115,22,0.3);
+    }
+    
+    .logo-text h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #111827;
+    }
+    
+    .logo-text p {
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+    
+    .lang-btn {
+      background: linear-gradient(135deg, #f97316, #dc2626);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 12px rgba(249,115,22,0.3);
+    }
+    
+    .lang-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(249,115,22,0.4);
+    }
+    
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    
+    @media (min-width: 768px) {
+      .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    
+    .stat-card {
+      background: white;
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid #fed7aa;
+    }
+    
+    .stat-card .icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+    
+    .stat-card .value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #111827;
+    }
+    
+    .stat-card .label {
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+    
+    /* Google Maps Button */
+    .maps-btn {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: white;
+      text-decoration: none;
+      padding: 16px;
+      border-radius: 16px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.125rem;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(59,130,246,0.3);
+      transition: all 0.3s;
+    }
+    
+    .maps-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(59,130,246,0.4);
+    }
+    
+    /* Checklist Section */
+    .checklist-section {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid #fed7aa;
+    }
+    
+    .checklist-header {
+      background: linear-gradient(135deg, #ef4444, #f97316);
+      color: white;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    
+    .checklist-header h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .checklist-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .filter-btn {
+      background: rgba(255,255,255,0.2);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .filter-btn.active {
+      background: white;
+      color: #dc2626;
+    }
+    
+    .nights-badge {
+      background: rgba(255,255,255,0.2);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.875rem;
+    }
+    
+    .category-header {
+      padding: 8px 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .category-header.hotel { background: #f3e8ff; color: #7c3aed; }
+    .category-header.tour { background: #dbeafe; color: #2563eb; }
+    .category-header.restaurant { background: #fef3c7; color: #d97706; }
+    
+    .checklist-item {
+      padding: 16px;
+      border-bottom: 1px solid #f3f4f6;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      transition: background 0.2s;
+    }
+    
+    .checklist-item:hover {
+      background: #f9fafb;
+    }
+    
+    .checklist-item.checked {
+      background: #ecfdf5;
+    }
+    
+    .checkbox {
+      width: 24px;
+      height: 24px;
+      border: 2px solid #d1d5db;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    
+    .checkbox.checked {
+      background: #22c55e;
+      border-color: #22c55e;
+      color: white;
+    }
+    
+    .item-content {
+      flex: 1;
+    }
+    
+    .item-title {
+      font-weight: 600;
+      color: #111827;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    
+    .item-title.checked {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+    
+    .nights-tag {
+      background: #f3e8ff;
+      color: #7c3aed;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    
+    .urgent-tag {
+      background: #fee2e2;
+      color: #dc2626;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    
+    .item-date {
+      color: #ea580c;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-top: 4px;
+    }
+    
+    .item-notes {
+      color: #6b7280;
+      font-size: 0.875rem;
+      margin-top: 4px;
+    }
+    
+    .book-btn {
+      background: #ffedd5;
+      color: #c2410c;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    
+    .book-btn:hover {
+      background: #fed7aa;
+    }
+    
+    /* Day Cards */
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .day-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid #fed7aa;
+    }
+    
+    .day-header {
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    
+    .day-header:hover {
+      background: #f9fafb;
+    }
+    
+    .day-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .day-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.25rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .day-number.nm { background: #eab308; }
+    .day-number.az { background: #ef4444; }
+    .day-number.ut { background: #22c55e; }
+    .day-number.tx { background: #a855f7; }
+    
+    .day-info h3 {
+      font-weight: 700;
+      color: #111827;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    
+    .day-info p {
+      color: #6b7280;
+      font-size: 0.875rem;
+    }
+    
+    .special-badge {
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    
+    .special-badge.christmas { background: #fee2e2; color: #dc2626; }
+    .special-badge.eve { background: #dcfce7; color: #16a34a; }
+    .special-badge.home { background: #f3e8ff; color: #7c3aed; }
+    
+    .day-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .day-stats {
+      display: none;
+      gap: 16px;
+      font-size: 0.875rem;
+    }
+    
+    @media (min-width: 640px) {
+      .day-stats {
+        display: flex;
+      }
+    }
+    
+    .day-stat {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    
+    .state-badge {
+      padding: 4px 8px;
+      border-radius: 8px;
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    
+    .chevron {
+      transition: transform 0.3s;
+    }
+    
+    .chevron.open {
+      transform: rotate(180deg);
+    }
+    
+    .day-content {
+      display: none;
+      padding: 0 16px 16px;
+    }
+    
+    .day-content.open {
+      display: block;
+    }
+    
+    /* Info Grid */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    
+    @media (min-width: 640px) {
+      .info-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    
+    .info-box {
+      padding: 12px;
+      border-radius: 12px;
+    }
+    
+    .info-box.drive { background: #dbeafe; }
+    .info-box.weather { background: #ffedd5; }
+    .info-box.sleep { background: #f3e8ff; }
+    .info-box.signal { background: #f3f4f6; }
+    
+    .info-box .label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    
+    .info-box .value {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    
+    .info-box .sub {
+      font-size: 0.75rem;
+      opacity: 0.8;
+    }
+    
+    /* Gas Stops */
+    .gas-section {
+      background: #f9fafb;
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+    
+    .gas-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .gas-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    
+    .gas-tag {
+      background: white;
+      padding: 4px 12px;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      border: 1px solid #e5e7eb;
+    }
+    
+    /* Time Sections */
+    .time-section {
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+      border: 1px solid;
+    }
+    
+    .time-section.morning {
+      background: linear-gradient(135deg, #fef3c7, #ffedd5);
+      border-color: #fcd34d;
+    }
+    
+    .time-section.afternoon {
+      background: linear-gradient(135deg, #dbeafe, #e0f2fe);
+      border-color: #93c5fd;
+    }
+    
+    .time-section.evening {
+      background: linear-gradient(135deg, #e0e7ff, #ede9fe);
+      border-color: #a5b4fc;
+    }
+    
+    .time-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    
+    .time-range {
+      font-weight: 400;
+      color: #6b7280;
+      font-size: 0.875rem;
+    }
+    
+    .activity {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 8px;
+      border-radius: 8px;
+      margin-bottom: 4px;
+    }
+    
+    .activity.highlight {
+      background: rgba(253, 224, 71, 0.3);
+    }
+    
+    .activity.warning {
+      background: rgba(239, 68, 68, 0.1);
+    }
+    
+    .activity-icon {
+      flex-shrink: 0;
+    }
+    
+    .activity-text {
+      font-size: 0.875rem;
+    }
+    
+    .activity-text.highlight {
+      font-weight: 600;
+    }
+    
+    .activity-text.warning {
+      color: #dc2626;
+      font-weight: 500;
+    }
+    
+    /* Highlight & Tips */
+    .highlight-box {
+      background: linear-gradient(135deg, #fef3c7, #ffedd5);
+      border: 1px solid #fcd34d;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+    
+    .highlight-title {
+      font-weight: 600;
+      color: #92400e;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .highlight-text {
+      color: #78350f;
+      font-weight: 500;
+    }
+    
+    .tips-box {
+      background: #dbeafe;
+      border: 1px solid #93c5fd;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+    
+    .tips-title {
+      font-weight: 600;
+      color: #1e40af;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .tip-item {
+      color: #1e3a8a;
+      font-size: 0.875rem;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    
+    .hotel-box {
+      background: #f3e8ff;
+      border: 1px solid #c4b5fd;
+      border-radius: 12px;
+      padding: 16px;
+    }
+    
+    .hotel-title {
+      font-weight: 600;
+      color: #5b21b6;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .hotel-name {
+      font-weight: 600;
+      color: #4c1d95;
+    }
+    
+    .hotel-info {
+      color: #6d28d9;
+      font-size: 0.875rem;
+    }
+    
+    .hotel-bonus {
+      color: #16a34a;
+      font-weight: 500;
+      font-size: 0.875rem;
+      margin-top: 4px;
+    }
+    
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 32px 20px;
+      color: #6b7280;
+    }
+    
+    /* Utility */
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        <div class="logo-icon">🚗</div>
+        <div class="logo-text">
+          <h1 id="title">Southwest Road Trip</h1>
+          <p id="subtitle">December 20-29, 2025</p>
+        </div>
+      </div>
+      <button class="lang-btn" onclick="toggleLanguage()">
+        🌐 <span id="langText">עברית</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="icon" style="background:#ffedd5;">📅</div>
+        <div class="value">10</div>
+        <div class="label" id="daysLabel">days</div>
+      </div>
+      <div class="stat-card">
+        <div class="icon" style="background:#dbeafe;">🚗</div>
+        <div class="value">~40</div>
+        <div class="label" id="hoursLabel">hours</div>
+      </div>
+      <div class="stat-card">
+        <div class="icon" style="background:#dcfce7;">📍</div>
+        <div class="value">~3,400</div>
+        <div class="label">km</div>
+      </div>
+      <div class="stat-card">
+        <div class="icon" style="background:#f3e8ff;">💰</div>
+        <div class="value">~$3,070</div>
+        <div class="label" id="budgetLabel">budget</div>
+      </div>
+    </div>
+
+    <!-- Google Maps Button -->
+    <a href="https://www.google.com/maps/dir/8101+Hawk+Dr,+Round+Rock,+TX/White+Sands+National+Park,+NM/Santa+Fe,+NM/Monument+Valley,+UT/Page,+AZ/Zion+National+Park,+UT/Grand+Canyon+Village,+AZ/Sedona,+AZ/Saguaro+National+Park+East,+Tucson,+AZ/8101+Hawk+Dr,+Round+Rock,+TX" 
+       target="_blank" 
+       class="maps-btn">
+      📍 <span id="mapsText">Open in Google Maps</span> →
+    </a>
+
+    <!-- Booking Checklist -->
+    <div class="checklist-section">
+      <div class="checklist-header">
+        <h2>⚠️ <span id="checklistTitle">Booking Checklist - Must Book Ahead</span></h2>
+        <div class="checklist-controls">
+          <button class="filter-btn" id="filterBtn" onclick="toggleFilter()">
+            <span id="filterText">Urgent Only</span>
+          </button>
+          <div class="nights-badge"><span id="totalNightsText">Total Nights</span>: 9</div>
+        </div>
+      </div>
+      
+      <!-- Hotels -->
+      <div id="hotelsSection">
+        <div class="category-header hotel">🛏️ <span id="hotelsText">Hotels</span> (9 <span id="nightsText">nights</span>)</div>
+        <div id="hotelsList"></div>
+      </div>
+      
+      <!-- Tours -->
+      <div id="toursSection">
+        <div class="category-header tour">🎫 <span id="toursText">Tours & Tickets</span></div>
+        <div id="toursList"></div>
+      </div>
+      
+      <!-- Restaurants -->
+      <div id="restaurantsSection">
+        <div class="category-header restaurant">🍽️ <span id="restaurantsText">Restaurants</span></div>
+        <div id="restaurantsList"></div>
+      </div>
+    </div>
+
+    <!-- Day by Day -->
+    <h2 class="section-title">📅 <span id="itineraryTitle">Day by Day Itinerary</span></h2>
+    <div id="daysContainer"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      🚗🏜️ <span id="footerText">Safe travels and have fun!</span>
+    </footer>
+  </div>
+
+  <script>
+    // Language state
+    let currentLang = 'en';
+    let showUrgentOnly = false;
+    let checkedItems = {};
+
+    // Translations
+    const t = {
+      en: {
+        title: 'Southwest Road Trip',
+        subtitle: 'December 20-29, 2025',
+        langText: 'עברית',
+        daysLabel: 'days',
+        hoursLabel: 'hours',
+        budgetLabel: 'budget',
+        mapsText: 'Open in Google Maps',
+        checklistTitle: 'Booking Checklist - Must Book Ahead',
+        filterText: 'Urgent Only',
+        filterTextAlt: 'Show All',
+        totalNightsText: 'Total Nights',
+        hotelsText: 'Hotels',
+        nightsText: 'nights',
+        toursText: 'Tours & Tickets',
+        restaurantsText: 'Restaurants',
+        itineraryTitle: 'Day by Day Itinerary',
+        footerText: 'Safe travels and have fun!',
+        urgent: 'Urgent',
+        night: 'night',
+        nights: 'nights',
+        bookNow: 'Book Now',
+        morning: 'Morning',
+        afternoon: 'Afternoon',
+        evening: 'Evening',
+        driveTime: 'Drive Time',
+        weather: 'Weather',
+        sleepIn: 'Sleep In',
+        signal: 'Signal',
+        hours: 'hours',
+        high: 'High',
+        low: 'Low',
+        good: 'Good',
+        weak: 'Weak',
+        none: 'None',
+        gasStops: 'Gas Stops',
+        highlight: 'Highlight',
+        tips: 'Tips',
+        overnight: 'Overnight',
+        christmas: '🎄 Christmas Day!',
+        christmasEve: '🌟 Christmas Eve!',
+        welcomeHome: '🏠 Welcome Home!',
+      },
+      he: {
+        title: 'טיול דרום-מערב ארה"ב',
+        subtitle: '20-29 דצמבר 2025',
+        langText: 'English',
+        daysLabel: 'ימים',
+        hoursLabel: 'שעות',
+        budgetLabel: 'תקציב',
+        mapsText: 'פתח בגוגל מפות',
+        checklistTitle: 'רשימת הזמנות - חובה להזמין מראש',
+        filterText: 'דחופים בלבד',
+        filterTextAlt: 'הצג הכל',
+        totalNightsText: 'סה"כ לילות',
+        hotelsText: 'מלונות',
+        nightsText: 'לילות',
+        toursText: 'סיורים וכרטיסים',
+        restaurantsText: 'מסעדות',
+        itineraryTitle: 'מסלול יום-יומי',
+        footerText: 'טיול בטוח ומהנה!',
+        urgent: 'דחוף',
+        night: 'לילה',
+        nights: 'לילות',
+        bookNow: 'הזמן עכשיו',
+        morning: 'בוקר',
+        afternoon: 'צהריים',
+        evening: 'ערב',
+        driveTime: 'זמן נסיעה',
+        weather: 'מזג אוויר',
+        sleepIn: 'לינה ב',
+        signal: 'קליטה',
+        hours: 'שעות',
+        high: 'מקסימום',
+        low: 'מינימום',
+        good: 'טובה',
+        weak: 'חלשה',
+        none: 'אין',
+        gasStops: 'תחנות דלק',
+        highlight: 'נקודת עניין',
+        tips: 'טיפים',
+        overnight: 'לינה',
+        christmas: '🎄 חג המולד!',
+        christmasEve: '🌟 ערב חג המולד!',
+        welcomeHome: '🏠 ברוכים השבים!',
+      }
+    };
+
+    // Booking checklist data
+    const bookingData = [
+      { id: 1, category: 'hotel', item: 'Fairfield Inn Alamogordo', itemHe: 'Fairfield Inn אלמוגורדו', date: 'Dec 20', dateHe: '20 דצמבר', nights: 1, priority: 'medium', notes: '$100-120/night', notesHe: '$100-120 ללילה', url: 'https://marriott.com' },
+      { id: 2, category: 'hotel', item: 'Drury Plaza Santa Fe', itemHe: 'Drury Plaza סנטה פה', date: 'Dec 21-22', dateHe: '21-22 דצמבר', nights: 2, priority: 'medium', notes: '$150-180/night, FREE evening food!', notesHe: '$150-180 ללילה, אוכל חינם בערב!', url: 'https://druryhotels.com' },
+      { id: 3, category: 'hotel', item: 'The View Hotel, Monument Valley', itemHe: 'The View מוניומנט ואלי', date: 'Dec 23', dateHe: '23 דצמבר', nights: 1, priority: 'high', notes: '$220-280 - Book far in advance!', notesHe: '$220-280 - הזמינו מראש!', url: 'https://monumentvalleyview.com' },
+      { id: 4, category: 'hotel', item: 'Hyatt Place Page', itemHe: 'Hyatt Place פייג\'', date: 'Dec 24', dateHe: '24 דצמבר', nights: 1, priority: 'medium', notes: '$150-180/night', notesHe: '$150-180 ללילה', url: 'https://hyatt.com' },
+      { id: 5, category: 'hotel', item: 'Hampton Inn Springdale/Zion', itemHe: 'Hampton Inn זאיון', date: 'Dec 25', dateHe: '25 דצמבר', nights: 1, priority: 'medium', notes: '$140-170/night', notesHe: '$140-170 ללילה', url: 'https://hilton.com' },
+      { id: 6, category: 'hotel', item: 'Bright Angel Lodge, Grand Canyon', itemHe: 'Bright Angel גרנד קניון', date: 'Dec 26-27', dateHe: '26-27 דצמבר', nights: 2, priority: 'high', notes: '$180-220 - Book months ahead!', notesHe: '$180-220 - הזמינו חודשים מראש!', url: 'https://grandcanyonlodges.com' },
+      { id: 7, category: 'hotel', item: 'Hilton Tucson East', itemHe: 'Hilton טוסון', date: 'Dec 28', dateHe: '28 דצמבר', nights: 1, priority: 'low', notes: '$120-150/night', notesHe: '$120-150 ללילה', url: 'https://hilton.com' },
+      { id: 8, category: 'tour', item: 'Antelope Canyon Tour', itemHe: 'סיור Antelope Canyon', date: 'Dec 25, 8:30 AM', dateHe: '25 דצמבר, 8:30', priority: 'high', notes: '$80-120/person', notesHe: '$80-120 לאדם', url: 'https://antelopecanyon.az' },
+      { id: 9, category: 'tour', item: 'Meow Wolf tickets', itemHe: 'כרטיסים ל-Meow Wolf', date: 'Dec 22, 11:00 AM', dateHe: '22 דצמבר, 11:00', priority: 'high', notes: '$45/person, sells out!', notesHe: '$45 לאדם, נגמר!', url: 'https://meowwolf.com' },
+      { id: 10, category: 'restaurant', item: 'The Shed, Santa Fe', itemHe: 'The Shed סנטה פה', date: 'Dec 21, 7:00 PM', dateHe: '21 דצמבר, 19:00', priority: 'medium', notes: 'Famous red chile', notesHe: 'צ\'ילי אדום מפורסם', url: 'https://sfshed.com' },
+      { id: 11, category: 'restaurant', item: 'El Tovar, Grand Canyon', itemHe: 'El Tovar גרנד קניון', date: 'Dec 27, 6:30 PM', dateHe: '27 דצמבר, 18:30', priority: 'medium', notes: 'Request window seat', notesHe: 'בקשו מקום ליד החלון', url: 'https://grandcanyonlodges.com' },
+      { id: 12, category: 'restaurant', item: 'Elote Cafe, Sedona', itemHe: 'Elote Cafe סדונה', date: 'Dec 28, 12:00 PM', dateHe: '28 דצמבר, 12:00', priority: 'medium', notes: 'Book 2 weeks ahead!', notesHe: 'הזמינו שבועיים מראש!', url: 'https://elotecafe.com' },
+    ];
+
+    // Trip days data
+    const tripDays = [
+      {
+        day: 1, date: 'Friday, December 20', dateHe: 'שישי, 20 בדצמבר',
+        from: 'Round Rock, TX', to: 'White Sands, NM',
+        fromHe: 'ראונד רוק', toHe: 'וייט סנדס',
+        driveHours: 6, state: 'NM', stateClass: 'nm',
+        weatherHigh: { c: 11, f: 52 }, weatherLow: { c: -2, f: 28 },
+        sleepCity: 'Alamogordo, NM', sleepCityHe: 'אלמוגורדו',
+        signal: 'weak',
+        gasStops: ['Round Rock', 'Fort Stockton', 'Alamogordo'],
+        gasStopsHe: ['ראונד רוק', 'פורט סטוקטון', 'אלמוגורדו'],
+        sections: [
+          { time: 'morning', range: '6:00 AM - 12:00 PM', activities: [
+            { icon: '🚗', text: 'Depart Round Rock 6:00 AM', textHe: 'יוצאים מראונד רוק 6:00', type: 'normal' },
+            { icon: '⛽', text: 'Gas in Fort Stockton (10:00 AM)', textHe: 'תדלוק בפורט סטוקטון (10:00)', type: 'normal' },
+            { icon: '⚠️', text: 'MUST FILL - next gas 100+ miles!', textHe: 'חובה לתדלק - 160+ ק"מ לתחנה הבאה!', type: 'warning' },
+          ]},
+          { time: 'afternoon', range: '12:00 PM - 5:00 PM', activities: [
+            { icon: '🚗', text: 'Cross into New Mexico', textHe: 'חוצים לניו מקסיקו', type: 'normal' },
+            { icon: '📱', text: 'Download offline maps - spotty signal', textHe: 'הורידו מפות אופליין - קליטה חלשה', type: 'normal' },
+            { icon: '🛏️', text: 'Check in hotel 3:30 PM', textHe: 'צ\'ק-אין במלון 15:30', type: 'normal' },
+          ]},
+          { time: 'evening', range: '5:00 PM - 10:00 PM', activities: [
+            { icon: '⭐', text: 'SUNSET AT WHITE SANDS (5:15 PM)', textHe: 'שקיעה בוייט סנדס (17:15)', type: 'highlight' },
+            { icon: '📸', text: 'Walk on dunes, pink/orange sunset', textHe: 'הליכה על הדיונות, שקיעה ורודה', type: 'normal' },
+            { icon: '🍽️', text: 'Dinner: Pepper\'s Grill', textHe: 'ארוחת ערב: Pepper\'s Grill', type: 'normal' },
+          ]},
+        ],
+        highlight: 'Sunset at White Sands - otherworldly!', highlightHe: 'שקיעה בוייט סנדס - מעולם אחר!',
+        tips: ['Fill gas in Fort Stockton AND Alamogordo', 'Download offline maps'], tipsHe: ['תדלקו בפורט סטוקטון וגם באלמוגורדו', 'הורידו מפות אופליין'],
+        hotel: { name: 'Fairfield Inn Alamogordo', price: '$100-120', phone: '(575) 437-0088' },
+      },
+      {
+        day: 2, date: 'Saturday, December 21', dateHe: 'שבת, 21 בדצמבר',
+        from: 'White Sands', to: 'Santa Fe, NM',
+        fromHe: 'וייט סנדס', toHe: 'סנטה פה',
+        driveHours: 4, state: 'NM', stateClass: 'nm',
+        weatherHigh: { c: 7, f: 45 }, weatherLow: { c: -6, f: 22 },
+        sleepCity: 'Santa Fe, NM', sleepCityHe: 'סנטה פה',
+        signal: 'weak',
+        gasStops: ['Alamogordo'], gasStopsHe: ['אלמוגורדו'],
+        sections: [
+          { time: 'morning', range: '5:30 AM - 12:00 PM', activities: [
+            { icon: '⭐', text: 'SUNRISE AT WHITE SANDS (7:00 AM)', textHe: 'זריחה בוייט סנדס (7:00)', type: 'highlight' },
+            { icon: '📸', text: 'Pink/gold dunes, long shadows', textHe: 'דיונות ורודות-זהובות, צללים ארוכים', type: 'normal' },
+            { icon: '🛷', text: 'Sled down the dunes! $20 rental', textHe: 'גלישה על הדיונות! השכרה $20', type: 'normal' },
+          ]},
+          { time: 'afternoon', range: '12:00 PM - 6:00 PM', activities: [
+            { icon: '🚗', text: '4-hour drive to Santa Fe', textHe: '4 שעות נסיעה לסנטה פה', type: 'normal' },
+            { icon: '📍', text: 'Arrive Santa Fe (7,200ft elevation)', textHe: 'מגיעים לסנטה פה (2,200 מ\')', type: 'normal' },
+            { icon: '💧', text: 'Drink water - altitude!', textHe: 'שתו הרבה מים - גובה!', type: 'normal' },
+          ]},
+          { time: 'evening', range: '6:00 PM - 10:00 PM', activities: [
+            { icon: '🍺', text: 'FREE hotel happy hour 5:30-7:00 PM!', textHe: 'Happy hour חינם במלון!', type: 'highlight' },
+            { icon: '🍽️', text: 'Dinner: The Shed ⭐ (reserve!)', textHe: 'ארוחת ערב: The Shed ⭐ (הזמינו!)', type: 'normal' },
+            { icon: '🎨', text: 'Canyon Road walk - farolitos!', textHe: 'טיול ב-Canyon Road - פנסים!', type: 'normal' },
+          ]},
+        ],
+        highlight: 'Sunrise at White Sands + Santa Fe evening', highlightHe: 'זריחה בוייט סנדס + ערב בסנטה פה',
+        tips: ['Get to White Sands by 6:15 AM', 'Book The Shed dinner'], tipsHe: ['הגיעו לוייט סנדס עד 6:15', 'הזמינו ב-The Shed'],
+        hotel: { name: 'Drury Plaza Hotel', price: '$150-180', phone: '(505) 424-2175', bonus: 'FREE evening food & drinks!', bonusHe: 'אוכל ושתייה חינם בערב!' },
+      },
+      {
+        day: 3, date: 'Sunday, December 22', dateHe: 'ראשון, 22 בדצמבר',
+        from: 'Santa Fe', to: 'Santa Fe',
+        fromHe: 'סנטה פה', toHe: 'סנטה פה',
+        driveHours: 0, state: 'NM', stateClass: 'nm',
+        weatherHigh: { c: 9, f: 48 }, weatherLow: { c: -4, f: 25 },
+        sleepCity: 'Santa Fe, NM', sleepCityHe: 'סנטה פה',
+        signal: 'good',
+        gasStops: [], gasStopsHe: [],
+        sections: [
+          { time: 'morning', range: '8:00 AM - 12:00 PM', activities: [
+            { icon: '🍳', text: 'Breakfast: Tia Sophia\'s ⭐', textHe: 'ארוחת בוקר: Tia Sophia\'s ⭐', type: 'normal' },
+            { icon: '🎨', text: 'Georgia O\'Keeffe Museum ($20)', textHe: 'מוזיאון ג\'ורג\'יה אוקיף ($20)', type: 'normal' },
+            { icon: '⭐', text: 'MEOW WOLF (11 AM) - Book ahead!', textHe: 'MEOW WOLF (11:00) - הזמינו מראש!', type: 'highlight' },
+          ]},
+          { time: 'afternoon', range: '12:00 PM - 6:00 PM', activities: [
+            { icon: '✨', text: 'Meow Wolf - 2-3 hours immersive art!', textHe: 'Meow Wolf - 2-3 שעות אמנות!', type: 'normal' },
+            { icon: '🍽️', text: 'Lunch: Cafe Pasqual\'s', textHe: 'צהריים: Cafe Pasqual\'s', type: 'normal' },
+            { icon: '🎨', text: 'Canyon Road art walk - 100+ galleries', textHe: 'טיול אמנות - 100+ גלריות', type: 'normal' },
+          ]},
+          { time: 'evening', range: '6:00 PM - 10:00 PM', activities: [
+            { icon: '🍺', text: 'Free hotel happy hour again!', textHe: 'Happy hour חינם שוב!', type: 'highlight' },
+            { icon: '🍽️', text: 'Special dinner: Geronimo ⭐⭐⭐', textHe: 'ארוחה מיוחדת: Geronimo ⭐⭐⭐', type: 'normal' },
+            { icon: '🎄', text: 'Plaza walk - December lights!', textHe: 'טיול בפלאזה - אורות דצמבר!', type: 'normal' },
+          ]},
+        ],
+        highlight: 'Meow Wolf immersive art experience!', highlightHe: 'חוויה אימרסיבית ב-Meow Wolf!',
+        tips: ['BOOK MEOW WOLF IN ADVANCE!', 'Try Frito Pie'], tipsHe: ['הזמינו MEOW WOLF מראש!', 'נסו Frito Pie'],
+        hotel: { name: 'Drury Plaza Hotel', price: '$150-180', phone: '(505) 424-2175' },
+      },
+      {
+        day: 4, date: 'Monday, December 23', dateHe: 'שני, 23 בדצמבר',
+        from: 'Santa Fe, NM', to: 'Monument Valley',
+        fromHe: 'סנטה פה', toHe: 'מוניומנט ואלי',
+        driveHours: 5, state: 'AZ/UT', stateClass: 'az',
+        weatherHigh: { c: 7, f: 45 }, weatherLow: { c: -6, f: 22 },
+        sleepCity: 'Monument Valley', sleepCityHe: 'מוניומנט ואלי',
+        signal: 'none',
+        gasStops: ['FARMINGTON - CRITICAL!'], gasStopsHe: ['פארמינגטון - קריטי!'],
+        sections: [
+          { time: 'morning', range: '7:00 AM - 12:00 PM', activities: [
+            { icon: '🍳', text: 'Free Drury breakfast', textHe: 'ארוחת בוקר חינם ב-Drury', type: 'normal' },
+            { icon: '🚗', text: 'Depart 8:00 AM (5-hour drive)', textHe: 'יוצאים ב-8:00 (5 שעות)', type: 'normal' },
+            { icon: '⚠️', text: 'FILL GAS IN FARMINGTON - LAST 100+ MI!', textHe: 'תדלקו בפארמינגטון - אחרונה!', type: 'warning' },
+          ]},
+          { time: 'afternoon', range: '12:00 PM - 5:00 PM', activities: [
+            { icon: '📍', text: 'Enter Navajo Nation', textHe: 'נכנסים לשטח הנאוואחו', type: 'normal' },
+            { icon: '🍽️', text: 'Lunch: Amigo Cafe, Kayenta', textHe: 'צהריים: Amigo Cafe', type: 'normal' },
+            { icon: '🛏️', text: 'Check in The View Hotel 2:30 PM', textHe: 'צ\'ק-אין ב-The View 14:30', type: 'normal' },
+          ]},
+          { time: 'evening', range: '5:00 PM - 10:00 PM', activities: [
+            { icon: '⭐', text: 'SUNSET AT MONUMENT VALLEY (5:20 PM)', textHe: 'שקיעה במוניומנט ואלי (17:20)', type: 'highlight' },
+            { icon: '📸', text: 'Buttes glow orange/red!', textHe: 'הצוקים זוהרים כתום-אדום!', type: 'normal' },
+            { icon: '🌟', text: 'Stargazing - incredible dark skies!', textHe: 'צפייה בכוכבים - שמיים חשוכים!', type: 'normal' },
+          ]},
+        ],
+        highlight: 'Monument Valley sunset - iconic buttes!', highlightHe: 'שקיעה איקונית במוניומנט ואלי!',
+        tips: ['Download offline maps before Farmington', 'Book The View far in advance'], tipsHe: ['הורידו מפות לפני פארמינגטון', 'הזמינו The View מראש'],
+        hotel: { name: 'The View Hotel ⭐⭐⭐', price: '$220-280', phone: '(435) 727-5555', bonus: 'Every room faces the buttes!', bonusHe: 'כל החדרים פונים לצוקים!' },
+      },
+      {
+        day: 5, date: 'Tuesday, December 24', dateHe: 'שלישי, 24 בדצמבר',
+        specialDay: 'christmasEve',
+        from: 'Monument Valley', to: 'Page, AZ',
+        fromHe: 'מוניומנט ואלי', toHe: 'פייג\'',
+        driveHours: 2.5, state: 'AZ', stateClass: 'az',
+        weatherHigh: { c: 9, f: 48 }, weatherLow: { c: -2, f: 28 },
+        sleepCity: 'Page, AZ', sleepCityHe: 'פייג\'',
+        signal: 'weak',
+        gasStops: ['Page'], gasStopsHe: ['פייג\''],
+        sections: [
+          { time: 'morning', range: '6:00 AM - 12:00 PM', activities: [
+            { icon: '⭐', text: 'SUNRISE AT MONUMENT VALLEY (7:15 AM)', textHe: 'זריחה במוניומנט ואלי (7:15)', type: 'highlight' },
+            { icon: '🚗', text: '17-Mile Valley Drive loop (2-3 hrs)', textHe: 'לופ 17-Mile Drive (2-3 שעות)', type: 'normal' },
+            { icon: '📸', text: 'John Ford Point, Three Sisters', textHe: 'John Ford Point, Three Sisters', type: 'normal' },
+          ]},
+          { time: 'afternoon', range: '12:00 PM - 5:00 PM', activities: [
+            { icon: '⭐', text: 'FORREST GUMP POINT - Mile Marker 13!', textHe: 'נקודת פורסט גאמפ - סימון 13!', type: 'highlight' },
+            { icon: '📸', text: 'Mexican Hat Rock', textHe: 'Mexican Hat Rock', type: 'normal' },
+            { icon: '🍽️', text: 'Lunch: Big John\'s Texas BBQ', textHe: 'צהריים: Big John\'s BBQ', type: 'normal' },
+          ]},
+          { time: 'evening', range: '5:00 PM - 10:00 PM', activities: [
+            { icon: '⭐', text: 'SUNSET AT HORSESHOE BEND (5:25 PM)', textHe: 'שקיעה ב-Horseshoe Bend (17:25)', type: 'highlight' },
+            { icon: '⚠️', text: 'NO RAILINGS - be careful at edge!', textHe: 'אין מעקות - זהירות בקצה!', type: 'warning' },
+            { icon: '🔦', text: 'Bring flashlight for walk back', textHe: 'קחו פנס לחזרה', type: 'normal' },
+          ]},
+        ],
+        highlight: 'Forrest Gump Road + Horseshoe Bend!', highlightHe: 'כביש פורסט גאמפ + Horseshoe Bend!',
+        tips: ['Christmas Eve - restaurants close early!', 'Confirm Antelope tour'], tipsHe: ['ערב חג - מסעדות סוגרות מוקדם!', 'אשרו סיור Antelope'],
+        hotel: { name: 'Hyatt Place Page', price: '$150-180', phone: '(928) 645-8851' },
+      },
+      {
+        day: 6, date: 'Wednesday, December 25', dateHe: 'רביעי, 25 בדצמבר',
+        specialDay: 'christmas',
+        from: 'Page, AZ', to: 'Zion NP, UT',
+        fromHe: 'פייג\'', toHe: 'זאיון',
+        driveHours: 2.5, state: 'UT', stateClass: 'ut',
+        weatherHigh: { c: 11, f: 52 }, weatherLow: { c: -2, f: 28 },
+        sleepCity: 'Springdale, UT', sleepCityHe: 'ספרינגדייל',
+        signal: 'weak',
+        gasStops: ['Page'], gasStopsHe: ['פייג\''],
+        sections: [
+          { time: 'morning', range: '7:00 AM - 12:00 PM', activities: [
+            { icon: '🍳', text: 'Free hotel breakfast', textHe: 'ארוחת בוקר חינם', type: 'normal' },
+            { icon: '⭐', text: 'ANTELOPE CANYON TOUR (8:30 AM)', textHe: 'סיור ANTELOPE CANYON (8:30)', type: 'highlight' },
+            { icon: '⚠️', text: 'MUST book in advance! $80-120', textHe: 'חובה להזמין מראש! $80-120', type: 'warning' },
+          ]},
+          { time: 'afternoon', range: '12:00 PM - 5:00 PM', activities: [
+            { icon: '⭐', text: 'NAVAJO BRIDGE - walk over Colorado!', textHe: 'גשר נאוואחו - הליכה מעל הנהר!', type: 'highlight' },
+            { icon: '📸', text: 'Vermillion Cliffs', textHe: 'צוקי ורמיליון', type: 'normal' },
+            { icon: '🚗', text: 'Arrive Zion 2:00 PM', textHe: 'מגיעים לזאיון 14:00', type: 'normal' },
+          ]},
+          { time: 'evening', range: '5:00 PM - 10:00 PM', activities: [
+            { icon: '🥾', text: 'Canyon Overlook Trail (1 mi)', textHe: 'שביל Canyon Overlook (1.6 ק"מ)', type: 'normal' },
+            { icon: '⭐', text: 'DRIVE THROUGH ZION TUNNEL!', textHe: 'נסיעה דרך המנהרה!', type: 'highlight' },
+            { icon: '🍽️', text: 'Christmas dinner: Spotted Dog Cafe', textHe: 'ארוחת חג: Spotted Dog Cafe', type: 'normal' },
+          ]},
+        ],
+        highlight: 'Antelope Canyon + Zion Tunnel!', highlightHe: 'Antelope Canyon + מנהרת זאיון!',
+        tips: ['Christmas Day - CALL restaurants!', 'Navajo Bridge is FREE'], tipsHe: ['חג המולד - התקשרו למסעדות!', 'גשר נאוואחו חינם'],
+        hotel: { name: 'Hampton Inn Springdale', price: '$140-170', phone: '(435) 772-0700' },
+      },
+      {
+        day: 7, date: 'Thursday, December 26', dateHe: 'חמישי, 26 בדצמבר',
+        from: 'Zion NP', to: 'Grand Canyon',
+        fromHe: 'זאיון', toHe: 'גרנד קניון',
+        driveHours: 4.5, state: 'AZ', stateClass: 'az',
+        weatherHigh: { c: 7, f: 44 }, weatherLow: { c: -7, f: 20 },
+        sleepCity: 'Grand Canyon Village', sleepCityHe: 'גרנד קניון',
+        signal: 'weak',
+        gasStops: ['Kanab'], gasStopsHe: ['קנאב'],
+        sections: [
+          { time: 'morning', range: '7:00 AM - 12:00 PM', activities: [
+            { icon: '🥾', text: 'Watchman or Pa\'rus Trail', textHe: 'שביל Watchman או Pa\'rus', type: 'normal' },
+            { icon: '🍳', text: 'Breakfast: Oscar\'s Cafe', textHe: 'ארוחת בוקר: Oscar\'s Cafe', type: 'normal' },
+            { icon: '🚗', text: 'Depart 10:30 AM', textHe: 'יוצאים ב-10:30', type: 'normal' },
+          ]},
+          { time: 'afternoon', range: '12:00 PM - 5:00 PM', activities: [
+            { icon: '☕', text: 'Kanab - cute Western town', textHe: 'קנאב - עיירה מערבית חמודה', type: 'normal' },
+            { icon: '🍽️', text: 'Lunch: Cameron Trading Post', textHe: 'צהריים: Cameron Trading Post', type: 'normal' },
+            { icon: '⭐', text: 'DESERT VIEW WATCHTOWER - first GC view!', textHe: 'מגדל DESERT VIEW - מבט ראשון!', type: 'highlight' },
+          ]},
+          { time: 'evening', range: '5:00 PM - 10:00 PM', activities: [
+            { icon: '⭐', text: 'SUNSET AT HOPI POINT (5:30 PM)', textHe: 'שקיעה ב-HOPI POINT (17:30)', type: 'highlight' },
+            { icon: '📸', text: 'Best sunset spot at Grand Canyon!', textHe: 'נקודת השקיעה הטובה בגרנד קניון!', type: 'normal' },
+            { icon: '🍽️', text: 'Dinner: El Tovar ⭐ (reserve!)', textHe: 'ארוחת ערב: El Tovar ⭐ (הזמינו!)', type: 'normal' },
+          ]},
+        ],
+        highlight: 'First Grand Canyon view + Hopi sunset!', highlightHe: 'מבט ראשון + שקיעה ב-Hopi Point!',
+        tips: ['Book Bright Angel months ahead!', 'Dress VERY warm - -7°C at rim!'], tipsHe: ['הזמינו Bright Angel מראש!', 'התלבשו חם - מינוס 7 בקצה!'],
+        hotel: { name: 'Bright Angel Lodge ⭐⭐', price: '$180-220', phone: '(928) 638-2631', bonus: 'Steps from the rim!', bonusHe: 'צעדים מהקניון!' },
+      },
+      {
+        day: 8, date: 'Friday, December 27', dateHe: 'שישי, 27 בדצמבר',
+        from: 'Grand Canyon', to: 'Grand Canyon',
+        fromHe: 'גרנד קניון', toHe: 'גרנד קניון',
+        driveHours: 0, state: 'AZ', stateClass: 'az',
+        weatherHigh: { c: 8, f: 46 }, weatherLow: { c: -8, f: 18 },
+        sleepCity: 'Grand Canyon Village', sleepCityHe: 'גרנד קניון',
+        signal: 'weak',
+        gasStops: [], gasStopsHe: [],
+        sections: [
+          { time: 'morning', range: '5:30 AM - 12:00 PM', activities: [
+            { icon: '⭐', text: 'SUNRISE AT MATHER POINT (7:30 AM)', textHe: 'זריחה ב-MATHER POINT (7:30)', type: 'highlight' },
+            { icon: '⚠️', text: '-8°C (18°F) - dress in ALL layers!', textHe: 'מינוס 8 - התלבשו בשכבות!', type: 'warning' },
+            { icon: '⭐', text: 'SOUTH KAIBAB HIKE to Ooh Aah Point', textHe: 'טיול SOUTH KAIBAB ל-Ooh Aah', type: 'highlight' },
+          ]},
+          { time: 'afternoon', range: '12:00 PM - 5:00 PM', activities: [
+            { icon: '🍽️', text: 'Lunch at El Tovar', textHe: 'צהריים ב-El Tovar', type: 'normal' },
+            { icon: '⭐', text: 'DESERT VIEW DRIVE (25 mi scenic)', textHe: 'DESERT VIEW DRIVE (40 ק"מ נוף)', type: 'highlight' },
+            { icon: '📸', text: 'Grandview, Moran, Lipan Points', textHe: 'נקודות Grandview, Moran, Lipan', type: 'normal' },
+          ]},
+          { time: 'evening', range: '5:00 PM - 10:00 PM', activities: [
+            { icon: '⭐', text: 'SUNSET AT HOPI POINT again!', textHe: 'שקיעה ב-HOPI POINT שוב!', type: 'highlight' },
+            { icon: '🍽️', text: 'Special dinner: El Tovar (window seat!)', textHe: 'ארוחה מיוחדת: El Tovar (ליד החלון!)', type: 'normal' },
+            { icon: '🌟', text: 'Stargazing at Yavapai Point', textHe: 'צפייה בכוכבים ב-Yavapai', type: 'normal' },
+          ]},
+        ],
+        highlight: 'Full GC day - sunrise, hike, sunset!', highlightHe: 'יום שלם - זריחה, טיול, שקיעה!',
+        tips: ['South Kaibab may be icy - bring traction!', 'Reserve El Tovar dinner'], tipsHe: ['השביל עלול להיות קפוא!', 'הזמינו ארוחה ב-El Tovar'],
+        hotel: { name: 'Bright Angel Lodge', price: '$180-220', phone: '(928) 638-2631' },
+      },
+      {
+        day: 9, date: 'Saturday, December 28', dateHe: 'שבת, 28 בדצמבר',
+        from: 'Grand Canyon', to: 'Saguaro NP',
+        fromHe: 'גרנד קניון', toHe: 'סגוארו',
+        driveHours: 5.5, state: 'AZ', stateClass: 'az',
+        weatherHigh: { c: 18, f: 65 }, weatherLow: { c: 4, f: 40 },
+        sleepCity: 'Tucson, AZ', sleepCityHe: 'טוסון',
+        signal: 'good',
+        gasStops: ['Sedona'], gasStopsHe: ['סדונה'],
+        sections: [
+          { time: 'morning', range: '6:00 AM - 12:00 PM', activities: [
+            { icon: '🌅', text: 'Optional final GC sunrise', textHe: 'אופציה לזריחה אחרונה', type: 'normal' },
+            { icon: '🚗', text: 'Depart 9:00 AM to Sedona (2 hrs)', textHe: 'יוצאים ב-9:00 לסדונה', type: 'normal' },
+            { icon: '⭐', text: 'CHAPEL OF THE HOLY CROSS', textHe: 'CHAPEL OF THE HOLY CROSS', type: 'highlight' },
+          ]},
+          { time: 'afternoon', range: '12:00 PM - 5:00 PM', activities: [
+            { icon: '🍽️', text: 'Lunch: Elote Cafe ⭐ (reserve!)', textHe: 'צהריים: Elote Cafe ⭐ (הזמינו!)', type: 'normal' },
+            { icon: '📸', text: 'Cathedral Rock, Uptown Sedona', textHe: 'Cathedral Rock, סדונה', type: 'normal' },
+            { icon: '🚗', text: '3.5 hr drive to Tucson (warms up!)', textHe: '3.5 שעות לטוסון (מתחמם!)', type: 'normal' },
+          ]},
+          { time: 'evening', range: '5:00 PM - 10:00 PM', activities: [
+            { icon: '⭐', text: 'SUNSET AT SAGUARO NP (5:40 PM)', textHe: 'שקיעה בסגוארו (17:40)', type: 'highlight' },
+            { icon: '🌵', text: 'Giant saguaro silhouettes - iconic!', textHe: 'צלליות קקטוסים - איקוני!', type: 'normal' },
+            { icon: '🍽️', text: 'Dinner: El Charro Cafe ⭐', textHe: 'ארוחת ערב: El Charro Cafe ⭐', type: 'normal' },
+          ]},
+        ],
+        highlight: 'Sedona red rocks + Saguaro cacti!', highlightHe: 'סלעי סדונה + קקטוסים!',
+        tips: ['Finally warm! 18°C in Tucson', 'Try chimichanga at El Charro'], tipsHe: ['סוף סוף חם! 18 מעלות', 'נסו צ\'ימיצ\'נגה ב-El Charro'],
+        hotel: { name: 'Hilton Tucson East', price: '$120-150', phone: '(520) 721-5600' },
+      },
+      {
+        day: 10, date: 'Sunday, December 29', dateHe: 'ראשון, 29 בדצמבר',
+        specialDay: 'home',
+        from: 'Saguaro NP', to: 'Round Rock, TX',
+        fromHe: 'סגוארו', toHe: 'ראונד רוק',
+        driveHours: 10, state: 'TX', stateClass: 'tx',
+        weatherHigh: { c: 14, f: 58 }, weatherLow: { c: 4, f: 40 },
+        sleepCity: 'HOME!', sleepCityHe: 'הביתה!',
+        signal: 'good',
+        gasStops: ['Tucson', 'Las Cruces', 'Fort Stockton'], gasStopsHe: ['טוסון', 'לאס קרוסס', 'פורט סטוקטון'],
+        sections: [
+          { time: 'morning', range: '6:00 AM - 12:00 PM', activities: [
+            { icon: '⭐', text: 'SUNRISE AT SAGUARO WEST (7:20 AM)', textHe: 'זריחה בסגוארו מערב (7:20)', type: 'highlight' },
+            { icon: '📸', text: 'Different cacti than East unit', textHe: 'קקטוסים שונים מהמזרח', type: 'normal' },
+            { icon: '🚗', text: 'Depart 8:30 AM - long drive home', textHe: 'יוצאים ב-8:30 - נסיעה ארוכה', type: 'normal' },
+          ]},
+          { time: 'afternoon', range: '12:00 PM - 5:00 PM', activities: [
+            { icon: '⛽', text: 'Gas & lunch: Las Cruces (11:30 AM)', textHe: 'תדלוק וצהריים: לאס קרוסס', type: 'normal' },
+            { icon: '📍', text: 'Welcome to Texas! El Paso 1:00 PM', textHe: 'ברוכים הבאים לטקסס! 13:00', type: 'normal' },
+            { icon: '⛽', text: 'Gas: Fort Stockton (4:00 PM)', textHe: 'תדלוק: פורט סטוקטון (16:00)', type: 'normal' },
+          ]},
+          { time: 'evening', range: '5:00 PM - 9:00 PM', activities: [
+            { icon: '🌅', text: 'Drive through sunset (5:40 PM)', textHe: 'נוסעים דרך השקיעה', type: 'normal' },
+            { icon: '🌳', text: 'Enter Hill Country - green again!', textHe: 'נכנסים ל-Hill Country - ירוק!', type: 'normal' },
+            { icon: '⭐', text: 'ARRIVE HOME ~8:30 PM! 🎉', textHe: 'מגיעים הביתה ~20:30! 🎉', type: 'highlight' },
+          ]},
+        ],
+        highlight: 'Welcome home! Amazing memories!', highlightHe: 'ברוכים השבים! זיכרונות מדהימים!',
+        tips: ['10-hour drive - take breaks!', 'Download podcasts for the drive'], tipsHe: ['10 שעות - קחו הפסקות!', 'הורידו פודקאסטים'],
+        hotel: { name: 'YOUR BED! 🛏️', price: 'Free!', phone: '' },
+      },
+    ];
+
+    // Functions
+    function toggleLanguage() {
+      currentLang = currentLang === 'en' ? 'he' : 'en';
+      document.documentElement.lang = currentLang;
+      document.body.dir = currentLang === 'he' ? 'rtl' : 'ltr';
+      updateUI();
+    }
+
+    function toggleFilter() {
+      showUrgentOnly = !showUrgentOnly;
+      updateUI();
+    }
+
+    function toggleCheck(id) {
+      checkedItems[id] = !checkedItems[id];
+      updateUI();
+    }
+
+    function toggleDay(day) {
+      const content = document.getElementById(`day-content-${day}`);
+      const chevron = document.getElementById(`chevron-${day}`);
+      content.classList.toggle('open');
+      chevron.classList.toggle('open');
+    }
+
+    function updateUI() {
+      const tr = t[currentLang];
+      const isHe = currentLang === 'he';
+
+      // Update header
+      document.getElementById('title').textContent = tr.title;
+      document.getElementById('subtitle').textContent = tr.subtitle;
+      document.getElementById('langText').textContent = tr.langText;
+      
+      // Update stats
+      document.getElementById('daysLabel').textContent = tr.daysLabel;
+      document.getElementById('hoursLabel').textContent = tr.hoursLabel;
+      document.getElementById('budgetLabel').textContent = tr.budgetLabel;
+      document.getElementById('mapsText').textContent = tr.mapsText;
+      
+      // Update checklist
+      document.getElementById('checklistTitle').textContent = tr.checklistTitle;
+      document.getElementById('filterText').textContent = showUrgentOnly ? tr.filterTextAlt : tr.filterText;
+      document.getElementById('filterBtn').classList.toggle('active', showUrgentOnly);
+      document.getElementById('totalNightsText').textContent = tr.totalNightsText;
+      document.getElementById('hotelsText').textContent = tr.hotelsText;
+      document.getElementById('nightsText').textContent = tr.nightsText;
+      document.getElementById('toursText').textContent = tr.toursText;
+      document.getElementById('restaurantsText').textContent = tr.restaurantsText;
+      document.getElementById('itineraryTitle').textContent = tr.itineraryTitle;
+      document.getElementById('footerText').textContent = tr.footerText;
+
+      // Render checklists
+      renderChecklist('hotelsList', 'hotel', isHe, tr);
+      renderChecklist('toursList', 'tour', isHe, tr);
+      renderChecklist('restaurantsList', 'restaurant', isHe, tr);
+
+      // Show/hide sections
+      document.getElementById('hotelsSection').classList.toggle('hidden', 
+        bookingData.filter(i => i.category === 'hotel' && (!showUrgentOnly || i.priority === 'high')).length === 0);
+      document.getElementById('toursSection').classList.toggle('hidden',
+        bookingData.filter(i => i.category === 'tour' && (!showUrgentOnly || i.priority === 'high')).length === 0);
+      document.getElementById('restaurantsSection').classList.toggle('hidden',
+        bookingData.filter(i => i.category === 'restaurant' && (!showUrgentOnly || i.priority === 'high')).length === 0);
+
+      // Render days
+      renderDays(isHe, tr);
+    }
+
+    function renderChecklist(containerId, category, isHe, tr) {
+      const container = document.getElementById(containerId);
+      const items = bookingData.filter(i => i.category === category && (!showUrgentOnly || i.priority === 'high'));
+      
+      container.innerHTML = items.map(item => `
+        <div class="checklist-item ${checkedItems[item.id] ? 'checked' : ''}">
+          <div class="checkbox ${checkedItems[item.id] ? 'checked' : ''}" onclick="toggleCheck(${item.id})">
+            ${checkedItems[item.id] ? '✓' : ''}
+          </div>
+          <div class="item-content">
+            <div class="item-title ${checkedItems[item.id] ? 'checked' : ''}">
+              ${isHe ? item.itemHe : item.item}
+              ${item.nights ? `<span class="nights-tag">🛏️ ${item.nights} ${item.nights === 1 ? tr.night : tr.nights}</span>` : ''}
+              ${item.priority === 'high' ? `<span class="urgent-tag">${tr.urgent}</span>` : ''}
+            </div>
+            <div class="item-date">📅 ${isHe ? item.dateHe : item.date}</div>
+            <div class="item-notes">${isHe ? item.notesHe : item.notes}</div>
+          </div>
+          <a href="${item.url}" target="_blank" class="book-btn">${tr.bookNow} →</a>
+        </div>
+      `).join('');
+    }
+
+    function renderDays(isHe, tr) {
+      const container = document.getElementById('daysContainer');
+      
+      container.innerHTML = tripDays.map(day => {
+        const specialBadge = day.specialDay === 'christmas' ? `<span class="special-badge christmas">${tr.christmas}</span>` :
+                            day.specialDay === 'christmasEve' ? `<span class="special-badge eve">${tr.christmasEve}</span>` :
+                            day.specialDay === 'home' ? `<span class="special-badge home">${tr.welcomeHome}</span>` : '';
+        
+        const signalText = day.signal === 'good' ? tr.good : day.signal === 'weak' ? tr.weak : tr.none;
+        const signalColor = day.signal === 'good' ? '#16a34a' : day.signal === 'weak' ? '#ca8a04' : '#dc2626';
+        
+        return `
+          <div class="day-card">
+            <div class="day-header" onclick="toggleDay(${day.day})">
+              <div class="day-left">
+                <div class="day-number ${day.stateClass}">${day.day}</div>
+                <div class="day-info">
+                  <h3>
+                    ${isHe ? day.dateHe : day.date}
+                    ${specialBadge}
+                  </h3>
+                  <p>${isHe ? day.fromHe : day.from} → ${isHe ? day.toHe : day.to}</p>
+                </div>
+              </div>
+              <div class="day-right">
+                <div class="day-stats">
+                  <div class="day-stat" style="color:#2563eb;">🚗 ${day.driveHours}h</div>
+                  <div class="day-stat" style="color:#ea580c;">🌡️ ${day.weatherHigh.c}°C</div>
+                  <span class="state-badge" style="background:${day.stateClass === 'nm' ? '#eab308' : day.stateClass === 'az' ? '#ef4444' : day.stateClass === 'ut' ? '#22c55e' : '#a855f7'}">${day.state}</span>
+                </div>
+                <span class="chevron" id="chevron-${day.day}">▼</span>
+              </div>
+            </div>
+            
+            <div class="day-content" id="day-content-${day.day}">
+              <!-- Info Grid -->
+              <div class="info-grid">
+                <div class="info-box drive">
+                  <div class="label" style="color:#1e40af;">🚗 ${tr.driveTime}</div>
+                  <div class="value" style="color:#1e3a8a;">${day.driveHours} ${tr.hours}</div>
+                </div>
+                <div class="info-box weather">
+                  <div class="label" style="color:#c2410c;">🌡️ ${tr.weather}</div>
+                  <div class="value" style="color:#9a3412;">${day.weatherHigh.c}°C (${day.weatherHigh.f}°F)</div>
+                  <div class="sub" style="color:#ea580c;">${tr.low}: ${day.weatherLow.c}°C</div>
+                </div>
+                <div class="info-box sleep">
+                  <div class="label" style="color:#7c3aed;">🛏️ ${tr.sleepIn}</div>
+                  <div class="value" style="color:#5b21b6;font-size:0.875rem;">${isHe ? day.sleepCityHe : day.sleepCity}</div>
+                </div>
+                <div class="info-box signal">
+                  <div class="label" style="color:#374151;">📱 ${tr.signal}</div>
+                  <div class="value" style="color:${signalColor};">${signalText}</div>
+                </div>
+              </div>
+              
+              ${day.gasStops.length > 0 ? `
+              <div class="gas-section">
+                <div class="gas-title">⛽ ${tr.gasStops}</div>
+                <div class="gas-tags">
+                  ${(isHe ? day.gasStopsHe : day.gasStops).map(stop => `<span class="gas-tag">⛽ ${stop}</span>`).join('')}
+                </div>
+              </div>
+              ` : ''}
+              
+              ${day.sections.map(section => `
+              <div class="time-section ${section.time}">
+                <div class="time-header">
+                  ${section.time === 'morning' ? '🌅' : section.time === 'afternoon' ? '☀️' : '🌙'}
+                  ${section.time === 'morning' ? tr.morning : section.time === 'afternoon' ? tr.afternoon : tr.evening}
+                  <span class="time-range">${section.range}</span>
+                </div>
+                ${section.activities.map(act => `
+                <div class="activity ${act.type === 'highlight' ? 'highlight' : act.type === 'warning' ? 'warning' : ''}">
+                  <span class="activity-icon">${act.icon}</span>
+                  <span class="activity-text ${act.type}">${isHe ? act.textHe : act.text}</span>
+                </div>
+                `).join('')}
+              </div>
+              `).join('')}
+              
+              <div class="highlight-box">
+                <div class="highlight-title">⭐ ${tr.highlight}</div>
+                <div class="highlight-text">${isHe ? day.highlightHe : day.highlight}</div>
+              </div>
+              
+              <div class="tips-box">
+                <div class="tips-title">💡 ${tr.tips}</div>
+                ${(isHe ? day.tipsHe : day.tips).map(tip => `<div class="tip-item">💡 ${tip}</div>`).join('')}
+              </div>
+              
+              <div class="hotel-box">
+                <div class="hotel-title">🛏️ ${tr.overnight}</div>
+                <div class="hotel-name">${day.hotel.name}</div>
+                <div class="hotel-info">${day.hotel.price}${day.hotel.phone ? ` • 📞 ${day.hotel.phone}` : ''}</div>
+                ${day.hotel.bonus ? `<div class="hotel-bonus">✨ ${isHe ? day.hotel.bonusHe : day.hotel.bonus}</div>` : ''}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Initialize
+    updateUI();
+  </script>
+</body>
+</html>
+
