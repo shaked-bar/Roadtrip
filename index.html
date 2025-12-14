@@ -101,6 +101,45 @@
       box-shadow: 0 6px 16px rgba(249,115,22,0.4);
     }
     
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    
+    .date-picker {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid #fed7aa;
+    }
+    
+    .date-picker label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #6b7280;
+      white-space: nowrap;
+    }
+    
+    .date-picker input {
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 0.875rem;
+      font-family: inherit;
+      cursor: pointer;
+    }
+    
+    .date-picker input:focus {
+      outline: none;
+      border-color: #f97316;
+      box-shadow: 0 0 0 2px rgba(249,115,22,0.2);
+    }
+    
     /* Navigation Section */
     .nav-section {
       background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
@@ -862,9 +901,15 @@
           <p id="subtitle">December 22-31, 2025</p>
         </div>
       </div>
-      <button class="lang-btn" onclick="toggleLanguage()">
-        🌐 <span id="langText">עברית</span>
-      </button>
+      <div class="header-controls">
+        <div class="date-picker">
+          <label for="startDate" id="dateLabel">📅 Start Date:</label>
+          <input type="date" id="startDate" value="2025-12-22" onchange="updateStartDate()">
+        </div>
+        <button class="lang-btn" onclick="toggleLanguage()">
+          🌐 <span id="langText">עברית</span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -1039,24 +1084,24 @@
 
     // Booking checklist data
     const bookingData = [
-      { id: 1, category: 'hotel', item: 'Fairfield Inn Alamogordo', itemHe: 'Fairfield Inn אלמוגורדו', date: 'Dec 20', dateHe: '20 דצמבר', nights: 1, priority: 'medium', notes: '$100-120/night', notesHe: '$100-120 ללילה', url: 'https://marriott.com' },
-      { id: 2, category: 'hotel', item: 'Drury Plaza Santa Fe', itemHe: 'Drury Plaza סנטה פה', date: 'Dec 21-22', dateHe: '21-22 דצמבר', nights: 2, priority: 'medium', notes: '$150-180/night, FREE evening food!', notesHe: '$150-180 ללילה, אוכל חינם בערב!', url: 'https://druryhotels.com' },
-      { id: 3, category: 'hotel', item: 'The View Hotel, Monument Valley', itemHe: 'The View מוניומנט ואלי', date: 'Dec 23', dateHe: '23 דצמבר', nights: 1, priority: 'high', notes: '$220-280 - Book far in advance!', notesHe: '$220-280 - הזמינו מראש!', url: 'https://monumentvalleyview.com' },
-      { id: 4, category: 'hotel', item: 'Hyatt Place Page', itemHe: 'Hyatt Place פייג\'', date: 'Dec 24', dateHe: '24 דצמבר', nights: 1, priority: 'medium', notes: '$150-180/night', notesHe: '$150-180 ללילה', url: 'https://hyatt.com' },
-      { id: 5, category: 'hotel', item: 'Hampton Inn Springdale/Zion', itemHe: 'Hampton Inn זאיון', date: 'Dec 25', dateHe: '25 דצמבר', nights: 1, priority: 'medium', notes: '$140-170/night', notesHe: '$140-170 ללילה', url: 'https://hilton.com' },
-      { id: 6, category: 'hotel', item: 'Bright Angel Lodge, Grand Canyon', itemHe: 'Bright Angel גרנד קניון', date: 'Dec 26-27', dateHe: '26-27 דצמבר', nights: 2, priority: 'high', notes: '$180-220 - Book months ahead!', notesHe: '$180-220 - הזמינו חודשים מראש!', url: 'https://grandcanyonlodges.com' },
-      { id: 7, category: 'hotel', item: 'Hilton Tucson East', itemHe: 'Hilton טוסון', date: 'Dec 28', dateHe: '28 דצמבר', nights: 1, priority: 'low', notes: '$120-150/night', notesHe: '$120-150 ללילה', url: 'https://hilton.com' },
-      { id: 8, category: 'tour', item: 'Antelope Canyon Tour', itemHe: 'סיור Antelope Canyon', date: 'Dec 25, 8:30 AM', dateHe: '25 דצמבר, 8:30', priority: 'high', notes: '$80-120/person', notesHe: '$80-120 לאדם', url: 'https://antelopecanyon.az' },
-      { id: 9, category: 'tour', item: 'Meow Wolf tickets', itemHe: 'כרטיסים ל-Meow Wolf', date: 'Dec 22, 11:00 AM', dateHe: '22 דצמבר, 11:00', priority: 'high', notes: '$45/person, sells out!', notesHe: '$45 לאדם, נגמר!', url: 'https://meowwolf.com' },
-      { id: 10, category: 'restaurant', item: 'The Shed, Santa Fe', itemHe: 'The Shed סנטה פה', date: 'Dec 21, 7:00 PM', dateHe: '21 דצמבר, 19:00', priority: 'medium', notes: 'Famous red chile', notesHe: 'צ\'ילי אדום מפורסם', url: 'https://sfshed.com' },
-      { id: 11, category: 'restaurant', item: 'El Tovar, Grand Canyon', itemHe: 'El Tovar גרנד קניון', date: 'Dec 27, 6:30 PM', dateHe: '27 דצמבר, 18:30', priority: 'medium', notes: 'Request window seat', notesHe: 'בקשו מקום ליד החלון', url: 'https://grandcanyonlodges.com' },
-      { id: 12, category: 'restaurant', item: 'Elote Cafe, Sedona', itemHe: 'Elote Cafe סדונה', date: 'Dec 28, 12:00 PM', dateHe: '28 דצמבר, 12:00', priority: 'medium', notes: 'Book 2 weeks ahead!', notesHe: 'הזמינו שבועיים מראש!', url: 'https://elotecafe.com' },
+      { id: 1, category: 'hotel', item: 'Fairfield Inn Alamogordo', itemHe: 'Fairfield Inn אלמוגורדו', dayOffset: 0, nights: 1, priority: 'medium', notes: '$100-120/night', notesHe: '$100-120 ללילה', url: 'https://marriott.com' },
+      { id: 2, category: 'hotel', item: 'Drury Plaza Santa Fe', itemHe: 'Drury Plaza סנטה פה', dayOffset: 1, endOffset: 2, nights: 2, priority: 'medium', notes: '$150-180/night, FREE evening food!', notesHe: '$150-180 ללילה, אוכל חינם בערב!', url: 'https://druryhotels.com' },
+      { id: 3, category: 'hotel', item: 'The View Hotel, Monument Valley', itemHe: 'The View מוניומנט ואלי', dayOffset: 3, nights: 1, priority: 'high', notes: '$220-280 - Book far in advance!', notesHe: '$220-280 - הזמינו מראש!', url: 'https://monumentvalleyview.com' },
+      { id: 4, category: 'hotel', item: 'Hyatt Place Page', itemHe: 'Hyatt Place פייג\'', dayOffset: 4, nights: 1, priority: 'medium', notes: '$150-180/night', notesHe: '$150-180 ללילה', url: 'https://hyatt.com' },
+      { id: 5, category: 'hotel', item: 'Hampton Inn Springdale/Zion', itemHe: 'Hampton Inn זאיון', dayOffset: 5, nights: 1, priority: 'medium', notes: '$140-170/night', notesHe: '$140-170 ללילה', url: 'https://hilton.com' },
+      { id: 6, category: 'hotel', item: 'Bright Angel Lodge, Grand Canyon', itemHe: 'Bright Angel גרנד קניון', dayOffset: 6, endOffset: 7, nights: 2, priority: 'high', notes: '$180-220 - Book months ahead!', notesHe: '$180-220 - הזמינו חודשים מראש!', url: 'https://grandcanyonlodges.com' },
+      { id: 7, category: 'hotel', item: 'Hilton Tucson East', itemHe: 'Hilton טוסון', dayOffset: 8, nights: 1, priority: 'low', notes: '$120-150/night', notesHe: '$120-150 ללילה', url: 'https://hilton.com' },
+      { id: 8, category: 'tour', item: 'Antelope Canyon Tour', itemHe: 'סיור Antelope Canyon', dayOffset: 5, time: '8:30 AM', timeHe: '8:30', priority: 'high', notes: '$80-120/person', notesHe: '$80-120 לאדם', url: 'https://antelopecanyon.az' },
+      { id: 9, category: 'tour', item: 'Meow Wolf tickets', itemHe: 'כרטיסים ל-Meow Wolf', dayOffset: 2, time: '11:00 AM', timeHe: '11:00', priority: 'high', notes: '$45/person, sells out!', notesHe: '$45 לאדם, נגמר!', url: 'https://meowwolf.com' },
+      { id: 10, category: 'restaurant', item: 'The Shed, Santa Fe', itemHe: 'The Shed סנטה פה', dayOffset: 1, time: '7:00 PM', timeHe: '19:00', priority: 'medium', notes: 'Famous red chile', notesHe: 'צ\'ילי אדום מפורסם', url: 'https://sfshed.com' },
+      { id: 11, category: 'restaurant', item: 'El Tovar, Grand Canyon', itemHe: 'El Tovar גרנד קניון', dayOffset: 7, time: '6:30 PM', timeHe: '18:30', priority: 'medium', notes: 'Request window seat', notesHe: 'בקשו מקום ליד החלון', url: 'https://grandcanyonlodges.com' },
+      { id: 12, category: 'restaurant', item: 'Elote Cafe, Sedona', itemHe: 'Elote Cafe סדונה', dayOffset: 8, time: '12:00 PM', timeHe: '12:00', priority: 'medium', notes: 'Book 2 weeks ahead!', notesHe: 'הזמינו שבועיים מראש!', url: 'https://elotecafe.com' },
     ];
 
     // Trip days data
     const tripDays = [
       {
-        day: 1, date: 'Sunday, December 22', dateHe: 'ראשון, 22 בדצמבר',
+        day: 1, dayOffset: 0,
         from: 'Round Rock, TX', to: 'White Sands, NM',
         fromHe: 'ראונד רוק', toHe: 'וייט סנדס',
         driveHours: 6, distanceKm: 680, state: 'NM', stateClass: 'nm',
@@ -1098,7 +1143,7 @@
         hotel: { name: 'Fairfield Inn Alamogordo', price: '$100-120', phone: '(575) 437-0088' },
       },
       {
-        day: 2, date: 'Monday, December 23', dateHe: 'שני, 23 בדצמבר',
+        day: 2, dayOffset: 1,
         from: 'White Sands', to: 'Santa Fe, NM',
         fromHe: 'וייט סנדס', toHe: 'סנטה פה',
         driveHours: 4, distanceKm: 420, state: 'NM', stateClass: 'nm',
@@ -1139,8 +1184,7 @@
         hotel: { name: 'Drury Plaza Hotel', price: '$150-180', phone: '(505) 424-2175', bonus: 'FREE evening food & drinks!', bonusHe: 'אוכל ושתייה חינם בערב!' },
       },
       {
-        day: 3, date: 'Tuesday, December 24', dateHe: 'שלישי, 24 בדצמבר',
-        specialDay: 'christmasEve',
+        day: 3, dayOffset: 2,
         from: 'Santa Fe', to: 'Santa Fe',
         fromHe: 'סנטה פה', toHe: 'סנטה פה',
         driveHours: 0, distanceKm: 0, state: 'NM', stateClass: 'nm',
@@ -1180,8 +1224,7 @@
         hotel: { name: 'Drury Plaza Hotel', price: '$150-180', phone: '(505) 424-2175' },
       },
       {
-        day: 4, date: 'Wednesday, December 25', dateHe: 'רביעי, 25 בדצמבר',
-        specialDay: 'christmas',
+        day: 4, dayOffset: 3,
         from: 'Santa Fe, NM', to: 'Monument Valley',
         fromHe: 'סנטה פה', toHe: 'מוניומנט ואלי',
         driveHours: 5, distanceKm: 480, state: 'AZ/UT', stateClass: 'az',
@@ -1222,7 +1265,7 @@
         hotel: { name: 'The View Hotel ⭐⭐⭐', price: '$220-280', phone: '(435) 727-5555', bonus: 'Every room faces the buttes!', bonusHe: 'כל החדרים פונים לצוקים!' },
       },
       {
-        day: 5, date: 'Thursday, December 26', dateHe: 'חמישי, 26 בדצמבר',
+        day: 5, dayOffset: 4,
         from: 'Monument Valley', to: 'Page, AZ',
         fromHe: 'מוניומנט ואלי', toHe: 'פייג\'',
         driveHours: 2.5, distanceKm: 200, state: 'AZ', stateClass: 'az',
@@ -1263,7 +1306,7 @@
         hotel: { name: 'Hyatt Place Page', price: '$150-180', phone: '(928) 645-8851' },
       },
       {
-        day: 6, date: 'Friday, December 27', dateHe: 'שישי, 27 בדצמבר',
+        day: 6, dayOffset: 5,
         from: 'Page, AZ', to: 'Zion NP, UT',
         fromHe: 'פייג\'', toHe: 'זאיון',
         driveHours: 2.5, distanceKm: 190, state: 'UT', stateClass: 'ut',
@@ -1304,7 +1347,7 @@
         hotel: { name: 'Hampton Inn Springdale', price: '$140-170', phone: '(435) 772-0700' },
       },
       {
-        day: 7, date: 'Saturday, December 28', dateHe: 'שבת, 28 בדצמבר',
+        day: 7, dayOffset: 6,
         from: 'Zion NP', to: 'Grand Canyon',
         fromHe: 'זאיון', toHe: 'גרנד קניון',
         driveHours: 4.5, distanceKm: 400, state: 'AZ', stateClass: 'az',
@@ -1345,7 +1388,7 @@
         hotel: { name: 'Bright Angel Lodge ⭐⭐', price: '$180-220', phone: '(928) 638-2631', bonus: 'Steps from the rim!', bonusHe: 'צעדים מהקניון!' },
       },
       {
-        day: 8, date: 'Sunday, December 29', dateHe: 'ראשון, 29 בדצמבר',
+        day: 8, dayOffset: 7,
         from: 'Grand Canyon', to: 'Grand Canyon',
         fromHe: 'גרנד קניון', toHe: 'גרנד קניון',
         driveHours: 0, distanceKm: 0, state: 'AZ', stateClass: 'az',
@@ -1385,7 +1428,7 @@
         hotel: { name: 'Bright Angel Lodge', price: '$180-220', phone: '(928) 638-2631' },
       },
       {
-        day: 9, date: 'Monday, December 30', dateHe: 'שני, 30 בדצמבר',
+        day: 9, dayOffset: 8,
         from: 'Grand Canyon', to: 'Saguaro NP',
         fromHe: 'גרנד קניון', toHe: 'סגוארו',
         driveHours: 5.5, distanceKm: 520, state: 'AZ', stateClass: 'az',
@@ -1426,8 +1469,7 @@
         hotel: { name: 'Hilton Tucson East', price: '$120-150', phone: '(520) 721-5600' },
       },
       {
-        day: 10, date: 'Tuesday, December 31', dateHe: 'שלישי, 31 בדצמבר',
-        specialDay: 'home',
+        day: 10, dayOffset: 9,
         from: 'Saguaro NP', to: 'Round Rock, TX',
         fromHe: 'סגוארו', toHe: 'ראונד רוק',
         driveHours: 10, distanceKm: 1100, state: 'TX', stateClass: 'tx',
@@ -1469,11 +1511,100 @@
       },
     ];
 
+    // Start date (can be changed)
+    let startDate = new Date('2025-12-22');
+    
+    // Day names
+    const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const dayNamesHe = ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי', 'שישי', 'שבת'];
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    
+    // Calculate date from offset
+    function getDateFromOffset(offset) {
+      const date = new Date(startDate);
+      date.setDate(date.getDate() + offset);
+      return date;
+    }
+    
+    // Format date for display
+    function formatDate(date, isHebrew = false) {
+      const day = date.getDate();
+      const month = date.getMonth();
+      const dayOfWeek = date.getDay();
+      
+      if (isHebrew) {
+        const hebrewMonths = ['ינואר', 'פברואר', 'מרץ', 'אפריל', 'מאי', 'יוני', 'יולי', 'אוגוסט', 'ספטמבר', 'אוקטובר', 'נובמבר', 'דצמבר'];
+        return `${dayNamesHe[dayOfWeek]}, ${day} ב${hebrewMonths[month]}`;
+      } else {
+        return `${dayNames[dayOfWeek]}, ${monthNames[month]} ${day}`;
+      }
+    }
+    
+    // Format date range
+    function formatDateRange(startOffset, endOffset, isHebrew = false) {
+      const start = getDateFromOffset(startOffset);
+      const end = getDateFromOffset(endOffset);
+      const startDay = start.getDate();
+      const endDay = end.getDate();
+      const month = start.getMonth();
+      
+      if (isHebrew) {
+        return `${startDay}-${endDay} דצמבר`;
+      } else {
+        return `Dec ${startDay}-${endDay}`;
+      }
+    }
+    
+    // Format single date for checklist
+    function formatChecklistDate(offset, time = '', isHebrew = false) {
+      const date = getDateFromOffset(offset);
+      const day = date.getDate();
+      
+      if (isHebrew) {
+        return time ? `${day} דצמבר, ${time}` : `${day} דצמבר`;
+      } else {
+        return time ? `Dec ${day}, ${time}` : `Dec ${day}`;
+      }
+    }
+    
+    // Update start date
+    function updateStartDate() {
+      const input = document.getElementById('startDate');
+      startDate = new Date(input.value + 'T00:00:00');
+      updateUI();
+    }
+    
+    // Update subtitle with date range
+    function updateSubtitle() {
+      const endDate = getDateFromOffset(9);
+      const startDay = startDate.getDate();
+      const endDay = endDate.getDate();
+      const startMonth = monthNames[startDate.getMonth()];
+      const endMonth = monthNames[endDate.getMonth()];
+      const year = startDate.getFullYear();
+      
+      const isHe = currentLang === 'he';
+      let subtitle;
+      
+      if (startDate.getMonth() === endDate.getMonth()) {
+        subtitle = isHe 
+          ? `${startDay}-${endDay} דצמבר ${year}`
+          : `${startMonth} ${startDay}-${endDay}, ${year}`;
+      } else {
+        subtitle = isHe
+          ? `${startDay} ${startMonth === 'December' ? 'דצמבר' : startMonth} - ${endDay} ${endMonth === 'January' ? 'ינואר' : endMonth} ${year}`
+          : `${startMonth} ${startDay} - ${endMonth} ${endDay}, ${year}`;
+      }
+      
+      document.getElementById('subtitle').textContent = subtitle;
+    }
+    
     // Functions
     function toggleLanguage() {
       currentLang = currentLang === 'en' ? 'he' : 'en';
       document.documentElement.lang = currentLang;
       document.body.dir = currentLang === 'he' ? 'rtl' : 'ltr';
+      document.getElementById('dateLabel').textContent = currentLang === 'he' ? '📅 תאריך התחלה:' : '📅 Start Date:';
       updateUI();
     }
 
@@ -1513,7 +1644,7 @@
 
       // Update header
       document.getElementById('title').textContent = tr.title;
-      document.getElementById('subtitle').textContent = tr.subtitle;
+      updateSubtitle(); // Dynamic date range
       document.getElementById('langText').textContent = tr.langText;
       
       // Update stats
@@ -1566,7 +1697,9 @@
               ${item.nights ? `<span class="nights-tag">🛏️ ${item.nights} ${item.nights === 1 ? tr.night : tr.nights}</span>` : ''}
               ${item.priority === 'high' ? `<span class="urgent-tag">${tr.urgent}</span>` : ''}
             </div>
-            <div class="item-date">📅 ${isHe ? item.dateHe : item.date}</div>
+            <div class="item-date">📅 ${item.endOffset !== undefined 
+              ? formatDateRange(item.dayOffset, item.endOffset, isHe)
+              : formatChecklistDate(item.dayOffset, isHe ? item.timeHe : item.time, isHe)}</div>
             <div class="item-notes">${isHe ? item.notesHe : item.notes}</div>
           </div>
           <a href="${item.url}" target="_blank" class="book-btn">${tr.bookNow} →</a>
@@ -1592,7 +1725,7 @@
                 <div class="day-number ${day.stateClass}">${day.day}</div>
                 <div class="day-info">
                   <h3>
-                    ${isHe ? day.dateHe : day.date}
+                    ${formatDate(getDateFromOffset(day.dayOffset), isHe)}
                     ${specialBadge}
                   </h3>
                   <p>${isHe ? day.fromHe : day.from} → ${isHe ? day.toHe : day.to}</p>
