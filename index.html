@@ -1193,15 +1193,11 @@
     }
     
     .day-stats {
-      display: none;
-      gap: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
       font-size: 0.875rem;
-    }
-    
-    @media (min-width: 640px) {
-      .day-stats {
-        display: flex;
-      }
+      align-items: center;
     }
     
     .day-stat {
