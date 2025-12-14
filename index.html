@@ -201,12 +201,90 @@
       color: #9ca3af;
     }
     
-    body.dark-mode .stat-card,
+    body.dark-mode .stat-card {
+      background: #334155;
+      border-color: #475569;
+    }
+    
     body.dark-mode .checklist-section,
     body.dark-mode .day-card,
     body.dark-mode .emergency-section {
       background: #1e293b;
       border-color: #374151;
+    }
+    
+    /* Dark mode for light-colored sections inside day cards */
+    body.dark-mode .nav-section {
+      background: linear-gradient(135deg, #1e3a5f, #1e3a8a);
+      border-color: #3b82f6;
+    }
+    
+    body.dark-mode .highlight-box {
+      background: linear-gradient(135deg, #78350f, #92400e);
+      border-color: #b45309;
+    }
+    
+    body.dark-mode .highlight-title,
+    body.dark-mode .highlight-text {
+      color: #fef3c7;
+    }
+    
+    body.dark-mode .info-box {
+      background: #334155 !important;
+      border-color: #475569;
+    }
+    
+    body.dark-mode .info-box .info-label,
+    body.dark-mode .info-box .info-value {
+      color: #e2e8f0;
+    }
+    
+    body.dark-mode .info-box .label,
+    body.dark-mode .info-box .value,
+    body.dark-mode .info-box .sub {
+      color: #e2e8f0 !important;
+    }
+    
+    body.dark-mode .tips-box {
+      background: #1e3a5f;
+      border-color: #3b82f6;
+    }
+    
+    body.dark-mode .tips-box .tips-title,
+    body.dark-mode .tips-box li {
+      color: #e2e8f0;
+    }
+    
+    body.dark-mode .time-section {
+      background: #1e293b !important;
+      border-color: #475569 !important;
+    }
+    
+    body.dark-mode .time-section.morning {
+      background: linear-gradient(135deg, #1e3a5f, #312e81) !important;
+    }
+    
+    body.dark-mode .time-section.afternoon {
+      background: linear-gradient(135deg, #1e3a5f, #1e3a8a) !important;
+    }
+    
+    body.dark-mode .time-section.evening {
+      background: linear-gradient(135deg, #312e81, #1e1b4b) !important;
+    }
+    
+    body.dark-mode .gas-tag {
+      background: #475569;
+      color: #e2e8f0;
+      border: 1px solid #64748b;
+    }
+    
+    body.dark-mode .gas-section {
+      background: #1e293b;
+      border: 1px solid #334155;
+    }
+    
+    body.dark-mode .gas-title {
+      color: #f1f5f9;
     }
     
     body.dark-mode .day-content,
@@ -503,20 +581,53 @@
     /* Stats Grid */
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
       margin-bottom: 24px;
     }
 
-    @media (min-width: 640px) {
+    @media (min-width: 480px) {
       .stats-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(6, 1fr);
+        gap: 10px;
       }
     }
-
-    @media (min-width: 900px) {
-      .stats-grid {
-        grid-template-columns: repeat(5, 1fr);
+    
+    .stat-card {
+      padding: 12px 8px;
+    }
+    
+    .stat-card .icon {
+      width: 28px;
+      height: 28px;
+      font-size: 0.9rem;
+    }
+    
+    .stat-card .value {
+      font-size: 1.2rem;
+    }
+    
+    .stat-card .label {
+      font-size: 0.65rem;
+    }
+    
+    @media (min-width: 640px) {
+      .stat-card {
+        padding: 16px 12px;
+      }
+      
+      .stat-card .icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+      }
+      
+      .stat-card .value {
+        font-size: 1.5rem;
+      }
+      
+      .stat-card .label {
+        font-size: 0.75rem;
       }
     }
     
@@ -1559,30 +1670,30 @@
       }
     }
     
-    /* Mobile: Stats cards */
-    @media (max-width: 640px) {
+    /* Mobile: Stats cards - 6 in a row on wider phones, 3x2 on narrow */
+    @media (max-width: 479px) {
       .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
       }
       
       .stat-card {
-        padding: 16px 12px;
-        min-height: 100px;
+        padding: 10px 6px;
+        min-height: 80px;
       }
       
       .stat-card .value {
-        font-size: 1.5rem;
+        font-size: 1rem;
       }
       
       .stat-card .label {
-        font-size: 0.75rem;
+        font-size: 0.6rem;
       }
       
       .stat-card .icon {
-        width: 32px;
-        height: 32px;
-        font-size: 1rem;
+        width: 24px;
+        height: 24px;
+        font-size: 0.8rem;
       }
     }
     
@@ -1796,7 +1907,7 @@
     }
   </style>
 </head>
-<body>
+<body class="dark-mode">
   <header class="header">
     <div class="header-content">
       <div class="logo">
@@ -1811,7 +1922,7 @@
           <label for="startDate" id="dateLabel">📅 Start Date:</label>
           <input type="date" id="startDate" value="2025-12-22" onchange="updateStartDate()">
         </div>
-        <button class="dark-toggle" onclick="toggleDarkMode()" title="Toggle dark mode" id="darkToggle">🌙</button>
+        <button class="dark-toggle" onclick="toggleDarkMode()" title="Toggle dark mode" id="darkToggle">☀️</button>
         <button class="download-btn" onclick="downloadTrip()" title="Download" id="downloadBtn">💾</button>
         <button class="lang-btn" onclick="toggleLanguage()">
           🌐 <span id="langText">עברית</span>
@@ -1854,6 +1965,11 @@
         <div class="icon" style="background:#dcfce7;">📍</div>
         <div class="value">22+</div>
         <div class="label" id="placesLabel">places</div>
+      </div>
+      <div class="stat-card clickable" onclick="showModal('elevation')">
+        <div class="icon" style="background:#e0e7ff;">⛰️</div>
+        <div class="value">2,200m</div>
+        <div class="label" id="elevationLabel">max altitude</div>
       </div>
     </div>
 
@@ -3967,6 +4083,7 @@
         hoursLabel: 'hours',
         budgetLabel: 'budget',
         placesLabel: 'places',
+        elevationLabel: 'max altitude',
         mapsText: 'Open in Google Maps',
         checklistTitle: 'Booking Checklist - Must Book Ahead',
         filterText: 'Urgent Only',
@@ -4011,6 +4128,7 @@
         hoursLabel: 'שעות',
         budgetLabel: 'תקציב',
         placesLabel: 'מקומות',
+        elevationLabel: 'גובה מקס׳',
         mapsText: 'פתח בגוגל מפות',
         checklistTitle: 'רשימת הזמנות - חובה להזמין מראש',
         filterText: 'דחופים בלבד',
@@ -4708,23 +4826,14 @@
         ];
         
         const states = [
-          { name: 'Texas', nameHe: 'טקסס', abbr: 'TX', color: '#a855f7' },
-          { name: 'New Mexico', nameHe: 'ניו מקסיקו', abbr: 'NM', color: '#eab308' },
-          { name: 'Arizona', nameHe: 'אריזונה', abbr: 'AZ', color: '#ef4444' },
-          { name: 'Utah', nameHe: 'יוטה', abbr: 'UT', color: '#22c55e' },
+          { name: 'Texas', nameHe: 'טקסס', abbr: 'TX', color: '#a855f7', textColor: '#fff' },
+          { name: 'New Mexico', nameHe: 'ניו מקסיקו', abbr: 'NM', color: '#fbbf24', textColor: '#1f2937' },
+          { name: 'Arizona', nameHe: 'אריזונה', abbr: 'AZ', color: '#ef4444', textColor: '#fff' },
+          { name: 'Utah', nameHe: 'יוטה', abbr: 'UT', color: '#22c55e', textColor: '#fff' },
         ];
         
         const cities = [
           'Alamogordo', 'Santa Fe', 'Page', 'Springdale', 'Tusayan', 'Tucson', 'Sedona', 'Flagstaff', 'Kayenta', 'Kanab', 'Farmington', 'Albuquerque'
-        ];
-        
-        const elevation = [
-          { loc: 'Round Rock, TX', locHe: 'ראונד רוק', elev: '220m', icon: '🏠' },
-          { loc: 'White Sands, NM', locHe: 'וייט סנדס', elev: '1,200m', icon: '🏜️' },
-          { loc: 'Santa Fe, NM', locHe: 'סנטה פה', elev: '2,200m', icon: '🎨' },
-          { loc: 'Grand Canyon, AZ', locHe: 'גרנד קניון', elev: '2,134m', icon: '🏜️' },
-          { loc: 'Zion, UT', locHe: 'זאיון', elev: '1,200m', icon: '⛰️' },
-          { loc: 'Tucson, AZ', locHe: 'טוסון', elev: '728m', icon: '🌵' },
         ];
         
         content = `
@@ -4733,7 +4842,7 @@
             ${parks.map(p => `
               <div class="modal-row">
                 <span class="modal-row-label">${p.icon} ${isHe ? p.nameHe : p.name}</span>
-                <span class="modal-row-value" style="background:#f0fdf4;padding:2px 8px;border-radius:10px;font-size:0.8rem;">${p.state}</span>
+                <span class="modal-row-value" style="background:#22c55e;color:#fff;padding:4px 10px;border-radius:10px;font-size:0.75rem;font-weight:600;">${p.state}</span>
               </div>
             `).join('')}
           </div>
@@ -4742,32 +4851,67 @@
             <div style="font-weight:700;margin-bottom:8px;">🗺️ ${isHe ? 'מדינות (4)' : 'States (4)'}</div>
             <div style="display:flex;gap:8px;flex-wrap:wrap;">
               ${states.map(s => `
-                <span style="background:${s.color};color:white;padding:6px 12px;border-radius:12px;font-weight:600;">
-                  ${s.abbr} ${isHe ? s.nameHe : s.name}
+                <span style="background:${s.color};color:${s.textColor};padding:8px 14px;border-radius:12px;font-weight:600;">
+                  ${isHe ? s.nameHe : s.name}
                 </span>
               `).join('')}
             </div>
           </div>
           
-          <div style="margin-bottom:16px;">
+          <div>
             <div style="font-weight:700;margin-bottom:8px;">🏙️ ${isHe ? 'ערים ועיירות (12+)' : 'Cities & Towns (12+)'}</div>
             <div style="font-size:0.85rem;color:#6b7280;line-height:1.8;">
               ${cities.join(' · ')}
             </div>
           </div>
+        `;
+      } else if (type === 'elevation') {
+        title.innerHTML = isHe ? '⛰️ שינויי גובה' : '⛰️ Elevation Profile';
+        
+        const elevations = [
+          { loc: 'Round Rock, TX', locHe: 'ראונד רוק', elev: 220, unit: 'm', icon: '🏠', day: 1 },
+          { loc: 'White Sands, NM', locHe: 'וייט סנדס', elev: 1200, unit: 'm', icon: '🏜️', day: 1 },
+          { loc: 'Santa Fe, NM', locHe: 'סנטה פה', elev: 2200, unit: 'm', icon: '🎨', day: 2 },
+          { loc: 'Monument Valley', locHe: 'מוניומנט ואלי', elev: 1700, unit: 'm', icon: '🏜️', day: 4 },
+          { loc: 'Page, AZ', locHe: 'פייג\'', elev: 1200, unit: 'm', icon: '📸', day: 5 },
+          { loc: 'Zion NP, UT', locHe: 'זאיון', elev: 1200, unit: 'm', icon: '⛰️', day: 6 },
+          { loc: 'Grand Canyon, AZ', locHe: 'גרנד קניון', elev: 2134, unit: 'm', icon: '🏜️', day: 7 },
+          { loc: 'Tucson, AZ', locHe: 'טוסון', elev: 728, unit: 'm', icon: '🌵', day: 9 },
+        ];
+        
+        const maxElev = 2200;
+        
+        content = `
+          <div style="margin-bottom:16px;">
+            <div style="font-weight:700;margin-bottom:12px;">📈 ${isHe ? 'פרופיל גובה לפי יום' : 'Elevation by Day'}</div>
+            ${elevations.map(e => {
+              const pct = (e.elev / maxElev) * 100;
+              return `
+                <div style="margin-bottom:8px;">
+                  <div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:4px;">
+                    <span>${e.icon} ${isHe ? e.locHe : e.loc}</span>
+                    <span style="font-weight:600;">${e.elev.toLocaleString()}m</span>
+                  </div>
+                  <div style="background:#e5e7eb;border-radius:4px;height:8px;overflow:hidden;">
+                    <div style="background:linear-gradient(90deg,#22c55e,#eab308,#ef4444);width:${pct}%;height:100%;border-radius:4px;"></div>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
           
-          <div>
-            <div style="font-weight:700;margin-bottom:8px;">⛰️ ${isHe ? 'שינויי גובה' : 'Elevation Changes'}</div>
-            ${elevation.map(e => `
-              <div class="modal-row">
-                <span class="modal-row-label">${e.icon} ${isHe ? e.locHe : e.loc}</span>
-                <span class="modal-row-value">${e.elev}</span>
-              </div>
-            `).join('')}
-            <div class="modal-row total" style="margin-top:8px;">
-              <span class="modal-row-label">📈 ${isHe ? 'הפרש גובה מקסימלי' : 'Max Elevation Difference'}</span>
-              <span class="modal-row-value">~2,000m</span>
+          <div style="background:#fef3c7;border-radius:12px;padding:12px;margin-top:16px;">
+            <div style="font-weight:700;margin-bottom:8px;">⚠️ ${isHe ? 'אזהרות גובה' : 'Altitude Warnings'}</div>
+            <div style="font-size:0.85rem;color:#92400e;">
+              <div style="margin-bottom:4px;">• ${isHe ? 'סנטה פה וגרנד קניון מעל 2,000 מטר' : 'Santa Fe & Grand Canyon above 2,000m'}</div>
+              <div style="margin-bottom:4px;">• ${isHe ? 'שתו הרבה מים!' : 'Drink lots of water!'}</div>
+              <div>• ${isHe ? 'הטמפרטורה יורדת ~6°C לכל 1,000 מטר' : 'Temperature drops ~6°C per 1,000m'}</div>
             </div>
+          </div>
+          
+          <div class="modal-row total" style="margin-top:16px;">
+            <span class="modal-row-label">📊 ${isHe ? 'הפרש גובה מקסימלי' : 'Max Elevation Difference'}</span>
+            <span class="modal-row-value">~2,000m</span>
           </div>
         `;
       }
@@ -6081,6 +6225,7 @@
       document.getElementById('hoursLabel').textContent = tr.hoursLabel;
       document.getElementById('budgetLabel').textContent = tr.budgetLabel;
       document.getElementById('placesLabel').textContent = tr.placesLabel;
+      document.getElementById('elevationLabel').textContent = tr.elevationLabel;
       document.getElementById('mapsText').textContent = tr.mapsText;
       
       // Update checklist
