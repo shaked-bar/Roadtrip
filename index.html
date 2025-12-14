@@ -1472,6 +1472,332 @@
     .hidden {
       display: none !important;
     }
+    
+    /* ========== MOBILE OPTIMIZATIONS ========== */
+    
+    /* Mobile: Road Story / Explore buttons */
+    @media (max-width: 768px) {
+      .road-story-btn {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+        min-height: 44px;
+        min-width: 100px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+      }
+      
+      .road-story-btn:active {
+        transform: scale(0.95);
+        opacity: 0.9;
+      }
+    }
+    
+    /* Mobile: Modal fullscreen */
+    @media (max-width: 768px) {
+      .modal-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 100vh !important;
+        max-height: 100vh !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+      }
+      
+      .modal-close {
+        width: 44px;
+        height: 44px;
+        font-size: 1.5rem;
+        top: 10px;
+        right: 10px;
+      }
+      
+      #modalBody {
+        padding-bottom: 100px;
+      }
+    }
+    
+    /* Mobile: Header improvements */
+    @media (max-width: 640px) {
+      .header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px;
+      }
+      
+      .header-left h1 {
+        font-size: 1.3rem;
+      }
+      
+      .header-right {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      
+      .date-picker {
+        flex: 1;
+        min-width: 140px;
+      }
+      
+      .date-picker input {
+        width: 100%;
+        min-height: 44px;
+      }
+      
+      .dark-toggle, .download-btn, .lang-toggle {
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .lang-toggle {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+      }
+    }
+    
+    /* Mobile: Stats cards */
+    @media (max-width: 640px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      
+      .stat-card {
+        padding: 16px 12px;
+        min-height: 100px;
+      }
+      
+      .stat-card .value {
+        font-size: 1.5rem;
+      }
+      
+      .stat-card .label {
+        font-size: 0.75rem;
+      }
+      
+      .stat-card .icon {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+      }
+    }
+    
+    /* Mobile: Day cards */
+    @media (max-width: 640px) {
+      .day-card {
+        margin-bottom: 12px;
+      }
+      
+      .day-header {
+        padding: 16px;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      
+      .day-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+      }
+      
+      .day-info h3 {
+        font-size: 0.9rem;
+      }
+      
+      .day-info p {
+        font-size: 0.8rem;
+      }
+      
+      .day-stats {
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      
+      .day-stat {
+        font-size: 0.75rem;
+        padding: 4px 8px;
+        background: rgba(0,0,0,0.05);
+        border-radius: 8px;
+      }
+      
+      .state-badge {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+      }
+      
+      .day-right {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 8px;
+      }
+      
+      .chevron {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+      }
+    }
+    
+    /* Mobile: Day content */
+    @media (max-width: 640px) {
+      .day-content {
+        padding: 16px;
+      }
+      
+      .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      
+      .info-item {
+        padding: 12px;
+      }
+      
+      .info-item .value {
+        font-size: 1rem;
+      }
+      
+      .timeline-section h4 {
+        font-size: 0.95rem;
+        padding: 10px 12px;
+      }
+      
+      .timeline-item {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+      }
+    }
+    
+    /* Mobile: Booking checklist */
+    @media (max-width: 640px) {
+      .checklist-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      
+      .checklist-controls {
+        width: 100%;
+        justify-content: space-between;
+      }
+      
+      .filter-btn {
+        min-height: 40px;
+        padding: 8px 16px;
+      }
+      
+      .booking-item {
+        padding: 14px;
+      }
+      
+      .booking-item .book-btn {
+        min-height: 40px;
+        padding: 8px 16px;
+      }
+    }
+    
+    /* Mobile: Maps button */
+    @media (max-width: 640px) {
+      .maps-btn {
+        padding: 16px;
+        font-size: 1rem;
+        min-height: 56px;
+      }
+    }
+    
+    /* Mobile: Road Story modal content */
+    @media (max-width: 640px) {
+      .stage-filter {
+        overflow-x: auto;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+      }
+      
+      .stage-btn {
+        min-height: 40px;
+        padding: 10px 14px;
+        white-space: nowrap;
+        font-size: 0.8rem;
+      }
+      
+      .road-category-header {
+        font-size: 0.95rem;
+        position: sticky;
+        top: 0;
+        background: white;
+        z-index: 10;
+        padding: 12px 0;
+      }
+      
+      body.dark-mode .road-category-header {
+        background: #1f2937;
+      }
+      
+      .road-item {
+        padding: 12px 0;
+      }
+      
+      .road-item-title {
+        font-size: 0.95rem;
+      }
+      
+      .road-item-desc {
+        font-size: 0.85rem;
+      }
+      
+      .road-item-link {
+        padding: 8px 0;
+        display: inline-block;
+        min-height: 44px;
+        line-height: 28px;
+      }
+    }
+    
+    /* Mobile: Countdown banner */
+    @media (max-width: 640px) {
+      .countdown-banner {
+        font-size: 1rem;
+        padding: 12px 16px;
+      }
+    }
+    
+    /* Mobile: Bottom safe area (for iPhone notch) */
+    @supports (padding-bottom: env(safe-area-inset-bottom)) {
+      .container {
+        padding-bottom: calc(20px + env(safe-area-inset-bottom));
+      }
+      
+      .modal-content {
+        padding-bottom: calc(20px + env(safe-area-inset-bottom));
+      }
+    }
+    
+    /* Mobile: Smooth scrolling */
+    @media (max-width: 768px) {
+      html {
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+      }
+      
+      * {
+        -webkit-tap-highlight-color: transparent;
+      }
+    }
+    
+    /* Mobile: Touch-friendly links */
+    @media (max-width: 768px) {
+      a, button {
+        touch-action: manipulation;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1794,7 +2120,7 @@
                   <div class="day-stat" style="color:#2563eb;">🚗 6h</div>
                   <div class="day-stat" style="color:#ea580c;">🌡️ 11°C</div>
                   <span class="state-badge" style="background:#eab308">NM</span>
-                  <button class="road-story-btn" onclick="event.stopPropagation(); showRoadStory(1);">🛣️ Road Story</button>
+                  <button class="road-story-btn" onclick="event.preventDefault(); event.stopPropagation(); showRoadStory(1); return false;" ontouchstart="this.classList.add('touching')" ontouchend="event.preventDefault(); event.stopPropagation(); showRoadStory(1); this.classList.remove('touching'); return false;">🛣️ Road Story</button>
                 </div>
                 <span class="chevron" id="chevron-1">▼</span>
               </div>
@@ -1981,7 +2307,7 @@
                   <div class="day-stat" style="color:#2563eb;">🚗 4h</div>
                   <div class="day-stat" style="color:#ea580c;">🌡️ 7°C</div>
                   <span class="state-badge" style="background:#eab308">NM</span>
-                  <button class="road-story-btn" onclick="event.stopPropagation(); showRoadStory(2);">🛣️ Road Story</button>
+                  <button class="road-story-btn" onclick="event.preventDefault(); event.stopPropagation(); showRoadStory(2); return false;" ontouchstart="this.classList.add('touching')" ontouchend="event.preventDefault(); event.stopPropagation(); showRoadStory(2); this.classList.remove('touching'); return false;">🛣️ Road Story</button>
                 </div>
                 <span class="chevron" id="chevron-2">▼</span>
               </div>
@@ -2168,7 +2494,7 @@
                   <div class="day-stat" style="color:#2563eb;">🚗 0h</div>
                   <div class="day-stat" style="color:#ea580c;">🌡️ 9°C</div>
                   <span class="state-badge" style="background:#eab308">NM</span>
-                  <button class="road-story-btn" onclick="event.stopPropagation(); showRoadStory(3);">🛣️ Explore</button>
+                  <button class="road-story-btn" onclick="event.preventDefault(); event.stopPropagation(); showRoadStory(3); return false;" ontouchstart="this.classList.add('touching')" ontouchend="event.preventDefault(); event.stopPropagation(); showRoadStory(3); this.classList.remove('touching'); return false;">🛣️ Explore</button>
                 </div>
                 <span class="chevron" id="chevron-3">▼</span>
               </div>
@@ -2336,7 +2662,7 @@
                   <div class="day-stat" style="color:#2563eb;">🚗 5h</div>
                   <div class="day-stat" style="color:#ea580c;">🌡️ 7°C</div>
                   <span class="state-badge" style="background:#ef4444">AZ/UT</span>
-                  <button class="road-story-btn" onclick="event.stopPropagation(); showRoadStory(4);">🛣️ Road Story</button>
+                  <button class="road-story-btn" onclick="event.preventDefault(); event.stopPropagation(); showRoadStory(4); return false;" ontouchstart="this.classList.add('touching')" ontouchend="event.preventDefault(); event.stopPropagation(); showRoadStory(4); this.classList.remove('touching'); return false;">🛣️ Road Story</button>
                 </div>
                 <span class="chevron" id="chevron-4">▼</span>
               </div>
@@ -2523,7 +2849,7 @@
                   <div class="day-stat" style="color:#2563eb;">🚗 2.5h</div>
                   <div class="day-stat" style="color:#ea580c;">🌡️ 9°C</div>
                   <span class="state-badge" style="background:#ef4444">AZ</span>
-                  <button class="road-story-btn" onclick="event.stopPropagation(); showRoadStory(5);">🛣️ Road Story</button>
+                  <button class="road-story-btn" onclick="event.preventDefault(); event.stopPropagation(); showRoadStory(5); return false;" ontouchstart="this.classList.add('touching')" ontouchend="event.preventDefault(); event.stopPropagation(); showRoadStory(5); this.classList.remove('touching'); return false;">🛣️ Road Story</button>
                 </div>
                 <span class="chevron" id="chevron-5">▼</span>
               </div>
@@ -2710,7 +3036,7 @@
                   <div class="day-stat" style="color:#2563eb;">🚗 2.5h</div>
                   <div class="day-stat" style="color:#ea580c;">🌡️ 11°C</div>
                   <span class="state-badge" style="background:#22c55e">UT</span>
-                  <button class="road-story-btn" onclick="event.stopPropagation(); showRoadStory(6);">🛣️ Road Story</button>
+                  <button class="road-story-btn" onclick="event.preventDefault(); event.stopPropagation(); showRoadStory(6); return false;" ontouchstart="this.classList.add('touching')" ontouchend="event.preventDefault(); event.stopPropagation(); showRoadStory(6); this.classList.remove('touching'); return false;">🛣️ Road Story</button>
                 </div>
                 <span class="chevron" id="chevron-6">▼</span>
               </div>
@@ -2897,7 +3223,7 @@
                   <div class="day-stat" style="color:#2563eb;">🚗 4.5h</div>
                   <div class="day-stat" style="color:#ea580c;">🌡️ 7°C</div>
                   <span class="state-badge" style="background:#ef4444">AZ</span>
-                  <button class="road-story-btn" onclick="event.stopPropagation(); showRoadStory(7);">🛣️ Road Story</button>
+                  <button class="road-story-btn" onclick="event.preventDefault(); event.stopPropagation(); showRoadStory(7); return false;" ontouchstart="this.classList.add('touching')" ontouchend="event.preventDefault(); event.stopPropagation(); showRoadStory(7); this.classList.remove('touching'); return false;">🛣️ Road Story</button>
                 </div>
                 <span class="chevron" id="chevron-7">▼</span>
               </div>
@@ -3084,7 +3410,7 @@
                   <div class="day-stat" style="color:#2563eb;">🚗 0h</div>
                   <div class="day-stat" style="color:#ea580c;">🌡️ 8°C</div>
                   <span class="state-badge" style="background:#ef4444">AZ</span>
-                  <button class="road-story-btn" onclick="event.stopPropagation(); showRoadStory(8);">🛣️ Explore</button>
+                  <button class="road-story-btn" onclick="event.preventDefault(); event.stopPropagation(); showRoadStory(8); return false;" ontouchstart="this.classList.add('touching')" ontouchend="event.preventDefault(); event.stopPropagation(); showRoadStory(8); this.classList.remove('touching'); return false;">🛣️ Explore</button>
                 </div>
                 <span class="chevron" id="chevron-8">▼</span>
               </div>
@@ -3252,7 +3578,7 @@
                   <div class="day-stat" style="color:#2563eb;">🚗 5.5h</div>
                   <div class="day-stat" style="color:#ea580c;">🌡️ 18°C</div>
                   <span class="state-badge" style="background:#ef4444">AZ</span>
-                  <button class="road-story-btn" onclick="event.stopPropagation(); showRoadStory(9);">🛣️ Road Story</button>
+                  <button class="road-story-btn" onclick="event.preventDefault(); event.stopPropagation(); showRoadStory(9); return false;" ontouchstart="this.classList.add('touching')" ontouchend="event.preventDefault(); event.stopPropagation(); showRoadStory(9); this.classList.remove('touching'); return false;">🛣️ Road Story</button>
                 </div>
                 <span class="chevron" id="chevron-9">▼</span>
               </div>
@@ -3439,7 +3765,7 @@
                   <div class="day-stat" style="color:#2563eb;">🚗 10h</div>
                   <div class="day-stat" style="color:#ea580c;">🌡️ 14°C</div>
                   <span class="state-badge" style="background:#a855f7">TX</span>
-                  <button class="road-story-btn" onclick="event.stopPropagation(); showRoadStory(10);">🛣️ Road Story</button>
+                  <button class="road-story-btn" onclick="event.preventDefault(); event.stopPropagation(); showRoadStory(10); return false;" ontouchstart="this.classList.add('touching')" ontouchend="event.preventDefault(); event.stopPropagation(); showRoadStory(10); this.classList.remove('touching'); return false;">🛣️ Road Story</button>
                 </div>
                 <span class="chevron" id="chevron-10">▼</span>
               </div>
@@ -5844,7 +6170,7 @@
                   <div class="day-stat" style="color:#2563eb;">🚗 ${day.driveHours}h</div>
                   <div class="day-stat" style="color:#ea580c;">🌡️ ${day.weatherHigh.c}°C</div>
                   <span class="state-badge" style="background:${day.stateClass === 'nm' ? '#eab308' : day.stateClass === 'az' ? '#ef4444' : day.stateClass === 'ut' ? '#22c55e' : '#a855f7'}">${day.state}</span>
-                  <button class="road-story-btn" onclick="event.stopPropagation(); showRoadStory(${day.day});">🛣️ ${isHe ? (day.driveHours > 0 ? 'סיפור הדרך' : 'גלה את המקום') : (day.driveHours > 0 ? 'Road Story' : 'Explore')}</button>
+                  <button class="road-story-btn" onclick="event.preventDefault(); event.stopPropagation(); showRoadStory(${day.day}); return false;" ontouchstart="this.classList.add('touching')" ontouchend="event.preventDefault(); event.stopPropagation(); showRoadStory(${day.day}); this.classList.remove('touching'); return false;">🛣️ ${isHe ? (day.driveHours > 0 ? 'סיפור הדרך' : 'גלה את המקום') : (day.driveHours > 0 ? 'Road Story' : 'Explore')}</button>
                 </div>
                 <span class="chevron" id="chevron-${day.day}">▼</span>
               </div>
