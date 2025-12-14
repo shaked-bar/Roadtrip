@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Southwest Road Trip | December 20-29, 2025</title>
+  <title>Southwest Road Trip | December 22-31, 2025</title>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * {
@@ -99,6 +99,150 @@
     .lang-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 16px rgba(249,115,22,0.4);
+    }
+    
+    /* Navigation Section */
+    .nav-section {
+      background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+      border: 1px solid #7dd3fc;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    
+    .nav-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-weight: 600;
+      color: #0369a1;
+    }
+    
+    .nav-btn {
+      background: #2563eb;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    
+    .nav-btn:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+    }
+    
+    .route-preview {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.7);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: #334155;
+    }
+    
+    .route-icon { font-size: 1.2rem; }
+    .route-time { margin-left: auto; color: #64748b; font-weight: 500; }
+    
+    /* Destination Section */
+    .destination-section {
+      background: linear-gradient(135deg, #fffbeb, #fef3c7);
+      border: 1px solid #fcd34d;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    
+    .dest-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+    }
+    
+    .dest-header:hover { background: rgba(0,0,0,0.02); }
+    
+    .dest-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #f97316, #ef4444);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    
+    .dest-info { flex: 1; }
+    .dest-name { display: block; font-weight: 700; color: #111827; }
+    .dest-elevation { font-size: 0.8rem; color: #6b7280; }
+    .dest-toggle { color: #f97316; font-weight: 500; font-size: 0.875rem; }
+    
+    .dest-content {
+      padding: 0 16px 16px;
+    }
+    
+    .dest-desc {
+      color: #374151;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    
+    .dest-item {
+      background: rgba(255,255,255,0.7);
+      padding: 10px;
+      border-radius: 8px;
+    }
+    
+    .dest-item .label { display: block; font-size: 0.75rem; color: #6b7280; text-transform: uppercase; }
+    .dest-item .val { font-weight: 600; color: #111827; }
+    
+    .photo-tip {
+      background: rgba(168,85,247,0.1);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: #7c3aed;
+      margin-bottom: 12px;
+    }
+    
+    .dest-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    
+    .dest-link {
+      background: white;
+      border: 1px solid #e5e7eb;
+      color: #2563eb;
+      padding: 6px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+    
+    .dest-link:hover {
+      background: #eff6ff;
+      border-color: #3b82f6;
     }
     
     /* Stats Grid */
@@ -912,12 +1056,23 @@
     // Trip days data
     const tripDays = [
       {
-        day: 1, date: 'Friday, December 20', dateHe: 'שישי, 20 בדצמבר',
+        day: 1, date: 'Sunday, December 22', dateHe: 'ראשון, 22 בדצמבר',
         from: 'Round Rock, TX', to: 'White Sands, NM',
         fromHe: 'ראונד רוק', toHe: 'וייט סנדס',
-        driveHours: 6, state: 'NM', stateClass: 'nm',
+        driveHours: 6, distanceKm: 680, state: 'NM', stateClass: 'nm',
         weatherHigh: { c: 11, f: 52 }, weatherLow: { c: -2, f: 28 },
         sleepCity: 'Alamogordo, NM', sleepCityHe: 'אלמוגורדו',
+        navigationUrl: 'https://www.google.com/maps/dir/Round+Rock,TX/Fort+Stockton,TX/Alamogordo,NM/White+Sands+National+Park',
+        mainDestination: {
+          name: 'White Sands National Park', nameHe: 'פארק וייט סנדס',
+          elevation: { m: 1200, ft: 4000 },
+          description: 'The world\'s largest gypsum dune field - 275 square miles of brilliant white dunes.',
+          descriptionHe: 'שדה דיונות הגבס הגדול בעולם - 710 קמ"ר של דיונות לבנות מבריקות.',
+          entranceFee: '$25/vehicle', bestTime: 'Sunset', bestTimeHe: 'שקיעה',
+          photoTip: 'Stand on top of a dune during golden hour for silhouette shots',
+          photoTipHe: 'עמדו על דיונה גבוהה בשעת הזהב לצילומי צלליות',
+          links: [{ label: 'NPS Official', url: 'https://www.nps.gov/whsa' }, { label: 'AllTrails', url: 'https://www.alltrails.com/parks/us/new-mexico/white-sands-national-park' }]
+        },
         signal: 'weak',
         gasStops: ['Round Rock', 'Fort Stockton', 'Alamogordo'],
         gasStopsHe: ['ראונד רוק', 'פורט סטוקטון', 'אלמוגורדו'],
@@ -943,13 +1098,24 @@
         hotel: { name: 'Fairfield Inn Alamogordo', price: '$100-120', phone: '(575) 437-0088' },
       },
       {
-        day: 2, date: 'Saturday, December 21', dateHe: 'שבת, 21 בדצמבר',
+        day: 2, date: 'Monday, December 23', dateHe: 'שני, 23 בדצמבר',
         from: 'White Sands', to: 'Santa Fe, NM',
         fromHe: 'וייט סנדס', toHe: 'סנטה פה',
-        driveHours: 4, state: 'NM', stateClass: 'nm',
+        driveHours: 4, distanceKm: 420, state: 'NM', stateClass: 'nm',
         weatherHigh: { c: 7, f: 45 }, weatherLow: { c: -6, f: 22 },
         sleepCity: 'Santa Fe, NM', sleepCityHe: 'סנטה פה',
         signal: 'weak',
+        navigationUrl: 'https://www.google.com/maps/dir/White+Sands+National+Park/Santa+Fe,NM',
+        mainDestination: {
+          name: 'Santa Fe', nameHe: 'סנטה פה',
+          elevation: { m: 2200, ft: 7200 },
+          description: 'America\'s oldest capital city (founded 1610), famous for adobe architecture and art galleries.',
+          descriptionHe: 'עיר הבירה הוותיקה באמריקה (נוסדה 1610), מפורסמת בארכיטקטורת אדובי וגלריות אמנות.',
+          entranceFee: 'Free (city)', bestTime: 'Afternoon', bestTimeHe: 'אחה"צ',
+          photoTip: 'Canyon Road at sunset with farolitos (paper lanterns) in December',
+          photoTipHe: 'Canyon Road בשקיעה עם פנסי נייר בדצמבר',
+          links: [{ label: 'Visit Santa Fe', url: 'https://www.santafe.org' }, { label: 'Meow Wolf', url: 'https://meowwolf.com/visit/santa-fe' }]
+        },
         gasStops: ['Alamogordo'], gasStopsHe: ['אלמוגורדו'],
         sections: [
           { time: 'morning', range: '5:30 AM - 12:00 PM', activities: [
@@ -973,13 +1139,24 @@
         hotel: { name: 'Drury Plaza Hotel', price: '$150-180', phone: '(505) 424-2175', bonus: 'FREE evening food & drinks!', bonusHe: 'אוכל ושתייה חינם בערב!' },
       },
       {
-        day: 3, date: 'Sunday, December 22', dateHe: 'ראשון, 22 בדצמבר',
+        day: 3, date: 'Tuesday, December 24', dateHe: 'שלישי, 24 בדצמבר',
+        specialDay: 'christmasEve',
         from: 'Santa Fe', to: 'Santa Fe',
         fromHe: 'סנטה פה', toHe: 'סנטה פה',
-        driveHours: 0, state: 'NM', stateClass: 'nm',
+        driveHours: 0, distanceKm: 0, state: 'NM', stateClass: 'nm',
         weatherHigh: { c: 9, f: 48 }, weatherLow: { c: -4, f: 25 },
         sleepCity: 'Santa Fe, NM', sleepCityHe: 'סנטה פה',
         signal: 'good',
+        mainDestination: {
+          name: 'Meow Wolf', nameHe: 'מיאו וולף',
+          elevation: { m: 2200, ft: 7200 },
+          description: 'An immersive art experience - explore a Victorian house where every door leads to another dimension.',
+          descriptionHe: 'חוויית אמנות אימרסיבית - חקרו בית ויקטוריאני שבו כל דלת מובילה לממד אחר.',
+          entranceFee: '$45/person', bestTime: '11 AM', bestTimeHe: '11:00',
+          photoTip: 'The neon rooms and the treehouse are Instagram gold!',
+          photoTipHe: 'חדרי הניאון ובית העץ הם זהב לאינסטגרם!',
+          links: [{ label: 'Meow Wolf', url: 'https://meowwolf.com/visit/santa-fe' }, { label: 'Canyon Road', url: 'https://www.visitcanyonroad.com' }]
+        },
         gasStops: [], gasStopsHe: [],
         sections: [
           { time: 'morning', range: '8:00 AM - 12:00 PM', activities: [
@@ -1003,13 +1180,25 @@
         hotel: { name: 'Drury Plaza Hotel', price: '$150-180', phone: '(505) 424-2175' },
       },
       {
-        day: 4, date: 'Monday, December 23', dateHe: 'שני, 23 בדצמבר',
+        day: 4, date: 'Wednesday, December 25', dateHe: 'רביעי, 25 בדצמבר',
+        specialDay: 'christmas',
         from: 'Santa Fe, NM', to: 'Monument Valley',
         fromHe: 'סנטה פה', toHe: 'מוניומנט ואלי',
-        driveHours: 5, state: 'AZ/UT', stateClass: 'az',
+        driveHours: 5, distanceKm: 480, state: 'AZ/UT', stateClass: 'az',
         weatherHigh: { c: 7, f: 45 }, weatherLow: { c: -6, f: 22 },
         sleepCity: 'Monument Valley', sleepCityHe: 'מוניומנט ואלי',
         signal: 'none',
+        navigationUrl: 'https://www.google.com/maps/dir/Santa+Fe,NM/Farmington,NM/Kayenta,AZ/Monument+Valley',
+        mainDestination: {
+          name: 'Monument Valley', nameHe: 'מוניומנט ואלי',
+          elevation: { m: 1700, ft: 5500 },
+          description: 'Iconic sandstone buttes rising from the desert floor - backdrop for countless Western movies.',
+          descriptionHe: 'צוקי אבן חול איקוניים המתרוממים מקרקעית המדבר - הרקע לסרטי מערבונים אינספור.',
+          entranceFee: '$20/vehicle', bestTime: 'Sunrise & Sunset', bestTimeHe: 'זריחה ושקיעה',
+          photoTip: 'The View Hotel terrace at sunset - buttes glow orange!',
+          photoTipHe: 'מרפסת מלון The View בשקיעה - הצוקים זוהרים כתום!',
+          links: [{ label: 'Navajo Parks', url: 'https://navajonationparks.org/tribal-parks/monument-valley/' }, { label: 'The View Hotel', url: 'https://monumentvalleyview.com' }]
+        },
         gasStops: ['FARMINGTON - CRITICAL!'], gasStopsHe: ['פארמינגטון - קריטי!'],
         sections: [
           { time: 'morning', range: '7:00 AM - 12:00 PM', activities: [
@@ -1033,13 +1222,23 @@
         hotel: { name: 'The View Hotel ⭐⭐⭐', price: '$220-280', phone: '(435) 727-5555', bonus: 'Every room faces the buttes!', bonusHe: 'כל החדרים פונים לצוקים!' },
       },
       {
-        day: 5, date: 'Tuesday, December 24', dateHe: 'שלישי, 24 בדצמבר',
-        specialDay: 'christmasEve',
+        day: 5, date: 'Thursday, December 26', dateHe: 'חמישי, 26 בדצמבר',
         from: 'Monument Valley', to: 'Page, AZ',
         fromHe: 'מוניומנט ואלי', toHe: 'פייג\'',
-        driveHours: 2.5, state: 'AZ', stateClass: 'az',
+        driveHours: 2.5, distanceKm: 200, state: 'AZ', stateClass: 'az',
         weatherHigh: { c: 9, f: 48 }, weatherLow: { c: -2, f: 28 },
         sleepCity: 'Page, AZ', sleepCityHe: 'פייג\'',
+        navigationUrl: 'https://www.google.com/maps/dir/Monument+Valley/Mexican+Hat,UT/Page,AZ/Horseshoe+Bend',
+        mainDestination: {
+          name: 'Horseshoe Bend', nameHe: 'הורסשו בנד',
+          elevation: { m: 1300, ft: 4300 },
+          description: 'A dramatic 270° horseshoe-shaped meander of the Colorado River, 1,000 feet below.',
+          descriptionHe: 'פיתול דרמטי של 270° בצורת פרסה של נהר קולורדו, 300 מטר למטה.',
+          entranceFee: '$10 parking', bestTime: 'Sunset', bestTimeHe: 'שקיעה',
+          photoTip: 'Wide angle lens is a must! Bring flashlight for walk back.',
+          photoTipHe: 'עדשה רחבה היא חובה! קחו פנס לחזרה.',
+          links: [{ label: 'Horseshoe Bend', url: 'https://www.google.com/maps/place/Horseshoe+Bend' }, { label: 'Antelope Canyon', url: 'https://antelopecanyon.az' }]
+        },
         signal: 'weak',
         gasStops: ['Page'], gasStopsHe: ['פייג\''],
         sections: [
@@ -1064,15 +1263,25 @@
         hotel: { name: 'Hyatt Place Page', price: '$150-180', phone: '(928) 645-8851' },
       },
       {
-        day: 6, date: 'Wednesday, December 25', dateHe: 'רביעי, 25 בדצמבר',
-        specialDay: 'christmas',
+        day: 6, date: 'Friday, December 27', dateHe: 'שישי, 27 בדצמבר',
         from: 'Page, AZ', to: 'Zion NP, UT',
         fromHe: 'פייג\'', toHe: 'זאיון',
-        driveHours: 2.5, state: 'UT', stateClass: 'ut',
+        driveHours: 2.5, distanceKm: 190, state: 'UT', stateClass: 'ut',
         weatherHigh: { c: 11, f: 52 }, weatherLow: { c: -2, f: 28 },
         sleepCity: 'Springdale, UT', sleepCityHe: 'ספרינגדייל',
         signal: 'weak',
         gasStops: ['Page'], gasStopsHe: ['פייג\''],
+        navigationUrl: 'https://www.google.com/maps/dir/Page,AZ/Antelope+Canyon/Marble+Canyon,AZ/Zion+National+Park',
+        mainDestination: {
+          name: 'Zion National Park', nameHe: 'פארק לאומי זאיון',
+          elevation: { m: 1200, ft: 4000 },
+          description: 'Towering red and cream sandstone cliffs carved by the Virgin River. Famous for Angels Landing.',
+          descriptionHe: 'צוקי אבן חול אדומים וקרמיים מתנשאים שנחצבו על ידי נהר וירג\'ין.',
+          entranceFee: '$35/vehicle', bestTime: 'Morning', bestTimeHe: 'בוקר',
+          photoTip: 'Canyon Overlook Trail at sunset - easy 1 mile with stunning views',
+          photoTipHe: 'שביל Canyon Overlook בשקיעה - קל עם נופים מדהימים',
+          links: [{ label: 'NPS Zion', url: 'https://www.nps.gov/zion' }, { label: 'AllTrails', url: 'https://www.alltrails.com/parks/us/utah/zion-national-park' }]
+        },
         sections: [
           { time: 'morning', range: '7:00 AM - 12:00 PM', activities: [
             { icon: '🍳', text: 'Free hotel breakfast', textHe: 'ארוחת בוקר חינם', type: 'normal' },
@@ -1095,14 +1304,25 @@
         hotel: { name: 'Hampton Inn Springdale', price: '$140-170', phone: '(435) 772-0700' },
       },
       {
-        day: 7, date: 'Thursday, December 26', dateHe: 'חמישי, 26 בדצמבר',
+        day: 7, date: 'Saturday, December 28', dateHe: 'שבת, 28 בדצמבר',
         from: 'Zion NP', to: 'Grand Canyon',
         fromHe: 'זאיון', toHe: 'גרנד קניון',
-        driveHours: 4.5, state: 'AZ', stateClass: 'az',
+        driveHours: 4.5, distanceKm: 400, state: 'AZ', stateClass: 'az',
         weatherHigh: { c: 7, f: 44 }, weatherLow: { c: -7, f: 20 },
         sleepCity: 'Grand Canyon Village', sleepCityHe: 'גרנד קניון',
         signal: 'weak',
         gasStops: ['Kanab'], gasStopsHe: ['קנאב'],
+        navigationUrl: 'https://www.google.com/maps/dir/Zion+National+Park/Grand+Canyon+Village,AZ',
+        mainDestination: {
+          name: 'Grand Canyon South Rim', nameHe: 'גרנד קניון - שפה דרומית',
+          elevation: { m: 2100, ft: 7000 },
+          description: 'One of the Seven Natural Wonders - 277 miles long, 18 miles wide, 1 mile deep.',
+          descriptionHe: 'אחד משבעת פלאי הטבע - 446 ק"מ אורך, 29 ק"מ רוחב, 1.6 ק"מ עומק.',
+          entranceFee: '$35/vehicle', bestTime: 'Sunrise & Sunset', bestTimeHe: 'זריחה ושקיעה',
+          photoTip: 'Mather Point at sunrise, Hopi Point at sunset',
+          photoTipHe: 'Mather Point בזריחה, Hopi Point בשקיעה',
+          links: [{ label: 'NPS Grand Canyon', url: 'https://www.nps.gov/grca' }, { label: 'Rim Trail', url: 'https://www.nps.gov/grca/planyourvisit/rimtrail.htm' }]
+        },
         sections: [
           { time: 'morning', range: '7:00 AM - 12:00 PM', activities: [
             { icon: '🥾', text: 'Watchman or Pa\'rus Trail', textHe: 'שביל Watchman או Pa\'rus', type: 'normal' },
@@ -1125,14 +1345,24 @@
         hotel: { name: 'Bright Angel Lodge ⭐⭐', price: '$180-220', phone: '(928) 638-2631', bonus: 'Steps from the rim!', bonusHe: 'צעדים מהקניון!' },
       },
       {
-        day: 8, date: 'Friday, December 27', dateHe: 'שישי, 27 בדצמבר',
+        day: 8, date: 'Sunday, December 29', dateHe: 'ראשון, 29 בדצמבר',
         from: 'Grand Canyon', to: 'Grand Canyon',
         fromHe: 'גרנד קניון', toHe: 'גרנד קניון',
-        driveHours: 0, state: 'AZ', stateClass: 'az',
+        driveHours: 0, distanceKm: 0, state: 'AZ', stateClass: 'az',
         weatherHigh: { c: 8, f: 46 }, weatherLow: { c: -8, f: 18 },
         sleepCity: 'Grand Canyon Village', sleepCityHe: 'גרנד קניון',
         signal: 'weak',
         gasStops: [], gasStopsHe: [],
+        mainDestination: {
+          name: 'Grand Canyon Full Day', nameHe: 'יום מלא בגרנד קניון',
+          elevation: { m: 2100, ft: 7000 },
+          description: 'Take your time to experience sunrise, multiple viewpoints, and a hike into the canyon.',
+          descriptionHe: 'קחו את הזמן לחוות זריחה, נקודות תצפית מרובות, וטיול לתוך הקניון.',
+          entranceFee: 'Included', bestTime: 'All Day', bestTimeHe: 'כל היום',
+          photoTip: 'Bright Angel Trail - even 1-2 hours in gives amazing perspective',
+          photoTipHe: 'Bright Angel Trail - אפילו 1-2 שעות פנימה נותן פרספקטיבה מדהימה',
+          links: [{ label: 'Bright Angel Trail', url: 'https://www.nps.gov/grca/planyourvisit/bright-angel-trail.htm' }]
+        },
         sections: [
           { time: 'morning', range: '5:30 AM - 12:00 PM', activities: [
             { icon: '⭐', text: 'SUNRISE AT MATHER POINT (7:30 AM)', textHe: 'זריחה ב-MATHER POINT (7:30)', type: 'highlight' },
@@ -1155,14 +1385,25 @@
         hotel: { name: 'Bright Angel Lodge', price: '$180-220', phone: '(928) 638-2631' },
       },
       {
-        day: 9, date: 'Saturday, December 28', dateHe: 'שבת, 28 בדצמבר',
+        day: 9, date: 'Monday, December 30', dateHe: 'שני, 30 בדצמבר',
         from: 'Grand Canyon', to: 'Saguaro NP',
         fromHe: 'גרנד קניון', toHe: 'סגוארו',
-        driveHours: 5.5, state: 'AZ', stateClass: 'az',
+        driveHours: 5.5, distanceKm: 520, state: 'AZ', stateClass: 'az',
         weatherHigh: { c: 18, f: 65 }, weatherLow: { c: 4, f: 40 },
         sleepCity: 'Tucson, AZ', sleepCityHe: 'טוסון',
         signal: 'good',
         gasStops: ['Sedona'], gasStopsHe: ['סדונה'],
+        navigationUrl: 'https://www.google.com/maps/dir/Grand+Canyon+Village,AZ/Sedona,AZ/Saguaro+National+Park',
+        mainDestination: {
+          name: 'Saguaro NP + Sedona', nameHe: 'פארק סגוארו + סדונה',
+          elevation: { m: 900, ft: 3000 },
+          description: 'Giant saguaro cacti up to 200 years old. Sedona is famous for red rock formations.',
+          descriptionHe: 'קקטוסי סגוארו ענקיים עד גיל 200. סדונה מפורסמת בתצורות סלע אדומות.',
+          entranceFee: '$25/vehicle', bestTime: 'Sunset', bestTimeHe: 'שקיעה',
+          photoTip: 'Saguaro silhouettes at sunset are iconic Arizona shots',
+          photoTipHe: 'צלליות קקטוסים בשקיעה הם הצילומים האיקוניים של אריזונה',
+          links: [{ label: 'NPS Saguaro', url: 'https://www.nps.gov/sagu' }, { label: 'Visit Sedona', url: 'https://visitsedona.com' }]
+        },
         sections: [
           { time: 'morning', range: '6:00 AM - 12:00 PM', activities: [
             { icon: '🌅', text: 'Optional final GC sunrise', textHe: 'אופציה לזריחה אחרונה', type: 'normal' },
@@ -1185,15 +1426,26 @@
         hotel: { name: 'Hilton Tucson East', price: '$120-150', phone: '(520) 721-5600' },
       },
       {
-        day: 10, date: 'Sunday, December 29', dateHe: 'ראשון, 29 בדצמבר',
+        day: 10, date: 'Tuesday, December 31', dateHe: 'שלישי, 31 בדצמבר',
         specialDay: 'home',
         from: 'Saguaro NP', to: 'Round Rock, TX',
         fromHe: 'סגוארו', toHe: 'ראונד רוק',
-        driveHours: 10, state: 'TX', stateClass: 'tx',
+        driveHours: 10, distanceKm: 1100, state: 'TX', stateClass: 'tx',
         weatherHigh: { c: 14, f: 58 }, weatherLow: { c: 4, f: 40 },
         sleepCity: 'HOME!', sleepCityHe: 'הביתה!',
         signal: 'good',
         gasStops: ['Tucson', 'Las Cruces', 'Fort Stockton'], gasStopsHe: ['טוסון', 'לאס קרוסס', 'פורט סטוקטון'],
+        navigationUrl: 'https://www.google.com/maps/dir/Tucson,AZ/Las+Cruces,NM/Fort+Stockton,TX/Round+Rock,TX',
+        mainDestination: {
+          name: 'Journey Home', nameHe: 'הדרך הביתה',
+          elevation: { m: 200, ft: 650 },
+          description: 'The long drive home through the beautiful I-10 corridor. Stop at Buc-ee\'s for snacks!',
+          descriptionHe: 'הנסיעה הארוכה הביתה דרך מסדרון I-10. עצרו ב-Buc-ee\'s לחטיפים!',
+          entranceFee: 'N/A', bestTime: 'Start Early', bestTimeHe: 'התחילו מוקדם',
+          photoTip: 'Last photos at Saguaro sunrise before heading out',
+          photoTipHe: 'צילומים אחרונים בזריחה בסגוארו לפני היציאה',
+          links: [{ label: 'Buc-ee\'s', url: 'https://buc-ees.com/locations/' }]
+        },
         sections: [
           { time: 'morning', range: '6:00 AM - 12:00 PM', activities: [
             { icon: '⭐', text: 'SUNRISE AT SAGUARO WEST (7:20 AM)', textHe: 'זריחה בסגוארו מערב (7:20)', type: 'highlight' },
@@ -1240,6 +1492,19 @@
       const chevron = document.getElementById(`chevron-${day}`);
       content.classList.toggle('open');
       chevron.classList.toggle('open');
+    }
+    
+    function toggleDestination(day) {
+      const content = document.getElementById(`dest-content-${day}`);
+      const toggle = document.getElementById(`dest-toggle-${day}`);
+      const isHe = currentLang === 'he';
+      if (content.style.display === 'none') {
+        content.style.display = 'block';
+        toggle.textContent = isHe ? 'פחות מידע ▲' : 'Less info ▲';
+      } else {
+        content.style.display = 'none';
+        toggle.textContent = isHe ? 'מידע נוסף ▼' : 'More info ▼';
+      }
     }
 
     function updateUI() {
@@ -1370,6 +1635,46 @@
                 <div class="gas-title">⛽ ${tr.gasStops}</div>
                 <div class="gas-tags">
                   ${(isHe ? day.gasStopsHe : day.gasStops).map(stop => `<span class="gas-tag">⛽ ${stop}</span>`).join('')}
+                </div>
+              </div>
+              ` : ''}
+              
+              ${day.navigationUrl ? `
+              <div class="nav-section">
+                <div class="nav-header">
+                  <span>🧭 ${isHe ? 'נווט ביום זה' : 'Navigate This Day'} ${day.distanceKm ? `(${day.distanceKm} km)` : ''}</span>
+                  <a href="${day.navigationUrl}" target="_blank" class="nav-btn">📍 Google Maps ↗</a>
+                </div>
+                <div class="route-preview">
+                  <span class="route-icon">🛣️</span>
+                  <span>${isHe ? day.fromHe : day.from} → ${isHe ? day.toHe : day.to}</span>
+                  <span class="route-time">${day.driveHours > 0 ? day.driveHours + 'h' : isHe ? 'יום ללא נסיעה' : 'No driving'}</span>
+                </div>
+              </div>
+              ` : ''}
+              
+              ${day.mainDestination ? `
+              <div class="destination-section">
+                <button class="dest-header" onclick="toggleDestination(${day.day})">
+                  <div class="dest-icon">⭐</div>
+                  <div class="dest-info">
+                    <span class="dest-name">${isHe ? day.mainDestination.nameHe : day.mainDestination.name}</span>
+                    <span class="dest-elevation">🏔️ ${day.mainDestination.elevation.m}m (${day.mainDestination.elevation.ft}ft)</span>
+                  </div>
+                  <span class="dest-toggle" id="dest-toggle-${day.day}">${isHe ? 'מידע נוסף ▼' : 'More info ▼'}</span>
+                </button>
+                <div class="dest-content" id="dest-content-${day.day}" style="display:none;">
+                  <p class="dest-desc">${isHe ? day.mainDestination.descriptionHe : day.mainDestination.description}</p>
+                  <div class="dest-grid">
+                    <div class="dest-item"><span class="label">${isHe ? 'מחיר כניסה' : 'Entrance'}</span><span class="val">${day.mainDestination.entranceFee}</span></div>
+                    <div class="dest-item"><span class="label">${isHe ? 'זמן מומלץ' : 'Best Time'}</span><span class="val">${isHe ? day.mainDestination.bestTimeHe : day.mainDestination.bestTime}</span></div>
+                  </div>
+                  <div class="photo-tip">📷 ${isHe ? day.mainDestination.photoTipHe : day.mainDestination.photoTip}</div>
+                  ${day.mainDestination.links ? `
+                  <div class="dest-links">
+                    ${day.mainDestination.links.map(link => `<a href="${link.url}" target="_blank" class="dest-link">${link.label} ↗</a>`).join('')}
+                  </div>
+                  ` : ''}
                 </div>
               </div>
               ` : ''}
