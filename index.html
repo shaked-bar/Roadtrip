@@ -108,6 +108,176 @@
       flex-wrap: wrap;
     }
     
+    /* Dark Mode Toggle */
+    .dark-toggle {
+      background: #e5e7eb;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    
+    .dark-toggle:hover {
+      background: #d1d5db;
+      transform: scale(1.05);
+    }
+    
+    /* Dark Mode Styles */
+    body.dark-mode {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+      color: #e5e7eb;
+    }
+    
+    body.dark-mode .header {
+      background: rgba(22, 33, 62, 0.95);
+      border-bottom-color: #374151;
+    }
+    
+    body.dark-mode .logo-text h1,
+    body.dark-mode .stat-card .value,
+    body.dark-mode .section-title,
+    body.dark-mode .day-info h3,
+    body.dark-mode .item-title,
+    body.dark-mode .dest-name {
+      color: #f3f4f6;
+    }
+    
+    body.dark-mode .logo-text p,
+    body.dark-mode .stat-card .label,
+    body.dark-mode .item-date,
+    body.dark-mode .item-notes {
+      color: #9ca3af;
+    }
+    
+    body.dark-mode .stat-card,
+    body.dark-mode .checklist-section,
+    body.dark-mode .day-card,
+    body.dark-mode .emergency-section {
+      background: #1e293b;
+      border-color: #374151;
+    }
+    
+    body.dark-mode .day-content,
+    body.dark-mode .info-box,
+    body.dark-mode .time-section {
+      background: #0f172a;
+    }
+    
+    body.dark-mode .checklist-item {
+      background: #1e293b;
+      border-color: #374151;
+    }
+    
+    body.dark-mode .date-picker {
+      background: #1e293b;
+      border-color: #374151;
+    }
+    
+    body.dark-mode .date-picker input {
+      background: #0f172a;
+      border-color: #374151;
+      color: #e5e7eb;
+    }
+    
+    body.dark-mode .dark-toggle {
+      background: #374151;
+    }
+    
+    body.dark-mode .dark-toggle:hover {
+      background: #4b5563;
+    }
+    
+    /* Countdown */
+    .countdown-banner {
+      background: linear-gradient(135deg, #8b5cf6, #6366f1);
+      color: white;
+      text-align: center;
+      padding: 16px 20px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    .countdown-banner.during {
+      background: linear-gradient(135deg, #10b981, #059669);
+    }
+    
+    .countdown-banner.past {
+      background: linear-gradient(135deg, #6b7280, #4b5563);
+    }
+    
+    .countdown-number {
+      background: rgba(255,255,255,0.2);
+      padding: 4px 12px;
+      border-radius: 8px;
+      font-size: 1.3rem;
+    }
+    
+    /* Emergency Row */
+    .emergency-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 14px 20px;
+      margin-bottom: 16px;
+      background: #fef08a;
+      border-radius: 16px;
+      border: 1px solid #eab308;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    
+    .emergency-row-label {
+      font-weight: 600;
+      color: #9ca3af;
+      font-size: 0.85rem;
+    }
+    
+    .emergency-link {
+      padding: 6px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #374151;
+      font-size: 0.85rem;
+      font-weight: 500;
+      background: #f3f4f6;
+      transition: all 0.2s;
+    }
+    
+    .emergency-link:hover {
+      background: #e5e7eb;
+      color: #111827;
+    }
+    
+    body.dark-mode .emergency-row {
+      background: #854d0e;
+      border-color: #a16207;
+    }
+    
+    body.dark-mode .emergency-row-label {
+      color: #6b7280;
+    }
+    
+    body.dark-mode .emergency-link {
+      background: #374151;
+      color: #d1d5db;
+    }
+    
+    body.dark-mode .emergency-link:hover {
+      background: #4b5563;
+      color: #f3f4f6;
+    }
+    
     .date-picker {
       display: flex;
       align-items: center;
@@ -906,12 +1076,20 @@
           <label for="startDate" id="dateLabel">📅 Start Date:</label>
           <input type="date" id="startDate" value="2025-12-22" onchange="updateStartDate()">
         </div>
+        <button class="dark-toggle" onclick="toggleDarkMode()" title="Toggle dark mode" id="darkToggle">🌙</button>
         <button class="lang-btn" onclick="toggleLanguage()">
           🌐 <span id="langText">עברית</span>
         </button>
       </div>
     </div>
   </header>
+
+  <!-- Countdown Banner -->
+  <div class="countdown-banner" id="countdownBanner">
+    <span id="countdownIcon">🎉</span>
+    <span id="countdownText">Loading...</span>
+    <span class="countdown-number" id="countdownNumber"></span>
+  </div>
 
   <div class="container">
     <!-- Stats -->
@@ -936,6 +1114,15 @@
         <div class="value">~$3,070</div>
         <div class="label" id="budgetLabel">budget</div>
       </div>
+    </div>
+
+    <!-- Emergency Links (minimal) -->
+    <div class="emergency-row" id="emergencyRow">
+      <span class="emergency-row-label" id="emergencyRowLabel">Emergency:</span>
+      <a href="tel:911" class="emergency-link">911</a>
+      <a href="tel:+18002224357" class="emergency-link" id="aaaLink">AAA Roadside</a>
+      <a href="tel:+12023645500" class="emergency-link" id="embassyLink">IL Embassy</a>
+      <a href="tel:+18004321000" class="emergency-link" id="poisonLink">Poison Control</a>
     </div>
 
     <!-- Google Maps Button -->
@@ -1572,6 +1759,7 @@
       const input = document.getElementById('startDate');
       startDate = new Date(input.value + 'T00:00:00');
       updateUI();
+      updateCountdown();
     }
     
     // Update subtitle with date range
@@ -1600,11 +1788,88 @@
     }
     
     // Functions
+    // Dark mode state
+    let isDarkMode = false;
+    
+    function toggleDarkMode() {
+      isDarkMode = !isDarkMode;
+      document.body.classList.toggle('dark-mode', isDarkMode);
+      document.getElementById('darkToggle').textContent = isDarkMode ? '☀️' : '🌙';
+      localStorage.setItem('darkMode', isDarkMode);
+    }
+    
+    // Load dark mode preference
+    if (localStorage.getItem('darkMode') === 'true') {
+      isDarkMode = true;
+      document.body.classList.add('dark-mode');
+      document.getElementById('darkToggle').textContent = '☀️';
+    }
+    
+    function updateCountdown() {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      
+      const tripStart = new Date(startDate);
+      tripStart.setHours(0, 0, 0, 0);
+      
+      const tripEnd = new Date(startDate);
+      tripEnd.setDate(tripEnd.getDate() + 9);
+      tripEnd.setHours(23, 59, 59, 999);
+      
+      const diffToStart = Math.ceil((tripStart - today) / (1000 * 60 * 60 * 24));
+      const diffFromStart = Math.ceil((today - tripStart) / (1000 * 60 * 60 * 24));
+      
+      const banner = document.getElementById('countdownBanner');
+      const icon = document.getElementById('countdownIcon');
+      const text = document.getElementById('countdownText');
+      const number = document.getElementById('countdownNumber');
+      
+      const isHe = currentLang === 'he';
+      
+      if (diffToStart > 0) {
+        // Trip is in the future
+        banner.className = 'countdown-banner';
+        icon.textContent = '🎉';
+        text.textContent = isHe ? 'עוד' : 'Trip starts in';
+        number.textContent = diffToStart;
+        number.style.display = 'inline';
+        text.innerHTML = isHe 
+          ? `עוד <span class="countdown-number">${diffToStart}</span> ${diffToStart === 1 ? 'יום' : 'ימים'} לטיול!`
+          : `Trip starts in <span class="countdown-number">${diffToStart}</span> day${diffToStart === 1 ? '' : 's'}!`;
+        number.style.display = 'none';
+      } else if (today <= tripEnd) {
+        // Trip is happening now
+        const currentDay = diffFromStart + 1;
+        banner.className = 'countdown-banner during';
+        icon.textContent = '📍';
+        text.innerHTML = isHe 
+          ? `אתם בטיול! יום <span class="countdown-number">${currentDay}</span> מתוך 10`
+          : `You're on the trip! Day <span class="countdown-number">${currentDay}</span> of 10`;
+        number.style.display = 'none';
+      } else {
+        // Trip is in the past
+        banner.className = 'countdown-banner past';
+        icon.textContent = '✅';
+        text.textContent = isHe ? 'הטיול הסתיים - זיכרונות נפלאים!' : 'Trip completed - great memories!';
+        number.style.display = 'none';
+      }
+    }
+    
+    function updateEmergencyLabels() {
+      const isHe = currentLang === 'he';
+      document.getElementById('emergencyRowLabel').textContent = isHe ? 'חירום:' : 'Emergency:';
+      document.getElementById('aaaLink').textContent = isHe ? 'סיוע בדרכים' : 'AAA Roadside';
+      document.getElementById('embassyLink').textContent = isHe ? 'שגרירות ישראל' : 'IL Embassy';
+      document.getElementById('poisonLink').textContent = isHe ? 'הרעלות' : 'Poison Control';
+    }
+    
     function toggleLanguage() {
       currentLang = currentLang === 'en' ? 'he' : 'en';
       document.documentElement.lang = currentLang;
       document.body.dir = currentLang === 'he' ? 'rtl' : 'ltr';
       document.getElementById('dateLabel').textContent = currentLang === 'he' ? '📅 תאריך התחלה:' : '📅 Start Date:';
+      updateEmergencyLabels();
+      updateCountdown();
       updateUI();
     }
 
@@ -1852,6 +2117,15 @@
 
     // Initialize
     updateUI();
+    updateCountdown();
+    updateEmergencyLabels();
+    
+    // Check dark mode on load
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark-mode');
+      document.getElementById('darkToggle').textContent = '☀️';
+      isDarkMode = true;
+    }
   </script>
 </body>
 </html>
