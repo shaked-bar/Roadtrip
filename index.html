@@ -6671,12 +6671,174 @@
   <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
     <div class="modal" onclick="event.stopPropagation()">
       <div class="modal-header">
-        <h3 id="modalTitle">Title</h3>
+        <h3 id="modalTitle">⏱️ Time &amp; Pace</h3>
         <button class="modal-close" onclick="closeModal()">✕</button>
       </div>
       <div class="modal-body" id="modalBody">
-        <!-- Content will be injected here -->
-      </div>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px;">
+            <div style="background:#fef3c7;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">11</div>
+              <div style="font-size:0.75rem;color:#92400e;">Days</div>
+            </div>
+            <div style="background:#dbeafe;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">4h</div>
+              <div style="font-size:0.75rem;color:#1e40af;">Avg/Day</div>
+            </div>
+            <div style="background:#dcfce7;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">2</div>
+              <div style="font-size:0.75rem;color:#166534;">Rest Days</div>
+            </div>
+            <div style="background:#fce7f3;padding:12px;border-radius:12px;text-align:center;">
+              <div style="font-size:1.5rem;font-weight:700;">🟡</div>
+              <div style="font-size:0.75rem;color:#9d174d;">Balanced</div>
+            </div>
+          </div>
+        
+          <div style="font-weight:700;margin-bottom:12px;">📅 Day by Day</div>
+        
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;padding:8px;background:#f9fafb;border-radius:8px;">
+              <span style="font-weight:600;min-width:50px;">Day 1</span>
+              <span style="font-size:0.75rem;color:#6b7280;min-width:35px;">Dec 21</span>
+              <div style="flex:1;background:#e5e7eb;border-radius:4px;height:8px;overflow:hidden;">
+                <div style="background:#ef4444;width:100%;height:100%;"></div>
+              </div>
+              <span style="font-weight:600;min-width:35px;">10h</span>
+              <span style="font-size:0.75rem;">🚗</span>
+            </div>
+          
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;padding:8px;background:#f9fafb;border-radius:8px;">
+              <span style="font-weight:600;min-width:50px;">Day 2</span>
+              <span style="font-size:0.75rem;color:#6b7280;min-width:35px;">Dec 22</span>
+              <div style="flex:1;background:#e5e7eb;border-radius:4px;height:8px;overflow:hidden;">
+                <div style="background:#fbbf24;width:50%;height:100%;"></div>
+              </div>
+              <span style="font-weight:600;min-width:35px;">3.5h</span>
+              <span style="font-size:0.75rem;">⚖️</span>
+            </div>
+          
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;padding:8px;background:#dcfce7;border-radius:8px;">
+              <span style="font-weight:600;min-width:50px;">Day 3</span>
+              <span style="font-size:0.75rem;color:#6b7280;min-width:35px;">Dec 23</span>
+              <div style="flex:1;background:#e5e7eb;border-radius:4px;height:8px;overflow:hidden;">
+                <div style="background:#22c55e;width:20%;height:100%;"></div>
+              </div>
+              <span style="font-weight:600;min-width:35px;">0h</span>
+              <span style="font-size:0.75rem;">🎨</span>
+            </div>
+          
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;padding:8px;background:#f9fafb;border-radius:8px;">
+              <span style="font-weight:600;min-width:50px;">Day 4</span>
+              <span style="font-size:0.75rem;color:#6b7280;min-width:35px;">Dec 24</span>
+              <div style="flex:1;background:#e5e7eb;border-radius:4px;height:8px;overflow:hidden;">
+                <div style="background:#ef4444;width:80%;height:100%;"></div>
+              </div>
+              <span style="font-weight:600;min-width:35px;">6h</span>
+              <span style="font-size:0.75rem;">🌅</span>
+            </div>
+          
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;padding:8px;background:#f9fafb;border-radius:8px;">
+              <span style="font-weight:600;min-width:50px;">Day 5</span>
+              <span style="font-size:0.75rem;color:#6b7280;min-width:35px;">Dec 25</span>
+              <div style="flex:1;background:#e5e7eb;border-radius:4px;height:8px;overflow:hidden;">
+                <div style="background:#22c55e;width:40%;height:100%;"></div>
+              </div>
+              <span style="font-weight:600;min-width:35px;">2h</span>
+              <span style="font-size:0.75rem;">📸</span>
+            </div>
+          
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;padding:8px;background:#f9fafb;border-radius:8px;">
+              <span style="font-weight:600;min-width:50px;">Day 6</span>
+              <span style="font-size:0.75rem;color:#6b7280;min-width:35px;">Dec 26</span>
+              <div style="flex:1;background:#e5e7eb;border-radius:4px;height:8px;overflow:hidden;">
+                <div style="background:#fbbf24;width:50%;height:100%;"></div>
+              </div>
+              <span style="font-weight:600;min-width:35px;">2.25h</span>
+              <span style="font-size:0.75rem;">⛰️</span>
+            </div>
+          
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;padding:8px;background:#f9fafb;border-radius:8px;">
+              <span style="font-weight:600;min-width:50px;">Day 7</span>
+              <span style="font-size:0.75rem;color:#6b7280;min-width:35px;">Dec 27</span>
+              <div style="flex:1;background:#e5e7eb;border-radius:4px;height:8px;overflow:hidden;">
+                <div style="background:#fbbf24;width:70%;height:100%;"></div>
+              </div>
+              <span style="font-weight:600;min-width:35px;">5h</span>
+              <span style="font-size:0.75rem;">🏜️</span>
+            </div>
+          
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;padding:8px;background:#dcfce7;border-radius:8px;">
+              <span style="font-weight:600;min-width:50px;">Day 8</span>
+              <span style="font-size:0.75rem;color:#6b7280;min-width:35px;">Dec 28</span>
+              <div style="flex:1;background:#e5e7eb;border-radius:4px;height:8px;overflow:hidden;">
+                <div style="background:#22c55e;width:30%;height:100%;"></div>
+              </div>
+              <span style="font-weight:600;min-width:35px;">0h</span>
+              <span style="font-size:0.75rem;">🥾</span>
+            </div>
+          
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;padding:8px;background:#f9fafb;border-radius:8px;">
+              <span style="font-weight:600;min-width:50px;">Day 9</span>
+              <span style="font-size:0.75rem;color:#6b7280;min-width:35px;">Dec 29</span>
+              <div style="flex:1;background:#e5e7eb;border-radius:4px;height:8px;overflow:hidden;">
+                <div style="background:#ef4444;width:80%;height:100%;"></div>
+              </div>
+              <span style="font-weight:600;min-width:35px;">6h</span>
+              <span style="font-size:0.75rem;">🌵</span>
+            </div>
+          
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;padding:8px;background:#f9fafb;border-radius:8px;">
+              <span style="font-weight:600;min-width:50px;">Day 10</span>
+              <span style="font-size:0.75rem;color:#6b7280;min-width:35px;">Dec 30</span>
+              <div style="flex:1;background:#e5e7eb;border-radius:4px;height:8px;overflow:hidden;">
+                <div style="background:#ef4444;width:85%;height:100%;"></div>
+              </div>
+              <span style="font-weight:600;min-width:35px;">7h</span>
+              <span style="font-size:0.75rem;">🚗</span>
+            </div>
+          
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;padding:8px;background:#f9fafb;border-radius:8px;">
+              <span style="font-weight:600;min-width:50px;">Day 11</span>
+              <span style="font-size:0.75rem;color:#6b7280;min-width:35px;">Dec 31</span>
+              <div style="flex:1;background:#e5e7eb;border-radius:4px;height:8px;overflow:hidden;">
+                <div style="background:#ef4444;width:75%;height:100%;"></div>
+              </div>
+              <span style="font-weight:600;min-width:35px;">6h</span>
+              <span style="font-size:0.75rem;">🏠</span>
+            </div>
+          
+          <div style="margin-top:20px;background:#dcfce7;padding:16px;border-radius:12px;">
+            <div style="font-weight:700;margin-bottom:8px;">😴 Rest Days</div>
+            <div style="font-size:0.9rem;">
+              <div style="margin-bottom:8px;">
+                <strong>Day 3</strong> - Santa Fe<br>
+                <span style="color:#166534;">Art, Meow Wolf, galleries</span>
+              </div>
+              <div>
+                <strong>Day 8</strong> - Grand Canyon<br>
+                <span style="color:#166534;">Hikes, viewpoints, sunrise &amp; sunset</span>
+              </div>
+            </div>
+          </div>
+        
+          <div style="margin-top:16px;background:#dbeafe;padding:16px;border-radius:12px;">
+            <div style="font-weight:700;margin-bottom:8px;">🏨 Double Nights</div>
+            <div style="font-size:0.9rem;">
+              <div style="margin-bottom:4px;">• <strong>Santa Fe</strong> - 2 nights (Dec 23-24)</div>
+              <div>• <strong>Grand Canyon</strong> - 2 nights (Dec 28-29)</div>
+            </div>
+          </div>
+        
+          <div style="margin-top:20px;text-align:center;">
+            <div style="font-weight:700;margin-bottom:8px;">⚡ Pace Rating</div>
+            <div style="display:flex;justify-content:center;align-items:center;gap:8px;">
+              <span style="color:#22c55e;">🟢 Relaxed</span>
+              <span style="font-size:1.5rem;">━━━━</span>
+              <span style="background:#fbbf24;color:#1f2937;padding:4px 12px;border-radius:20px;font-weight:700;">🟡 Balanced ← You</span>
+              <span style="font-size:1.5rem;">━━━━</span>
+              <span style="color:#ef4444;">🔴 Fast</span>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
 
@@ -6697,7 +6859,7 @@
     const t = {
       en: {
         title: 'Southwest Road Trip',
-        subtitle: 'December 22-31, 2025',
+        subtitle: 'December 21-31, 2025',
         langText: 'עברית',
         timeLabel: 'pace',
         timeValue: 'Balanced',
@@ -6785,7 +6947,7 @@
       },
       he: {
         title: 'טיול דרום-מערב ארה"ב',
-        subtitle: '22-31 דצמבר 2025',
+        subtitle: '21-31 דצמבר 2025',
         langText: 'English',
         timeLabel: 'קצב',
         timeValue: 'מאוזן',
@@ -7505,11 +7667,12 @@
           { day: 3, hours: 0, load: 20, type: isHe ? '😴 מנוחה' : '😴 Rest', icon: '🎨' },
           { day: 4, hours: 6, load: 80, type: isHe ? 'נהיגה + שקיעה' : 'Drive + Sunset', icon: '🌅' },
           { day: 5, hours: 2, load: 40, type: isHe ? 'קצר + אטרקציות' : 'Short + Attractions', icon: '📸' },
-          { day: 6, hours: 2.25, load: 50, type: 'Antelope + Zion', icon: '⛰️' },
+          { day: 6, hours: 2.25, load: 50, type: 'Page → Zion', icon: '⛰️' },
           { day: 7, hours: 5, load: 70, type: isHe ? 'מאוזן' : 'Balanced', icon: '🏜️' },
           { day: 8, hours: 0, load: 30, type: isHe ? '😴 מנוחה (הליכות)' : '😴 Rest (hikes)', icon: '🥾' },
           { day: 9, hours: 6, load: 80, type: 'Sedona + Saguaro', icon: '🌵' },
-          { day: 10, hours: 13.25, load: 100, type: isHe ? '🚗 הביתה' : '🚗 Home', icon: '🏠' },
+          { day: 10, hours: 7, load: 85, type: isHe ? 'נסיעה ארוכה' : 'Long drive', icon: '🚗' },
+          { day: 11, hours: 6, load: 75, type: isHe ? '🏠 הביתה!' : '🏠 Home!', icon: '🏠' },
         ];
         
         content += `
@@ -7726,11 +7889,12 @@
         const hotels = [
           { nights: 1, city: 'Alamogordo', hotel: 'Fairfield Inn', price: 110 },
           { nights: 2, city: 'Santa Fe', hotel: 'Drury Plaza', price: 165, special: isHe ? '🍺 Happy Hour חינם!' : '🍺 Free Happy Hour!' },
-          { nights: 1, city: 'Monument Valley', hotel: 'The View Hotel', price: 250, special: isHe ? '⭐ נוף מהחדר!' : '⭐ Room with view!' },
+          { nights: 1, city: 'Monument Valley', hotel: "Goulding's Lodge", price: 175, special: isHe ? '⭐ נוף למוניומנט!' : '⭐ Monument views!' },
           { nights: 1, city: 'Page', hotel: 'Hyatt Place', price: 165 },
           { nights: 1, city: 'Springdale', hotel: 'Hampton Inn', price: 155 },
           { nights: 2, city: 'Grand Canyon', hotel: 'Bright Angel', price: 200, special: isHe ? '⭐ על שפת הקניון!' : '⭐ On the rim!' },
           { nights: 1, city: 'Tucson', hotel: 'Hilton', price: 135 },
+          { nights: 1, city: 'Fort Stockton', hotel: 'Hampton Inn', price: 80, special: isHe ? 'עצירת ביניים' : 'Stopover' },
         ];
         
         hotels.forEach(h => {
@@ -7876,13 +8040,14 @@
         content += `<div style="font-weight:700;margin-bottom:12px;">🏨 ${isHe ? 'לינות לפי יום' : 'Lodging by Day'}</div>`;
         
         const hotels = [
-          { nights: 'Dec 22', city: 'Alamogordo, NM', hotel: 'Fairfield Inn', special: isHe ? 'ליד White Sands' : 'Near White Sands' },
-          { nights: 'Dec 23-24', city: 'Santa Fe, NM', hotel: 'Drury Plaza', special: '🍺 Happy Hour!' },
-          { nights: 'Dec 25', city: 'Monument Valley', hotel: 'The View Hotel', special: '⭐ ' + (isHe ? 'נוף מהחדר!' : 'Room with view!') },
-          { nights: 'Dec 26', city: 'Page, AZ', hotel: 'Hyatt Place', special: isHe ? 'ליד Antelope' : 'Near Antelope' },
-          { nights: 'Dec 27', city: 'Springdale, UT', hotel: 'Hampton Inn', special: isHe ? 'שער לזאיון' : 'Zion gateway' },
-          { nights: 'Dec 28-29', city: 'Grand Canyon, AZ', hotel: 'Bright Angel', special: '⭐ ' + (isHe ? 'על שפת הקניון!' : 'On the rim!') },
-          { nights: 'Dec 30', city: 'Tucson, AZ', hotel: 'Hilton', special: isHe ? 'לפני הביתה' : 'Before home' },
+          { nights: 'Dec 21', city: 'Alamogordo, NM', hotel: 'Fairfield Inn', special: isHe ? 'ליד White Sands' : 'Near White Sands' },
+          { nights: 'Dec 22-23', city: 'Santa Fe, NM', hotel: 'Drury Plaza', special: '🍺 Happy Hour!' },
+          { nights: 'Dec 24', city: 'Monument Valley', hotel: "Goulding's Lodge", special: '⭐ ' + (isHe ? 'נוף למוניומנט!' : 'Monument views!') },
+          { nights: 'Dec 25', city: 'Page, AZ', hotel: 'Hyatt Place', special: isHe ? 'ליד Horseshoe Bend' : 'Near Horseshoe Bend' },
+          { nights: 'Dec 26', city: 'Springdale, UT', hotel: 'Hampton Inn', special: isHe ? 'שער לזאיון' : 'Zion gateway' },
+          { nights: 'Dec 27-28', city: 'Grand Canyon, AZ', hotel: 'Bright Angel', special: '⭐ ' + (isHe ? 'על שפת הקניון!' : 'On the rim!') },
+          { nights: 'Dec 29', city: 'Tucson, AZ', hotel: 'Hilton', special: isHe ? 'אחרי סדונה' : 'After Sedona' },
+          { nights: 'Dec 30', city: 'Fort Stockton, TX', hotel: 'Hampton Inn', special: isHe ? 'עצירת ביניים' : 'Stopover' },
         ];
         
         hotels.forEach(h => {
