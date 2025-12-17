@@ -2745,8 +2745,8 @@
   <!-- Countdown Banner -->
   <div class="countdown-banner" id="countdownBanner">
     <span id="countdownIcon">🎉</span>
-    <span id="countdownText">Trip starts in <span class="countdown-number">5</span> days!</span>
-    <span class="countdown-number" id="countdownNumber" style="display: none;">5</span>
+    <span id="countdownText">Trip starts in <span class="countdown-number">4</span> days!</span>
+    <span class="countdown-number" id="countdownNumber" style="display: none;">4</span>
   </div>
 
   <div class="container">
@@ -3320,6 +3320,199 @@
         <p style="margin-top: 20px; padding: 12px; background: #dbeafe; border-radius: 10px; color: #1e40af; font-size: 0.875rem;">
           💡 <strong>Tip:</strong> Book Monument Valley &amp; Grand Canyon ASAP - they fill up fast! Other locations have more availability.
         </p>
+      </div>
+    </div>
+
+    <!-- Packing List Section (Collapsible) -->
+    <div id="packing-list" class="checklist-section" style="margin-bottom: 24px;">
+      <div class="checklist-header" style="background: linear-gradient(135deg, #059669, #10b981); cursor: pointer;" onclick="togglePackingList()">
+        <h2 style="display: flex; align-items: center; gap: 8px;">
+          🎒 <span id="packingTitle">Packing List</span>
+          <span style="font-size: 0.75rem; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 10px;" id="packingProgress">0/29</span>
+        </h2>
+        <span id="packingChevron" style="font-size: 1.25rem; transition: transform 0.3s;">▼</span>
+      </div>
+      <div id="packingContent" style="display: none; padding: 16px;">
+        
+        <!-- Weather Info -->
+        <div style="background: linear-gradient(135deg, #dbeafe, #e0f2fe); border-radius: 12px; padding: 12px; margin-bottom: 16px; border: 1px solid #93c5fd;">
+          <p style="font-size: 0.875rem; color: #1e40af; margin: 0;">
+            🌡️ <strong id="packingWeatherTitle">Expected Weather:</strong> 
+            <span id="packingWeatherText">-5°C to +18°C | Coldest: Monument Valley sunrise | Warmest: Tucson</span>
+          </p>
+        </div>
+
+        <!-- ESSENTIAL Section -->
+        <div style="margin-bottom: 20px;">
+          <h3 style="font-weight: 700; color: #dc2626; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            <span style="background: #dc2626; color: white; padding: 4px 10px; border-radius: 8px; font-size: 0.875rem;">🔴</span>
+            <span id="essentialTitle">Essential - Must Have!</span>
+          </h3>
+          
+          <!-- Clothing -->
+          <div style="margin-bottom: 12px;">
+            <h4 style="font-size: 0.875rem; color: #6b7280; margin-bottom: 8px;" id="clothingTitle">👕 Clothing</h4>
+            <div style="display: grid; gap: 6px;" id="essentialClothing">
+              <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f9fafb; border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" id="pack-1" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+                <span id="pack-1-text">Winter jacket / Puffer</span>
+              </label>
+              <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f9fafb; border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" id="pack-2" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+                <span id="pack-2-text">Fleece / Sweatshirt (×2)</span>
+              </label>
+              <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f9fafb; border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" id="pack-3" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+                <span id="pack-3-text">Long sleeve shirts (×3)</span>
+              </label>
+              <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f9fafb; border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" id="pack-4" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+                <span id="pack-4-text">T-shirts (×2) - for Tucson!</span>
+              </label>
+              <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f9fafb; border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" id="pack-5" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+                <span id="pack-5-text">Hiking pants (×2)</span>
+              </label>
+              <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f9fafb; border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" id="pack-6" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+                <span id="pack-6-text">Socks (×5 pairs, 2 warm)</span>
+              </label>
+              <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f9fafb; border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" id="pack-7" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+                <span id="pack-7-text">Hiking shoes (waterproof)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Gear -->
+          <div style="margin-bottom: 12px;">
+            <h4 style="font-size: 0.875rem; color: #6b7280; margin-bottom: 8px;" id="gearTitle">🎒 Gear</h4>
+            <div style="display: grid; gap: 6px;" id="essentialGear">
+              <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #fef3c7; border-radius: 8px; cursor: pointer; border: 1px solid #fcd34d;">
+                <input type="checkbox" id="pack-8" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+                <span id="pack-8-text">🔦 Flashlight / Headlamp ⚠️</span>
+              </label>
+              <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f9fafb; border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" id="pack-9" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+                <span id="pack-9-text">🕶️ Sunglasses</span>
+              </label>
+              <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f9fafb; border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" id="pack-10" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+                <span id="pack-10-text">💧 Water bottle (1L)</span>
+              </label>
+              <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f9fafb; border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" id="pack-11" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+                <span id="pack-11-text">🔌 Car USB charger</span>
+              </label>
+              <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f9fafb; border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" id="pack-12" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+                <span id="pack-12-text">☀️ Sunscreen SPF30+</span>
+              </label>
+              <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f9fafb; border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" id="pack-13" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+                <span id="pack-13-text">💄 Lip balm with SPF</span>
+              </label>
+              <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #fef3c7; border-radius: 8px; cursor: pointer; border: 1px solid #fcd34d;">
+                <input type="checkbox" id="pack-14" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+                <span id="pack-14-text">💵 Cash $150-200 ⚠️</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Documents -->
+          <div>
+            <h4 style="font-size: 0.875rem; color: #6b7280; margin-bottom: 8px;" id="docsTitle">📄 Documents</h4>
+            <div style="display: grid; gap: 6px;" id="essentialDocs">
+              <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f9fafb; border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" id="pack-15" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+                <span id="pack-15-text">Driver's license</span>
+              </label>
+              <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f9fafb; border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" id="pack-16" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+                <span id="pack-16-text">2 Credit cards</span>
+              </label>
+              <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f9fafb; border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" id="pack-17" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+                <span id="pack-17-text">Hotel reservations (on phone)</span>
+              </label>
+              <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f9fafb; border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" id="pack-18" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+                <span id="pack-18-text">Meow Wolf tickets</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- OPTIONAL Section -->
+        <div style="margin-bottom: 16px;">
+          <h3 style="font-weight: 700; color: #ca8a04; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            <span style="background: #ca8a04; color: white; padding: 4px 10px; border-radius: 8px; font-size: 0.875rem;">🟡</span>
+            <span id="optionalTitle">Optional - Recommended</span>
+          </h3>
+          
+          <div style="display: grid; gap: 6px;">
+            <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f9fafb; border-radius: 8px; cursor: pointer;">
+              <input type="checkbox" id="pack-19" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+              <span id="pack-19-text">🧤 Light gloves</span>
+            </label>
+            <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f9fafb; border-radius: 8px; cursor: pointer;">
+              <input type="checkbox" id="pack-20" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+              <span id="pack-20-text">🧢 Warm beanie</span>
+            </label>
+            <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f9fafb; border-radius: 8px; cursor: pointer;">
+              <input type="checkbox" id="pack-21" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+              <span id="pack-21-text">🔋 Portable battery pack</span>
+            </label>
+            <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f9fafb; border-radius: 8px; cursor: pointer;">
+              <input type="checkbox" id="pack-22" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+              <span id="pack-22-text">🎒 Small daypack</span>
+            </label>
+            <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f9fafb; border-radius: 8px; cursor: pointer;">
+              <input type="checkbox" id="pack-23" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+              <span id="pack-23-text">🧊 Small cooler</span>
+            </label>
+            <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f9fafb; border-radius: 8px; cursor: pointer;">
+              <input type="checkbox" id="pack-24" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+              <span id="pack-24-text">🎧 Headphones</span>
+            </label>
+            <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f9fafb; border-radius: 8px; cursor: pointer;">
+              <input type="checkbox" id="pack-25" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+              <span id="pack-25-text">🩹 First aid kit (bandaids, ibuprofen)</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Before Departure Checklist -->
+        <div style="background: linear-gradient(135deg, #fef3c7, #ffedd5); border-radius: 12px; padding: 16px; border: 1px solid #fcd34d;">
+          <h3 style="font-weight: 700; color: #92400e; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            📱 <span id="beforeDepartureTitle">Before Departure</span>
+          </h3>
+          <div style="display: grid; gap: 6px;">
+            <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: rgba(255,255,255,0.7); border-radius: 8px; cursor: pointer;">
+              <input type="checkbox" id="pack-26" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+              <span id="pack-26-text">📍 Download offline maps (NM, AZ, UT)</span>
+            </label>
+            <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: rgba(255,255,255,0.7); border-radius: 8px; cursor: pointer;">
+              <input type="checkbox" id="pack-27" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+              <span id="pack-27-text">🎵 Download music/podcasts</span>
+            </label>
+            <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: rgba(255,255,255,0.7); border-radius: 8px; cursor: pointer;">
+              <input type="checkbox" id="pack-28" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+              <span id="pack-28-text">⛽ Fill up gas tank</span>
+            </label>
+            <label class="packing-item" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: rgba(255,255,255,0.7); border-radius: 8px; cursor: pointer;">
+              <input type="checkbox" id="pack-29" onchange="updatePackingProgress()" style="width: 18px; height: 18px; accent-color: #10b981;">
+              <span id="pack-29-text">🚗 Check tire pressure</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Reset Button -->
+        <div style="margin-top: 16px; text-align: center;">
+          <button onclick="resetPackingList()" style="background: #f3f4f6; color: #6b7280; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 0.875rem;">
+            🔄 <span id="resetPackingText">Reset All</span>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -6549,6 +6742,46 @@
         christmas: '🎄 Christmas Day!',
         christmasEve: '🌟 Christmas Eve!',
         welcomeHome: '🏠 Welcome Home!',
+        // Packing List
+        packingTitle: 'Packing List',
+        packingWeatherTitle: 'Expected Weather:',
+        packingWeatherText: '-5°C to +18°C | Coldest: Monument Valley sunrise | Warmest: Tucson',
+        essentialTitle: 'Essential - Must Have!',
+        optionalTitle: 'Optional - Recommended',
+        clothingTitle: '👕 Clothing',
+        gearTitle: '🎒 Gear',
+        docsTitle: '📄 Documents',
+        beforeDepartureTitle: 'Before Departure',
+        resetPackingText: 'Reset All',
+        pack1: 'Winter jacket / Puffer',
+        pack2: 'Fleece / Sweatshirt (×2)',
+        pack3: 'Long sleeve shirts (×3)',
+        pack4: 'T-shirts (×2) - for Tucson!',
+        pack5: 'Hiking pants (×2)',
+        pack6: 'Socks (×5 pairs, 2 warm)',
+        pack7: 'Hiking shoes (waterproof)',
+        pack8: '🔦 Flashlight / Headlamp ⚠️',
+        pack9: '🕶️ Sunglasses',
+        pack10: '💧 Water bottle (1L)',
+        pack11: '🔌 Car USB charger',
+        pack12: '☀️ Sunscreen SPF30+',
+        pack13: '💄 Lip balm with SPF',
+        pack14: '💵 Cash $150-200 ⚠️',
+        pack15: "Driver's license",
+        pack16: '2 Credit cards',
+        pack17: 'Hotel reservations (on phone)',
+        pack18: 'Meow Wolf tickets',
+        pack19: '🧤 Light gloves',
+        pack20: '🧢 Warm beanie',
+        pack21: '🔋 Portable battery pack',
+        pack22: '🎒 Small daypack',
+        pack23: '🧊 Small cooler',
+        pack24: '🎧 Headphones',
+        pack25: '🩹 First aid kit (bandaids, ibuprofen)',
+        pack26: '📍 Download offline maps (NM, AZ, UT)',
+        pack27: '🎵 Download music/podcasts',
+        pack28: '⛽ Fill up gas tank',
+        pack29: '🚗 Check tire pressure',
       },
       he: {
         title: 'טיול דרום-מערב ארה"ב',
@@ -6597,6 +6830,46 @@
         christmas: '🎄 חג המולד!',
         christmasEve: '🌟 ערב חג המולד!',
         welcomeHome: '🏠 ברוכים השבים!',
+        // Packing List
+        packingTitle: 'רשימת ציוד',
+        packingWeatherTitle: 'מזג אוויר צפוי:',
+        packingWeatherText: 'מינוס 5 עד 18 מעלות | הכי קר: זריחה במוניומנט ואלי | הכי חם: טוסון',
+        essentialTitle: 'חובה - חייבים!',
+        optionalTitle: 'אופציונלי - מומלץ',
+        clothingTitle: '👕 ביגוד',
+        gearTitle: '🎒 ציוד',
+        docsTitle: '📄 מסמכים',
+        beforeDepartureTitle: 'לפני היציאה',
+        resetPackingText: 'אפס הכל',
+        pack1: 'ז׳קט חורף / פאפר',
+        pack2: 'פליז / סווטשרט (×2)',
+        pack3: 'חולצות שרוול ארוך (×3)',
+        pack4: 'חולצות טי (×2) - לטוסון!',
+        pack5: 'מכנסי טיול (×2)',
+        pack6: 'גרביים (×5 זוגות, 2 חמים)',
+        pack7: 'נעלי הליכה (עמידות למים)',
+        pack8: '🔦 פנס / פנס ראש ⚠️',
+        pack9: '🕶️ משקפי שמש',
+        pack10: '💧 בקבוק מים (1 ליטר)',
+        pack11: '🔌 מטען USB לרכב',
+        pack12: '☀️ קרם הגנה SPF30+',
+        pack13: '💄 שפתון עם SPF',
+        pack14: '💵 מזומן $150-200 ⚠️',
+        pack15: 'רישיון נהיגה',
+        pack16: '2 כרטיסי אשראי',
+        pack17: 'אישורי מלונות (בטלפון)',
+        pack18: 'כרטיסים ל-Meow Wolf',
+        pack19: '🧤 כפפות קלות',
+        pack20: '🧢 כובע צמר',
+        pack21: '🔋 סוללה ניידת',
+        pack22: '🎒 תיק גב קטן',
+        pack23: '🧊 צידנית קטנה',
+        pack24: '🎧 אוזניות',
+        pack25: '🩹 ערכת עזרה ראשונה (פלסטרים, איבופרופן)',
+        pack26: '📍 הורד מפות אופליין (NM, AZ, UT)',
+        pack27: '🎵 הורד מוזיקה/פודקאסטים',
+        pack28: '⛽ מלא דלק',
+        pack29: '🚗 בדוק לחץ צמיגים',
       }
     };
 
@@ -9649,6 +9922,55 @@
       chevron.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
     }
     
+    // Packing List Functions
+    function togglePackingList() {
+      const content = document.getElementById('packingContent');
+      const chevron = document.getElementById('packingChevron');
+      const isOpen = content.style.display !== 'none';
+      content.style.display = isOpen ? 'none' : 'block';
+      chevron.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+    }
+    
+    function updatePackingProgress() {
+      const totalItems = 29;
+      let checked = 0;
+      for (let i = 1; i <= totalItems; i++) {
+        const checkbox = document.getElementById(`pack-${i}`);
+        if (checkbox && checkbox.checked) {
+          checked++;
+          localStorage.setItem(`pack-${i}`, 'true');
+        } else {
+          localStorage.removeItem(`pack-${i}`);
+        }
+      }
+      document.getElementById('packingProgress').textContent = `${checked}/${totalItems}`;
+    }
+    
+    function loadPackingList() {
+      const totalItems = 29;
+      let checked = 0;
+      for (let i = 1; i <= totalItems; i++) {
+        const checkbox = document.getElementById(`pack-${i}`);
+        if (checkbox && localStorage.getItem(`pack-${i}`) === 'true') {
+          checkbox.checked = true;
+          checked++;
+        }
+      }
+      document.getElementById('packingProgress').textContent = `${checked}/${totalItems}`;
+    }
+    
+    function resetPackingList() {
+      const totalItems = 29;
+      for (let i = 1; i <= totalItems; i++) {
+        const checkbox = document.getElementById(`pack-${i}`);
+        if (checkbox) {
+          checkbox.checked = false;
+        }
+        localStorage.removeItem(`pack-${i}`);
+      }
+      document.getElementById('packingProgress').textContent = `0/${totalItems}`;
+    }
+    
     function toggleDestination(day) {
       const content = document.getElementById(`dest-content-${day}`);
       const toggle = document.getElementById(`dest-toggle-${day}`);
@@ -9696,6 +10018,26 @@
       document.getElementById('restaurantsText').textContent = tr.restaurantsText;
       document.getElementById('itineraryTitle').textContent = tr.itineraryTitle;
       document.getElementById('footerText').textContent = tr.footerText;
+
+      // Update packing list
+      document.getElementById('packingTitle').textContent = tr.packingTitle;
+      document.getElementById('packingWeatherTitle').textContent = tr.packingWeatherTitle;
+      document.getElementById('packingWeatherText').textContent = tr.packingWeatherText;
+      document.getElementById('essentialTitle').textContent = tr.essentialTitle;
+      document.getElementById('optionalTitle').textContent = tr.optionalTitle;
+      document.getElementById('clothingTitle').textContent = tr.clothingTitle;
+      document.getElementById('gearTitle').textContent = tr.gearTitle;
+      document.getElementById('docsTitle').textContent = tr.docsTitle;
+      document.getElementById('beforeDepartureTitle').textContent = tr.beforeDepartureTitle;
+      document.getElementById('resetPackingText').textContent = tr.resetPackingText;
+      
+      // Update packing items
+      for (let i = 1; i <= 29; i++) {
+        const el = document.getElementById(`pack-${i}-text`);
+        if (el && tr[`pack${i}`]) {
+          el.textContent = tr[`pack${i}`];
+        }
+      }
 
       // Render checklists
       renderChecklist('hotelsList', 'hotel', isHe, tr);
@@ -9904,6 +10246,7 @@
     updateUI();
     updateCountdown();
     updateEmergencyLabels();
+    loadPackingList();
     
     // Check dark mode on load
     if (localStorage.getItem('darkMode') === 'true') {
