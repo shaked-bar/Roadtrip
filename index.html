@@ -2711,6 +2711,8 @@
       }
     }
   </style>
+  <!-- jsPDF Library for PDF Generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 
 <!-- ╔══════════════════════════════════════════════════════════════╗ -->
@@ -5312,7 +5314,7 @@
               <div class="day-right">
                 <div class="day-stats">
                   <div class="day-stat" style="color:#2563eb;">🚗 5h</div>
-                  <div class="day-stat" style="color:#ea580c;">🌡️ 7°C</div>
+                  <div class="day-stat" style="color:#ea580c;">🌡️ 11°C</div>
                   <span class="state-badge" style="background:#ef4444">AZ</span>
                   <button class="road-story-btn" onclick="event.stopPropagation(); showRoadStory(7);">🛣️ Road Story</button>
                 </div>
@@ -5329,8 +5331,8 @@
                 </div>
                 <div class="info-box weather">
                   <div class="label" style="color:#c2410c;">🌡️ Weather</div>
-                  <div class="value" style="color:#9a3412;">7°C (44°F)</div>
-                  <div class="sub" style="color:#ea580c;">Low: -7°C</div>
+                  <div class="value" style="color:#9a3412;">11°C (52°F)</div>
+                  <div class="sub" style="color:#ea580c;">Low: -2°C</div>
                 </div>
                 <div class="info-box sleep">
                   <div class="label" style="color:#7c3aed;">🛏️ Sleep In</div>
@@ -5584,7 +5586,7 @@
               
               <div class="tips-box">
                 <div class="tips-title">💡 Tips</div>
-                <div class="tip-item">💡 Book Bright Angel months ahead!</div><div class="tip-item">💡 Dress VERY warm - -7°C at rim!</div>
+                <div class="tip-item">💡 Book Bright Angel months ahead!</div><div class="tip-item">💡 Dress warm - can be -2°C at rim!</div>
               </div>
               
               <div class="hotel-box">
@@ -5611,7 +5613,7 @@
               <div class="day-right">
                 <div class="day-stats">
                   <div class="day-stat" style="color:#2563eb;">🚗 0h</div>
-                  <div class="day-stat" style="color:#ea580c;">🌡️ 8°C</div>
+                  <div class="day-stat" style="color:#ea580c;">🌡️ 10°C</div>
                   <span class="state-badge" style="background:#ef4444">AZ</span>
                   <button class="road-story-btn" onclick="event.stopPropagation(); showRoadStory(8);">🔍 Explore</button>
                 </div>
@@ -5628,8 +5630,8 @@
                 </div>
                 <div class="info-box weather">
                   <div class="label" style="color:#c2410c;">🌡️ Weather</div>
-                  <div class="value" style="color:#9a3412;">8°C (46°F)</div>
-                  <div class="sub" style="color:#ea580c;">Low: -8°C</div>
+                  <div class="value" style="color:#9a3412;">10°C (50°F)</div>
+                  <div class="sub" style="color:#ea580c;">Low: -2°C</div>
                 </div>
                 <div class="info-box sleep">
                   <div class="label" style="color:#7c3aed;">🛏️ Sleep In</div>
@@ -6661,6 +6663,16 @@
           </div>
         </div>
 
+    <!-- PDF Download Section -->
+    <div id="pdfDownloadSection" style="margin: 32px 0; padding: 24px; background: linear-gradient(135deg, #fef3c7, #ffedd5); border-radius: 16px; border: 2px solid #f59e0b; text-align: center;">
+      <h3 style="font-size: 1.25rem; font-weight: 700; color: #92400e; margin-bottom: 8px;">
+        📄 <span id="pdfTitle">Offline Trip Guide</span>
+      </h3>
+      <p style="color: #b45309; margin-bottom: 16px; font-size: 0.9rem;" id="pdfDesc">Download a complete PDF with all trip details for offline use</p>
+      <button onclick="generatePDF()" id="pdfBtn" style="background: linear-gradient(135deg, rgb(22, 163, 74), rgb(21, 128, 61)); color: white; border: none; padding: 14px 28px; border-radius: 12px; font-size: 1rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; box-shadow: rgba(220, 38, 38, 0.3) 0px 4px 12px; transform: translateY(0px);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">Downloaded!</button>
+      <p style="color: #92400e; margin-top: 12px; font-size: 0.75rem;" id="pdfNote">Includes: Itinerary, Hotels, Road Stories, Packing List &amp; Emergency Info</p>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
       🚗🏜️ <span id="footerText">Safe travels and have fun!</span>
@@ -6753,6 +6765,10 @@
         docsTitle: '📄 Documents',
         beforeDepartureTitle: 'Before Departure',
         resetPackingText: 'Reset All',
+        pdfTitle: 'Offline Trip Guide',
+        pdfDesc: 'Download a complete PDF with all trip details for offline use',
+        pdfBtnText: 'Download PDF Guide',
+        pdfNote: 'Includes: Itinerary, Hotels, Road Stories, Packing List & Emergency Info',
         pack1: 'Winter jacket / Puffer',
         pack2: 'Fleece / Sweatshirt (×2)',
         pack3: 'Long sleeve shirts (×3)',
@@ -6841,6 +6857,10 @@
         docsTitle: '📄 מסמכים',
         beforeDepartureTitle: 'לפני היציאה',
         resetPackingText: 'אפס הכל',
+        pdfTitle: 'מדריך טיול אופליין',
+        pdfDesc: 'הורידו PDF מלא עם כל פרטי הטיול לשימוש ללא אינטרנט',
+        pdfBtnText: 'הורד מדריך PDF',
+        pdfNote: 'כולל: מסלול, מלונות, סיפורי דרך, רשימת ציוד ומספרי חירום',
         pack1: 'ז׳קט חורף / פאפר',
         pack2: 'פליז / סווטשרט (×2)',
         pack3: 'חולצות שרוול ארוך (×3)',
@@ -7146,7 +7166,7 @@
         from: 'Zion NP', to: 'Grand Canyon',
         fromHe: 'זאיון', toHe: 'גרנד קניון',
         driveHours: 5, distanceKm: 400, state: 'AZ', stateClass: 'az',
-        weatherHigh: { c: 7, f: 44 }, weatherLow: { c: -7, f: 20 },
+        weatherHigh: { c: 11, f: 52 }, weatherLow: { c: -2, f: 28 },
         sleepCity: 'Grand Canyon Village', sleepCityHe: 'גרנד קניון',
         signal: 'weak',
         gasStops: ['Kanab'], gasStopsHe: ['קנאב'],
@@ -7179,7 +7199,7 @@
           ]},
         ],
         highlight: 'First Grand Canyon view + Hopi sunset!', highlightHe: 'מבט ראשון + שקיעה ב-Hopi Point!',
-        tips: ['Book Bright Angel months ahead!', 'Dress VERY warm - -7°C at rim!'], tipsHe: ['הזמינו Bright Angel מראש!', 'התלבשו חם - מינוס 7 בקצה!'],
+        tips: ['Book Bright Angel months ahead!', 'Dress warm - can be -2°C at rim!'], tipsHe: ['הזמינו Bright Angel מראש!', 'התלבשו חם - יכול להיות מינוס 2 בקצה!'],
         hotel: { name: 'Bright Angel Lodge ⭐⭐', price: '$180-220', phone: '(928) 638-2631', bonus: 'Steps from the rim!', bonusHe: 'צעדים מהקניון!' },
       },
       {
@@ -7187,7 +7207,7 @@
         from: 'Grand Canyon', to: 'Grand Canyon',
         fromHe: 'גרנד קניון', toHe: 'גרנד קניון',
         driveHours: 0, distanceKm: 0, state: 'AZ', stateClass: 'az',
-        weatherHigh: { c: 8, f: 46 }, weatherLow: { c: -8, f: 18 },
+        weatherHigh: { c: 10, f: 50 }, weatherLow: { c: -2, f: 28 },
         sleepCity: 'Grand Canyon Village', sleepCityHe: 'גרנד קניון',
         signal: 'weak',
         gasStops: [], gasStopsHe: [],
@@ -7204,7 +7224,7 @@
         sections: [
           { time: 'morning', range: '5:30 AM - 12:00 PM', activities: [
             { icon: '⭐', text: 'SUNRISE AT MATHER POINT (7:30 AM)', textHe: 'זריחה ב-MATHER POINT (7:30)', type: 'highlight' },
-            { icon: '⚠️', text: '-8°C (18°F) - dress in ALL layers!', textHe: 'מינוס 8 - התלבשו בשכבות!', type: 'warning' },
+            { icon: '⚠️', text: '-2°C (28°F) - dress warm!', textHe: 'מינוס 2 - התלבשו חם!', type: 'warning' },
             { icon: '⭐', text: 'SOUTH KAIBAB HIKE to Ooh Aah Point', textHe: 'טיול SOUTH KAIBAB ל-Ooh Aah', type: 'highlight' },
           ]},
           { time: 'afternoon', range: '12:00 PM - 5:00 PM', activities: [
@@ -7459,6 +7479,751 @@
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
+    }
+    
+    // PDF Generation Function
+    function generatePDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF('p', 'mm', 'a4');
+      const pageWidth = 210;
+      const pageHeight = 297;
+      const margin = 15;
+      const contentWidth = pageWidth - (margin * 2);
+      let y = margin;
+      
+      // Helper function to add new page if needed
+      function checkNewPage(neededSpace = 8) {
+        if (y + neededSpace > pageHeight - 15) {
+          doc.addPage();
+          y = margin;
+          return true;
+        }
+        return false;
+      }
+      
+      // Helper function to add section header
+      function addSectionHeader(text) {
+        checkNewPage(20);
+        doc.setFillColor(99, 102, 241);
+        doc.rect(margin, y, contentWidth, 10, 'F');
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(12);
+        doc.setFont('helvetica', 'bold');
+        doc.text(text, margin + 5, y + 7);
+        doc.setTextColor(0, 0, 0);
+        y += 15;
+      }
+      
+      // Helper function to add sub header
+      function addSubHeader(text, bgColor = [254, 243, 199]) {
+        if (y > pageHeight - 40) {
+          doc.addPage();
+          y = margin;
+        }
+        doc.setFillColor(...bgColor);
+        doc.roundedRect(margin, y, contentWidth, 8, 2, 2, 'F');
+        doc.setFontSize(10);
+        doc.setFont('helvetica', 'bold');
+        doc.text(text, margin + 3, y + 5.5);
+        doc.setFont('helvetica', 'normal');
+        y += 10;
+      }
+      
+      // ═══════════════════════════════════════════════════════════════
+      // PAGE 1: TITLE PAGE
+      // ═══════════════════════════════════════════════════════════════
+      doc.setFillColor(99, 102, 241);
+      doc.rect(0, 0, pageWidth, 70, 'F');
+      
+      doc.setTextColor(255, 255, 255);
+      doc.setFontSize(26);
+      doc.setFont('helvetica', 'bold');
+      doc.text('SOUTHWEST ROAD TRIP', pageWidth / 2, 30, { align: 'center' });
+      
+      doc.setFontSize(14);
+      doc.setFont('helvetica', 'normal');
+      doc.text('December 21-31, 2025 | 11 Days | 3,400 km', pageWidth / 2, 45, { align: 'center' });
+      
+      doc.setFontSize(10);
+      doc.text('Round Rock, TX - White Sands - Santa Fe - Monument Valley - Grand Canyon - Zion - Home', pageWidth / 2, 58, { align: 'center' });
+      
+      doc.setTextColor(0, 0, 0);
+      y = 85;
+      
+      // Stats Grid
+      const stats = [
+        { label: 'DAYS', value: '11' },
+        { label: 'DISTANCE', value: '3,400 km' },
+        { label: 'BUDGET', value: '$3,070' },
+        { label: 'HOTELS', value: '10 nights' },
+      ];
+      
+      const boxWidth = (contentWidth - 12) / 4;
+      stats.forEach((stat, i) => {
+        const x = margin + (i * (boxWidth + 4));
+        doc.setFillColor(254, 243, 199);
+        doc.roundedRect(x, y, boxWidth, 22, 3, 3, 'F');
+        doc.setFontSize(8);
+        doc.setFont('helvetica', 'normal');
+        doc.text(stat.label, x + boxWidth/2, y + 8, { align: 'center' });
+        doc.setFontSize(12);
+        doc.setFont('helvetica', 'bold');
+        doc.text(stat.value, x + boxWidth/2, y + 17, { align: 'center' });
+      });
+      
+      y = 120;
+      
+      // Route Overview
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(11);
+      doc.text('ROUTE OVERVIEW', margin, y);
+      y += 6;
+      
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(9);
+      const routeStops = [
+        'Day 1: Round Rock, TX --> White Sands, NM (10h)',
+        'Day 2: White Sands --> Santa Fe, NM (3.5h)',
+        'Day 3: Santa Fe - REST DAY (Meow Wolf)',
+        'Day 4: Santa Fe --> Monument Valley (6h) - Christmas Eve',
+        'Day 5: Monument Valley --> Page, AZ (2.5h) - Christmas',
+        'Day 6: Page --> Zion National Park (2.25h)',
+        'Day 7: Zion --> Grand Canyon (5h)',
+        'Day 8: Grand Canyon - REST DAY',
+        'Day 9: Grand Canyon --> Sedona --> Tucson (6h)',
+        'Day 10: Tucson --> Fort Stockton, TX (7h)',
+        'Day 11: Fort Stockton --> Round Rock - HOME! (6h)',
+      ];
+      
+      routeStops.forEach(stop => {
+        doc.text(stop, margin, y);
+        y += 5;
+      });
+      
+      y += 8;
+      
+      // Emergency Numbers Box
+      doc.setFillColor(254, 226, 226);
+      doc.roundedRect(margin, y, contentWidth, 28, 3, 3, 'F');
+      doc.setDrawColor(220, 38, 38);
+      doc.setLineWidth(0.5);
+      doc.roundedRect(margin, y, contentWidth, 28, 3, 3, 'S');
+      
+      doc.setFontSize(10);
+      doc.setFont('helvetica', 'bold');
+      doc.setTextColor(185, 28, 28);
+      doc.text('EMERGENCY NUMBERS', margin + 5, y + 7);
+      doc.setFontSize(9);
+      doc.setFont('helvetica', 'normal');
+      doc.text('Emergency: 911', margin + 5, y + 14);
+      doc.text('AAA Roadside: 1-800-222-4357', margin + 5, y + 20);
+      doc.text('Israel Embassy: (202) 364-5500', margin + 80, y + 14);
+      doc.text('Poison Control: 1-800-222-1222', margin + 80, y + 20);
+      doc.setTextColor(0, 0, 0);
+      
+      // ═══════════════════════════════════════════════════════════════
+      // HOTEL RESERVATIONS PAGE
+      // ═══════════════════════════════════════════════════════════════
+      doc.addPage();
+      y = margin;
+      
+      addSectionHeader('HOTEL RESERVATIONS (10 Nights)');
+      
+      const hotels = [
+        { night: '1', date: 'Dec 21 (Sat)', city: 'Alamogordo, NM', name: 'Fairfield Inn & Suites', phone: '(575) 437-0088', price: '$100-120', address: '134 Tularosa Blvd' },
+        { night: '2-3', date: 'Dec 22-23', city: 'Santa Fe, NM', name: 'Drury Plaza Hotel', phone: '(505) 424-2175', price: '$150-180/night', address: '828 Paseo De Peralta', note: 'FREE evening food & drinks 5:30-7pm!' },
+        { night: '4', date: 'Dec 24 (Tue)', city: 'Monument Valley', name: "Goulding's Lodge", phone: '(435) 727-3231', price: '$150-200', address: '1000 Main St, Oljato', note: 'BOOK IMMEDIATELY - fills fast!' },
+        { night: '5', date: 'Dec 25 (Wed)', city: 'Page, AZ', name: 'Hyatt Place Page', phone: '(928) 645-8851', price: '$150-180', address: '640 Clubhouse Dr' },
+        { night: '6', date: 'Dec 26 (Thu)', city: 'Springdale, UT', name: 'Hampton Inn Springdale', phone: '(435) 772-0700', price: '$140-170', address: '1127 Zion Park Blvd' },
+        { night: '7-8', date: 'Dec 27-28', city: 'Grand Canyon', name: 'Bright Angel Lodge', phone: '(928) 638-2631', price: '$180-220/night', address: 'Grand Canyon Village', note: 'ON THE RIM! Book months ahead!' },
+        { night: '9', date: 'Dec 29 (Sun)', city: 'Tucson, AZ', name: 'Hilton Tucson East', phone: '(520) 721-5600', price: '$120-150', address: '7600 E Broadway Blvd' },
+        { night: '10', date: 'Dec 30 (Mon)', city: 'Fort Stockton, TX', name: 'Hampton Inn', phone: '(432) 336-8500', price: '$80-100', address: '1409 N US Hwy 285' },
+      ];
+      
+      hotels.forEach(hotel => {
+        checkNewPage(24);
+        
+        // Hotel box
+        doc.setFillColor(249, 250, 251);
+        doc.roundedRect(margin, y, contentWidth, 22, 2, 2, 'F');
+        doc.setDrawColor(229, 231, 235);
+        doc.roundedRect(margin, y, contentWidth, 22, 2, 2, 'S');
+        
+        // Night badge
+        doc.setFillColor(99, 102, 241);
+        doc.roundedRect(margin + 2, y + 2, 22, 6, 1, 1, 'F');
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(7);
+        doc.setFont('helvetica', 'bold');
+        doc.text(`Night ${hotel.night}`, margin + 13, y + 6, { align: 'center' });
+        doc.setTextColor(0, 0, 0);
+        
+        // Date
+        doc.setFontSize(8);
+        doc.text(hotel.date, margin + 28, y + 6);
+        
+        // Hotel name & city
+        doc.setFontSize(10);
+        doc.setFont('helvetica', 'bold');
+        doc.text(hotel.name, margin + 3, y + 13);
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(8);
+        doc.text(hotel.city, margin + 3, y + 18);
+        
+        // Phone & Price
+        doc.setFontSize(8);
+        doc.text(`Tel: ${hotel.phone}`, margin + 90, y + 10);
+        doc.text(`Price: ${hotel.price}`, margin + 90, y + 15);
+        
+        // Note if exists
+        if (hotel.note) {
+          doc.setTextColor(220, 38, 38);
+          doc.setFont('helvetica', 'bold');
+          doc.setFontSize(7);
+          doc.text(hotel.note, margin + 90, y + 20);
+          doc.setTextColor(0, 0, 0);
+          doc.setFont('helvetica', 'normal');
+        }
+        
+        y += 26;
+      });
+      
+      // ═══════════════════════════════════════════════════════════════
+      // MUST-BOOK RESERVATIONS
+      // ═══════════════════════════════════════════════════════════════
+      y += 5;
+      addSubHeader('MUST-BOOK RESERVATIONS', [254, 226, 226]);
+      
+      const bookings = [
+        { item: 'Meow Wolf Santa Fe', date: 'Dec 23, 11:00 AM', price: '$45/person', url: 'meowwolf.com', note: 'SELLS OUT - book now!' },
+        { item: 'The Shed Restaurant', date: 'Dec 22, 7:00 PM', price: '$$', url: 'sfshed.com', note: 'Famous red chile' },
+        { item: 'El Tovar Restaurant (Grand Canyon)', date: 'Dec 28, 6:30 PM', price: '$$$', url: 'grandcanyonlodges.com', note: 'Window seat!' },
+        { item: 'Elote Cafe (Sedona)', date: 'Dec 29, 12:00 PM', price: '$$', url: 'elotecafe.com', note: 'Book 2 weeks ahead' },
+      ];
+      
+      bookings.forEach(booking => {
+        checkNewPage(8);
+        doc.setFontSize(9);
+        doc.setFont('helvetica', 'bold');
+        doc.text(`[ ] ${booking.item}`, margin, y);
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(8);
+        doc.text(`${booking.date} | ${booking.price} | ${booking.note}`, margin + 55, y);
+        y += 6;
+      });
+      
+      // ═══════════════════════════════════════════════════════════════
+      // DAY BY DAY DETAILED ITINERARY
+      // ═══════════════════════════════════════════════════════════════
+      doc.addPage();
+      y = margin;
+      
+      addSectionHeader('DETAILED DAY-BY-DAY ITINERARY');
+      
+      // Day 1
+      addSubHeader('DAY 1 - Sunday, Dec 21: Round Rock --> White Sands (10h drive)');
+      
+      const day1Timeline = [
+        { time: '06:00', activity: 'DEPART Round Rock - Start early!', type: 'start' },
+        { time: '07:00', activity: "Buc-ee's New Braunfels - Breakfast tacos, coffee, restrooms (30 min)", type: 'food' },
+        { time: '09:30', activity: 'Fort Stockton - MUST REFUEL! 200km no stations ahead (20 min)', type: 'gas' },
+        { time: '10:30', activity: 'Chihuahuan Desert drive - Dramatic landscapes, minimal signal', type: 'drive' },
+        { time: '12:30', activity: 'Desert Highway - Photo stop, straight road to infinity (10 min)', type: 'photo' },
+        { time: '14:00', activity: 'Guadalupe Peak Viewpoint - Highest point in Texas visible (15 min)', type: 'photo' },
+        { time: '15:30', activity: 'Check in hotel - Fairfield Inn Alamogordo', type: 'hotel' },
+        { time: '16:00', activity: 'Drive to White Sands National Park - $25 entrance fee', type: 'drive' },
+        { time: '17:15', activity: 'SUNSET AT WHITE SANDS - THE HIGHLIGHT! Pink skies on white dunes (1.5h)', type: 'highlight' },
+        { time: '19:00', activity: "Dinner - Pepper's Grill, Alamogordo", type: 'food' },
+      ];
+      
+      day1Timeline.forEach(item => {
+        checkNewPage(6);
+        doc.setFontSize(8);
+        doc.setFont('helvetica', 'bold');
+        doc.text(item.time, margin, y);
+        doc.setFont('helvetica', 'normal');
+        
+        if (item.type === 'highlight') {
+          doc.setTextColor(220, 38, 38);
+          doc.setFont('helvetica', 'bold');
+        } else if (item.type === 'gas') {
+          doc.setTextColor(234, 88, 12);
+        }
+        
+        doc.text(item.activity, margin + 15, y);
+        doc.setTextColor(0, 0, 0);
+        doc.setFont('helvetica', 'normal');
+        y += 5;
+      });
+      
+      y += 3;
+      
+      // Day 2
+      addSubHeader('DAY 2 - Monday, Dec 22: White Sands --> Santa Fe (3.5h drive)');
+      
+      const day2Timeline = [
+        { time: '06:15', activity: 'Drive to White Sands - Arrive before sunrise!', type: 'drive' },
+        { time: '07:00', activity: 'SUNRISE AT WHITE SANDS - Pink/gold dunes, long shadows, BEST PHOTOS!', type: 'highlight' },
+        { time: '08:30', activity: 'Sled down the dunes! - $20 rental at visitor center', type: 'activity' },
+        { time: '10:00', activity: 'Depart for Santa Fe', type: 'drive' },
+        { time: '11:00', activity: 'Carrizozo Lava Fields - Quick photo stop, black lava (20 min)', type: 'photo' },
+        { time: '14:00', activity: 'Arrive Santa Fe - Altitude 7,200ft, drink lots of water!', type: 'arrive' },
+        { time: '15:00', activity: 'Check in Drury Plaza Hotel - Downtown Santa Fe', type: 'hotel' },
+        { time: '17:30', activity: 'FREE Hotel Happy Hour! - Food & drinks included', type: 'highlight' },
+        { time: '19:00', activity: 'Dinner at The Shed - RESERVE AHEAD! Famous red chile', type: 'food' },
+        { time: '21:00', activity: 'Canyon Road evening walk - Farolitos (paper lanterns) in December!', type: 'activity' },
+      ];
+      
+      day2Timeline.forEach(item => {
+        checkNewPage(6);
+        doc.setFontSize(8);
+        doc.setFont('helvetica', 'bold');
+        doc.text(item.time, margin, y);
+        doc.setFont('helvetica', 'normal');
+        if (item.type === 'highlight') {
+          doc.setTextColor(220, 38, 38);
+          doc.setFont('helvetica', 'bold');
+        }
+        doc.text(item.activity, margin + 15, y);
+        doc.setTextColor(0, 0, 0);
+        doc.setFont('helvetica', 'normal');
+        y += 5;
+      });
+      
+      y += 3;
+      
+      // Day 3
+      addSubHeader('DAY 3 - Tuesday, Dec 23: Santa Fe - REST DAY (No driving!)');
+      
+      const day3Timeline = [
+        { time: '08:00', activity: "Breakfast at Tia Sophia's - Famous breakfast burritos", type: 'food' },
+        { time: '09:30', activity: "Georgia O'Keeffe Museum - Famous desert artist ($20)", type: 'activity' },
+        { time: '11:00', activity: 'MEOW WOLF - BOOK AHEAD! 2-3 hours immersive art ($45)', type: 'highlight' },
+        { time: '14:00', activity: "Lunch at Cafe Pasqual's - New Mexican cuisine", type: 'food' },
+        { time: '15:30', activity: 'Canyon Road Art Walk - 100+ galleries, free!', type: 'activity' },
+        { time: '17:30', activity: 'FREE Hotel Happy Hour again!', type: 'highlight' },
+        { time: '19:00', activity: 'Special dinner at Geronimo - Upscale, reserve ahead', type: 'food' },
+        { time: '21:00', activity: 'Plaza walk - December lights, hot chocolate', type: 'activity' },
+      ];
+      
+      day3Timeline.forEach(item => {
+        checkNewPage(6);
+        doc.setFontSize(8);
+        doc.setFont('helvetica', 'bold');
+        doc.text(item.time, margin, y);
+        doc.setFont('helvetica', 'normal');
+        if (item.type === 'highlight') {
+          doc.setTextColor(220, 38, 38);
+          doc.setFont('helvetica', 'bold');
+        }
+        doc.text(item.activity, margin + 15, y);
+        doc.setTextColor(0, 0, 0);
+        doc.setFont('helvetica', 'normal');
+        y += 5;
+      });
+      
+      y += 3;
+      
+      // Day 4
+      addSubHeader('DAY 4 - Wednesday, Dec 24: Santa Fe --> Monument Valley (6h) - CHRISTMAS EVE');
+      
+      const day4Timeline = [
+        { time: '08:00', activity: 'Free Drury breakfast - Last Santa Fe meal', type: 'food' },
+        { time: '09:00', activity: 'Depart Santa Fe - Head towards Navajo Nation', type: 'drive' },
+        { time: '10:30', activity: 'Farmington - MUST REFUEL! Last gas for 160km!', type: 'gas' },
+        { time: '12:00', activity: 'Enter Navajo Nation - Different time zone, no DST!', type: 'drive' },
+        { time: '13:00', activity: 'Lunch at Amigo Cafe, Kayenta - Navajo tacos', type: 'food' },
+        { time: '14:30', activity: "Check in Goulding's Lodge (or alternative)", type: 'hotel' },
+        { time: '16:00', activity: 'Explore Monument Valley Visitor Center', type: 'activity' },
+        { time: '17:20', activity: 'SUNSET AT MONUMENT VALLEY - Buttes glow orange/red!', type: 'highlight' },
+        { time: '19:00', activity: 'Christmas Eve dinner at hotel', type: 'food' },
+        { time: '21:00', activity: 'Stargazing - Incredible dark skies, no light pollution!', type: 'activity' },
+      ];
+      
+      day4Timeline.forEach(item => {
+        checkNewPage(6);
+        doc.setFontSize(8);
+        doc.setFont('helvetica', 'bold');
+        doc.text(item.time, margin, y);
+        doc.setFont('helvetica', 'normal');
+        if (item.type === 'highlight' || item.type === 'gas') {
+          doc.setTextColor(item.type === 'gas' ? 234 : 220, item.type === 'gas' ? 88 : 38, item.type === 'gas' ? 12 : 38);
+          doc.setFont('helvetica', 'bold');
+        }
+        doc.text(item.activity, margin + 15, y);
+        doc.setTextColor(0, 0, 0);
+        doc.setFont('helvetica', 'normal');
+        y += 5;
+      });
+      
+      // Day 5
+      doc.addPage();
+      y = margin;
+      addSubHeader('DAY 5 - Thursday, Dec 25: Monument Valley --> Page (2.5h) - CHRISTMAS DAY');
+      
+      const day5Timeline = [
+        { time: '07:00', activity: 'SUNRISE AT MONUMENT VALLEY - Best sunrise of the trip!', type: 'highlight' },
+        { time: '08:30', activity: 'Breakfast at hotel - Enjoy the view one more time', type: 'food' },
+        { time: '09:30', activity: '17-Mile Valley Drive loop - 2-3 hours, dirt road', type: 'activity' },
+        { time: '12:00', activity: 'FORREST GUMP POINT - Mile Marker 13, iconic photo!', type: 'highlight' },
+        { time: '12:30', activity: 'Mexican Hat Rock - Quick photo stop', type: 'photo' },
+        { time: '13:30', activity: "Lunch at Big John's Texas BBQ, Page", type: 'food' },
+        { time: '15:00', activity: 'Check in Hyatt Place Page', type: 'hotel' },
+        { time: '16:00', activity: 'Walk to Horseshoe Bend parking (15 min walk to rim)', type: 'activity' },
+        { time: '17:25', activity: 'SUNSET AT HORSESHOE BEND - NO RAILINGS, be careful!', type: 'highlight' },
+        { time: '18:30', activity: 'Bring flashlight for walk back! Gets dark fast', type: 'warning' },
+        { time: '19:30', activity: 'Christmas dinner - CALL AHEAD, many places closed!', type: 'food' },
+      ];
+      
+      day5Timeline.forEach(item => {
+        checkNewPage(6);
+        doc.setFontSize(8);
+        doc.setFont('helvetica', 'bold');
+        doc.text(item.time, margin, y);
+        doc.setFont('helvetica', 'normal');
+        if (item.type === 'highlight') {
+          doc.setTextColor(220, 38, 38);
+          doc.setFont('helvetica', 'bold');
+        } else if (item.type === 'warning') {
+          doc.setTextColor(234, 88, 12);
+        }
+        doc.text(item.activity, margin + 15, y);
+        doc.setTextColor(0, 0, 0);
+        doc.setFont('helvetica', 'normal');
+        y += 5;
+      });
+      
+      y += 3;
+      
+      // Day 6
+      addSubHeader('DAY 6 - Friday, Dec 26: Page --> Zion National Park (2.25h)');
+      
+      const day6Timeline = [
+        { time: '07:00', activity: 'HORSESHOE BEND SUNRISE - Different light than sunset!', type: 'highlight' },
+        { time: '09:00', activity: 'Waterholes Canyon - FREE slot canyon alternative!', type: 'activity' },
+        { time: '10:00', activity: 'Glen Canyon Dam viewpoint', type: 'photo' },
+        { time: '10:30', activity: 'Depart for Zion via scenic route', type: 'drive' },
+        { time: '11:30', activity: 'NAVAJO BRIDGE - Walk over Colorado River! (free)', type: 'highlight' },
+        { time: '12:00', activity: 'Vermillion Cliffs views - Dramatic red cliffs', type: 'photo' },
+        { time: '13:00', activity: 'Arrive Zion area - $35 entrance fee', type: 'arrive' },
+        { time: '14:00', activity: 'Check in Hampton Inn Springdale', type: 'hotel' },
+        { time: '15:00', activity: 'Canyon Overlook Trail - Easy 1 mile, stunning views!', type: 'activity' },
+        { time: '17:00', activity: 'DRIVE THROUGH ZION TUNNEL! - 1.1 mile long', type: 'highlight' },
+        { time: '19:00', activity: 'Dinner at Spotted Dog Cafe, Springdale', type: 'food' },
+      ];
+      
+      day6Timeline.forEach(item => {
+        checkNewPage(6);
+        doc.setFontSize(8);
+        doc.setFont('helvetica', 'bold');
+        doc.text(item.time, margin, y);
+        doc.setFont('helvetica', 'normal');
+        if (item.type === 'highlight') {
+          doc.setTextColor(220, 38, 38);
+          doc.setFont('helvetica', 'bold');
+        }
+        doc.text(item.activity, margin + 15, y);
+        doc.setTextColor(0, 0, 0);
+        doc.setFont('helvetica', 'normal');
+        y += 5;
+      });
+      
+      y += 3;
+      
+      // Day 7
+      addSubHeader('DAY 7 - Saturday, Dec 27: Zion --> Grand Canyon (5h)');
+      
+      const day7Timeline = [
+        { time: '07:00', activity: "Watchman or Pa'rus Trail - Easy morning hike", type: 'activity' },
+        { time: '08:30', activity: "Breakfast at Oscar's Cafe, Springdale", type: 'food' },
+        { time: '10:30', activity: 'Depart for Grand Canyon', type: 'drive' },
+        { time: '11:30', activity: 'Kanab, UT - Cute Western town, gas stop', type: 'gas' },
+        { time: '13:00', activity: 'Cameron Trading Post - Lunch, Navajo crafts', type: 'food' },
+        { time: '14:30', activity: 'DESERT VIEW WATCHTOWER - First Grand Canyon view!', type: 'highlight' },
+        { time: '15:30', activity: 'Check in Bright Angel Lodge - ON THE RIM!', type: 'hotel' },
+        { time: '17:30', activity: 'SUNSET AT HOPI POINT - Best sunset spot!', type: 'highlight' },
+        { time: '19:00', activity: 'Dinner at El Tovar - RESERVE! Window seat!', type: 'food' },
+      ];
+      
+      day7Timeline.forEach(item => {
+        checkNewPage(6);
+        doc.setFontSize(8);
+        doc.setFont('helvetica', 'bold');
+        doc.text(item.time, margin, y);
+        doc.setFont('helvetica', 'normal');
+        if (item.type === 'highlight') {
+          doc.setTextColor(220, 38, 38);
+          doc.setFont('helvetica', 'bold');
+        }
+        doc.text(item.activity, margin + 15, y);
+        doc.setTextColor(0, 0, 0);
+        doc.setFont('helvetica', 'normal');
+        y += 5;
+      });
+      
+      // Day 8
+      doc.addPage();
+      y = margin;
+      addSubHeader('DAY 8 - Sunday, Dec 28: Grand Canyon - FULL REST DAY');
+      
+      const day8Timeline = [
+        { time: '06:30', activity: 'Walk to Mather Point (10 min from lodge)', type: 'activity' },
+        { time: '07:30', activity: 'SUNRISE AT MATHER POINT - Dress warm! -2C possible', type: 'highlight' },
+        { time: '08:30', activity: 'Breakfast at Bright Angel Lodge', type: 'food' },
+        { time: '09:30', activity: 'SOUTH KAIBAB HIKE to Ooh Aah Point (1.5h round trip)', type: 'highlight' },
+        { time: '11:30', activity: 'Return from hike - May be icy, traction recommended!', type: 'warning' },
+        { time: '12:30', activity: 'Lunch at El Tovar', type: 'food' },
+        { time: '14:00', activity: 'DESERT VIEW DRIVE - 25 miles of viewpoints', type: 'highlight' },
+        { time: '14:30', activity: 'Grandview Point - Stunning vista', type: 'photo' },
+        { time: '15:00', activity: 'Moran Point - Colorado River visible', type: 'photo' },
+        { time: '15:30', activity: 'Lipan Point - Wide canyon views', type: 'photo' },
+        { time: '16:30', activity: 'Return to village', type: 'drive' },
+        { time: '17:30', activity: 'SUNSET AT HOPI POINT again! Different light', type: 'highlight' },
+        { time: '19:00', activity: 'Special dinner at El Tovar - Last GC night', type: 'food' },
+        { time: '21:00', activity: 'Stargazing at Yavapai Point - Dark Sky Park!', type: 'activity' },
+      ];
+      
+      day8Timeline.forEach(item => {
+        checkNewPage(6);
+        doc.setFontSize(8);
+        doc.setFont('helvetica', 'bold');
+        doc.text(item.time, margin, y);
+        doc.setFont('helvetica', 'normal');
+        if (item.type === 'highlight') {
+          doc.setTextColor(220, 38, 38);
+          doc.setFont('helvetica', 'bold');
+        } else if (item.type === 'warning') {
+          doc.setTextColor(234, 88, 12);
+        }
+        doc.text(item.activity, margin + 15, y);
+        doc.setTextColor(0, 0, 0);
+        doc.setFont('helvetica', 'normal');
+        y += 5;
+      });
+      
+      y += 3;
+      
+      // Day 9
+      addSubHeader('DAY 9 - Monday, Dec 29: Grand Canyon --> Sedona --> Tucson (6h)');
+      
+      const day9Timeline = [
+        { time: '07:30', activity: 'Optional final sunrise (or sleep in!)', type: 'activity' },
+        { time: '09:00', activity: 'Depart Grand Canyon for Sedona (2h)', type: 'drive' },
+        { time: '11:00', activity: 'CHAPEL OF THE HOLY CROSS - Iconic Sedona landmark!', type: 'highlight' },
+        { time: '12:00', activity: 'Lunch at Elote Cafe - RESERVE! Mexican-inspired', type: 'food' },
+        { time: '13:30', activity: 'Cathedral Rock viewpoint - Quick photo', type: 'photo' },
+        { time: '14:00', activity: 'Uptown Sedona - Shopping, galleries', type: 'activity' },
+        { time: '15:00', activity: 'Depart for Tucson (3h) - Gets warmer!', type: 'drive' },
+        { time: '17:00', activity: 'Check in Hilton Tucson East', type: 'hotel' },
+        { time: '17:40', activity: 'SUNSET AT SAGUARO NP EAST - Giant cacti silhouettes!', type: 'highlight' },
+        { time: '19:00', activity: 'Dinner at El Charro Cafe - Try chimichanga!', type: 'food' },
+      ];
+      
+      day9Timeline.forEach(item => {
+        checkNewPage(6);
+        doc.setFontSize(8);
+        doc.setFont('helvetica', 'bold');
+        doc.text(item.time, margin, y);
+        doc.setFont('helvetica', 'normal');
+        if (item.type === 'highlight') {
+          doc.setTextColor(220, 38, 38);
+          doc.setFont('helvetica', 'bold');
+        }
+        doc.text(item.activity, margin + 15, y);
+        doc.setTextColor(0, 0, 0);
+        doc.setFont('helvetica', 'normal');
+        y += 5;
+      });
+      
+      // Day 10-11
+      doc.addPage();
+      y = margin;
+      addSubHeader('DAY 10 - Tuesday, Dec 30: Tucson --> Fort Stockton (7h)');
+      
+      const day10Timeline = [
+        { time: '07:20', activity: 'SUNRISE AT SAGUARO NP WEST - Different cacti than East!', type: 'highlight' },
+        { time: '08:00', activity: 'Depart Tucson', type: 'drive' },
+        { time: '10:30', activity: 'Las Cruces, NM - Gas & stretch (20 min)', type: 'gas' },
+        { time: '12:30', activity: 'El Paso, TX - Short break, back in Texas!', type: 'drive' },
+        { time: '15:00', activity: 'Arrive Fort Stockton - Check in Hampton Inn', type: 'hotel' },
+        { time: '16:00', activity: 'Rest at hotel - Long drive tomorrow!', type: 'activity' },
+        { time: '18:00', activity: 'Dinner in Fort Stockton', type: 'food' },
+        { time: '20:00', activity: 'Early sleep - Short drive home tomorrow!', type: 'activity' },
+      ];
+      
+      day10Timeline.forEach(item => {
+        checkNewPage(6);
+        doc.setFontSize(8);
+        doc.setFont('helvetica', 'bold');
+        doc.text(item.time, margin, y);
+        doc.setFont('helvetica', 'normal');
+        if (item.type === 'highlight') {
+          doc.setTextColor(220, 38, 38);
+          doc.setFont('helvetica', 'bold');
+        }
+        doc.text(item.activity, margin + 15, y);
+        doc.setTextColor(0, 0, 0);
+        doc.setFont('helvetica', 'normal');
+        y += 5;
+      });
+      
+      y += 8;
+      
+      addSubHeader('DAY 11 - Wednesday, Dec 31: Fort Stockton --> HOME! (6h) - NEW YEARS EVE!');
+      
+      const day11Timeline = [
+        { time: '09:00', activity: 'Hotel breakfast - No rush today!', type: 'food' },
+        { time: '10:00', activity: 'Depart Fort Stockton', type: 'drive' },
+        { time: '11:30', activity: 'Sonora, TX - Gas if needed', type: 'gas' },
+        { time: '13:00', activity: 'Lunch at Junction or Fredericksburg', type: 'food' },
+        { time: '14:00', activity: 'Enter Hill Country - Home turf!', type: 'drive' },
+        { time: '15:00', activity: 'ARRIVE HOME! Trip complete!', type: 'highlight' },
+        { time: '16:00', activity: 'Unpack, shower, relax', type: 'activity' },
+        { time: '20:00', activity: 'NEW YEARS EVE - Celebrate the amazing trip!', type: 'highlight' },
+      ];
+      
+      day11Timeline.forEach(item => {
+        checkNewPage(6);
+        doc.setFontSize(8);
+        doc.setFont('helvetica', 'bold');
+        doc.text(item.time, margin, y);
+        doc.setFont('helvetica', 'normal');
+        if (item.type === 'highlight') {
+          doc.setTextColor(34, 197, 94);
+          doc.setFont('helvetica', 'bold');
+        }
+        doc.text(item.activity, margin + 15, y);
+        doc.setTextColor(0, 0, 0);
+        doc.setFont('helvetica', 'normal');
+        y += 5;
+      });
+      
+      // ═══════════════════════════════════════════════════════════════
+      // PACKING LIST
+      // ═══════════════════════════════════════════════════════════════
+      doc.addPage();
+      y = margin;
+      
+      addSectionHeader('PACKING CHECKLIST');
+      
+      doc.setFontSize(9);
+      doc.text('Weather: -2C to +22C | Coldest: Grand Canyon sunrise | Warmest: Tucson/Saguaro', margin, y);
+      y += 8;
+      
+      addSubHeader('ESSENTIAL - Must Have!', [254, 226, 226]);
+      
+      const essentials = [
+        '[ ] Winter jacket / Puffer',
+        '[ ] Fleece / Sweatshirt (x2)',
+        '[ ] Long sleeve shirts (x3)',
+        '[ ] T-shirts (x2) - for Tucson!',
+        '[ ] Hiking pants (x2)',
+        '[ ] Socks (x5 pairs, 2 warm)',
+        '[ ] Hiking shoes (waterproof)',
+        '[ ] FLASHLIGHT / HEADLAMP - Critical!',
+        '[ ] Sunglasses',
+        '[ ] Water bottle (1L)',
+        '[ ] Car USB charger',
+        '[ ] Sunscreen SPF30+',
+        '[ ] Lip balm with SPF',
+        '[ ] CASH $150-200',
+        '[ ] Driver\'s license',
+        '[ ] 2 Credit cards',
+        '[ ] Hotel reservations (on phone)',
+        '[ ] Meow Wolf tickets',
+      ];
+      
+      doc.setFontSize(9);
+      essentials.forEach((item, i) => {
+        if (i % 2 === 0) {
+          checkNewPage(6);
+          doc.text(item, margin, y);
+        } else {
+          doc.text(item, margin + 90, y);
+          y += 5;
+        }
+      });
+      if (essentials.length % 2 !== 0) y += 5;
+      
+      y += 8;
+      addSubHeader('OPTIONAL - Recommended', [254, 243, 199]);
+      
+      const optionals = ['[ ] Light gloves', '[ ] Warm beanie', '[ ] Portable battery', '[ ] Small daypack', '[ ] Small cooler', '[ ] Headphones', '[ ] First aid kit'];
+      
+      optionals.forEach((item, i) => {
+        if (i % 2 === 0) {
+          doc.text(item, margin, y);
+        } else {
+          doc.text(item, margin + 90, y);
+          y += 5;
+        }
+      });
+      y += 8;
+      
+      addSubHeader('BEFORE DEPARTURE', [220, 252, 231]);
+      const beforeDep = ['[ ] Download offline maps (NM, AZ, UT)', '[ ] Download music/podcasts', '[ ] Fill gas tank', '[ ] Check tire pressure'];
+      beforeDep.forEach(item => { doc.text(item, margin, y); y += 5; });
+      
+      // ═══════════════════════════════════════════════════════════════
+      // CRITICAL GAS STOPS
+      // ═══════════════════════════════════════════════════════════════
+      y += 10;
+      addSectionHeader('CRITICAL GAS STOPS - DO NOT SKIP!');
+      
+      doc.setFontSize(9);
+      const gasStops = [
+        'Day 1: Fort Stockton, TX - MUST FILL! 200km no stations ahead!',
+        'Day 1: Alamogordo, NM - Fill before White Sands',
+        'Day 4: Farmington, NM - LAST GAS before Navajo Nation (160km)!',
+        'Day 5: Page, AZ - Fill before leaving',
+        'Day 6: Page, AZ - Fill before Zion route',
+        'Day 7: Kanab, UT - Before Grand Canyon',
+        'Day 9: Sedona, AZ - Before Tucson drive',
+        'Day 10: Tucson, Las Cruces, El Paso - Regular stops',
+      ];
+      
+      gasStops.forEach(stop => {
+        checkNewPage(6);
+        doc.setTextColor(234, 88, 12);
+        doc.text('>>> ' + stop, margin, y);
+        doc.setTextColor(0, 0, 0);
+        y += 5;
+      });
+      
+      // ═══════════════════════════════════════════════════════════════
+      // GOOGLE MAPS LINKS
+      // ═══════════════════════════════════════════════════════════════
+      y += 10;
+      addSectionHeader('GOOGLE MAPS - Download Offline!');
+      
+      doc.setFontSize(8);
+      doc.text('Main Route URL (type in browser):', margin, y);
+      y += 5;
+      doc.setFont('helvetica', 'bold');
+      doc.text('google.com/maps/dir/Round+Rock,TX/White+Sands+NP/Santa+Fe/Monument+Valley/', margin, y);
+      y += 4;
+      doc.text('Page,AZ/Zion+NP/Grand+Canyon/Sedona/Tucson/Fort+Stockton/Round+Rock', margin, y);
+      doc.setFont('helvetica', 'normal');
+      y += 8;
+      
+      doc.setFillColor(254, 243, 199);
+      doc.roundedRect(margin, y, contentWidth, 12, 2, 2, 'F');
+      doc.setFontSize(9);
+      doc.text('TIP: In Google Maps app, download offline maps for: New Mexico, Arizona, Utah', margin + 3, y + 7);
+      
+      // ═══════════════════════════════════════════════════════════════
+      // SAVE PDF
+      // ═══════════════════════════════════════════════════════════════
+      doc.save('Southwest-Road-Trip-Complete-Guide.pdf');
+      
+      // Show success
+      const btn = document.getElementById('pdfBtn');
+      btn.innerHTML = 'Downloaded!';
+      btn.style.background = 'linear-gradient(135deg, #16a34a, #15803d)';
+      setTimeout(() => {
+        btn.innerHTML = document.getElementById('pdfBtnText').textContent;
+        btn.style.background = 'linear-gradient(135deg, #dc2626, #b91c1c)';
+      }, 2000);
     }
     
     // Modal functions
@@ -8099,7 +8864,7 @@
             <div style="font-size:0.9rem;">
               <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
                 <span>Grand Canyon ${isHe ? 'לילה' : 'night'}</span>
-                <span style="font-weight:700;color:#1e40af;">-8°C</span>
+                <span style="font-weight:700;color:#1e40af;">-2°C</span>
               </div>
               <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
                 <span>Santa Fe ${isHe ? 'בוקר' : 'morning'}</span>
@@ -10033,6 +10798,12 @@
       document.getElementById('docsTitle').textContent = tr.docsTitle;
       document.getElementById('beforeDepartureTitle').textContent = tr.beforeDepartureTitle;
       document.getElementById('resetPackingText').textContent = tr.resetPackingText;
+      
+      // Update PDF section
+      document.getElementById('pdfTitle').textContent = tr.pdfTitle;
+      document.getElementById('pdfDesc').textContent = tr.pdfDesc;
+      document.getElementById('pdfBtnText').textContent = tr.pdfBtnText;
+      document.getElementById('pdfNote').textContent = tr.pdfNote;
       
       // Update packing items
       for (let i = 1; i <= 29; i++) {
