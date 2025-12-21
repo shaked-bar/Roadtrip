@@ -2719,7 +2719,7 @@
 <!-- ║                     HTML STRUCTURE                            ║ -->
 <!-- ╚══════════════════════════════════════════════════════════════╝ -->
 
-<body>
+<body class="dark-mode">
   <!-- ═══ HEADER: Logo, Date Picker, Theme Toggle ═══ -->
   <header class="header">
     <div class="header-content">
@@ -2735,7 +2735,7 @@
           <label for="startDate" id="dateLabel">📅 Start Date:</label>
           <input type="date" id="startDate" value="2025-12-21" onchange="updateStartDate()">
         </div>
-        <button class="dark-toggle" onclick="toggleDarkMode()" title="Toggle dark mode" id="darkToggle">🌙</button>
+        <button class="dark-toggle" onclick="toggleDarkMode()" title="Toggle dark mode" id="darkToggle">☀️</button>
         <button class="download-btn" onclick="downloadTrip()" title="Download" id="downloadBtn">💾</button>
         <button class="lang-btn" onclick="toggleLanguage()">
           🌐 <span id="langText">עברית</span>
@@ -2802,7 +2802,7 @@
     </div>
 
     <!-- Google Maps Button -->
-    <a href="https://www.google.com/maps/dir/8101+Hawk+Dr,+Round+Rock,+TX/White+Sands+National+Park,+NM/Santa+Fe,+NM/Monument+Valley,+UT/Page,+AZ/Zion+National+Park,+UT/Grand+Canyon+Village,+AZ/Sedona,+AZ/Tucson,+AZ/Fort+Stockton,+TX/8101+Hawk+Dr,+Round+Rock,+TX" target="_blank" class="maps-btn">
+    <a href="https://www.google.com/maps/dir/Round+Rock,TX/Buc-ees+New+Braunfels,TX/Fort+Stockton,TX/Alamogordo,NM/White+Sands+National+Park/Santa+Fe,NM/Monument+Valley+Visitor+Center/Page,AZ/Horseshoe+Bend+Viewpoint/Zion+National+Park/Grand+Canyon+Village,AZ/Sedona,AZ/Saguaro+National+Park+East/Tucson,AZ/Fort+Stockton,TX/Round+Rock,TX" target="_blank" class="maps-btn">
       📍 <span id="mapsText">Open in Google Maps</span> →
     </a>
 
@@ -3535,7 +3535,7 @@
               </div>
               <div class="day-right">
                 <div class="day-stats">
-                  <div class="day-stat" style="color:#2563eb;">🚗 10h</div>
+                  <div class="day-stat" style="color:#2563eb;">🚗 12h</div>
                   <div class="day-stat" style="color:#ea580c;">🌡️ 11°C</div>
                   <span class="state-badge" style="background:#eab308">NM</span>
                   <button class="road-story-btn" onclick="event.stopPropagation(); showRoadStory(1);">🛣️ Road Story</button>
@@ -3549,7 +3549,7 @@
               <div class="info-grid">
                 <div class="info-box drive">
                   <div class="label" style="color:#1e40af;">🚗 Drive Time</div>
-                  <div class="value" style="color:#1e3a8a;">10 hours</div>
+                  <div class="value" style="color:#1e3a8a;">12 hours</div>
                 </div>
                 <div class="info-box weather">
                   <div class="label" style="color:#c2410c;">🌡️ Weather</div>
@@ -3579,7 +3579,7 @@
               <div class="nav-section">
                 <div class="nav-header">
                   <span>🧭 Navigate This Day (680 km)</span>
-                  <a href="https://www.google.com/maps/dir/Round+Rock,TX/Fort+Stockton,TX/Alamogordo,NM/White+Sands+National+Park" target="_blank" class="nav-btn">📍 Google Maps ↗</a>
+                  <a href="https://www.google.com/maps/dir/Round+Rock,TX/Buc-ees+New+Braunfels,TX/Fort+Stockton,TX/Alamogordo,NM/White+Sands+National+Park/Fairfield+Inn+Alamogordo,NM" target="_blank" class="nav-btn">📍 Google Maps ↗</a>
                 </div>
                 <div class="route-preview">
                   <span class="route-icon">🛣️</span>
@@ -3680,7 +3680,30 @@
                         
                         <div class="day-timeline-timing">
                           <span class="timing-duration">⏱️ 20 min</span>
-                          <span class="timing-drive">🚗 1h to next</span>
+                          <span class="timing-drive">🚗 2h to next</span>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="day-timeline-item" style="border-left: 3px solid #f59e0b;">
+                    <div class="day-timeline-time">11:50</div>
+                    <div class="day-timeline-content">
+                      <div class="day-timeline-icon">⛰️</div>
+                      <div class="day-timeline-details">
+                        <div class="day-timeline-title">Guadalupe Peak (OPTIONAL)</div>
+                        <div class="day-timeline-desc">Highest point in Texas (2,667m) - adds 1.5h! Skip if running late</div>
+                        
+                        <div class="day-timeline-tags">
+                          <span class="timeline-tag photo">📸photo</span><span class="timeline-tag" style="background:#f59e0b;color:white;">⚡optional</span>
+                        </div>
+                        
+                        <a href="https://maps.google.com/?q=Guadalupe+Peak+Texas" target="_blank" class="day-timeline-link">📍 Navigate ↗</a>
+                        
+                        <div class="day-timeline-timing">
+                          <span class="timing-duration">⏱️ 30 min</span>
+                          <span class="timing-drive">🚗 1.5h to next</span>
                         </div>
                         
                       </div>
@@ -3688,7 +3711,7 @@
                   </div>
                   
                   <div class="day-timeline-item  warning">
-                    <div class="day-timeline-time">10:30</div>
+                    <div class="day-timeline-time">13:50</div>
                     <div class="day-timeline-content">
                       <div class="day-timeline-icon">🏜️</div>
                       <div class="day-timeline-details">
@@ -3852,7 +3875,7 @@
               </div>
               <div class="day-right">
                 <div class="day-stats">
-                  <div class="day-stat" style="color:#2563eb;">🚗 3.5h</div>
+                  <div class="day-stat" style="color:#2563eb;">🚗 4h20</div>
                   <div class="day-stat" style="color:#ea580c;">🌡️ 7°C</div>
                   <span class="state-badge" style="background:#eab308">NM</span>
                   <button class="road-story-btn" onclick="event.stopPropagation(); showRoadStory(2);">🛣️ Road Story</button>
@@ -3866,7 +3889,7 @@
               <div class="info-grid">
                 <div class="info-box drive">
                   <div class="label" style="color:#1e40af;">🚗 Drive Time</div>
-                  <div class="value" style="color:#1e3a8a;">3.5 hours</div>
+                  <div class="value" style="color:#1e3a8a;">4h 20min</div>
                 </div>
                 <div class="info-box weather">
                   <div class="label" style="color:#c2410c;">🌡️ Weather</div>
@@ -4151,7 +4174,7 @@
               </div>
               <div class="day-right">
                 <div class="day-stats">
-                  <div class="day-stat" style="color:#2563eb;">🚗 0h</div>
+                  <div class="day-stat" style="color:#2563eb;">🚗 30m</div>
                   <div class="day-stat" style="color:#ea580c;">🌡️ 9°C</div>
                   <span class="state-badge" style="background:#eab308">NM</span>
                   <button class="road-story-btn" onclick="event.stopPropagation(); showRoadStory(3);">🔍 Explore</button>
@@ -4165,7 +4188,7 @@
               <div class="info-grid">
                 <div class="info-box drive">
                   <div class="label" style="color:#1e40af;">🚗 Drive Time</div>
-                  <div class="value" style="color:#1e3a8a;">0 hours</div>
+                  <div class="value" style="color:#1e3a8a;">30 min</div>
                 </div>
                 <div class="info-box weather">
                   <div class="label" style="color:#c2410c;">🌡️ Weather</div>
@@ -4412,7 +4435,7 @@
               </div>
               <div class="day-right">
                 <div class="day-stats">
-                  <div class="day-stat" style="color:#2563eb;">🚗 6h</div>
+                  <div class="day-stat" style="color:#2563eb;">🚗 6h6</div>
                   <div class="day-stat" style="color:#ea580c;">🌡️ 7°C</div>
                   <span class="state-badge" style="background:#ef4444">AZ/UT</span>
                   <button class="road-story-btn" onclick="event.stopPropagation(); showRoadStory(4);">🛣️ Road Story</button>
@@ -4426,7 +4449,7 @@
               <div class="info-grid">
                 <div class="info-box drive">
                   <div class="label" style="color:#1e40af;">🚗 Drive Time</div>
-                  <div class="value" style="color:#1e3a8a;">6 hours</div>
+                  <div class="value" style="color:#1e3a8a;">6h 6min</div>
                 </div>
                 <div class="info-box weather">
                   <div class="label" style="color:#c2410c;">🌡️ Weather</div>
@@ -4715,7 +4738,7 @@
               </div>
               <div class="day-right">
                 <div class="day-stats">
-                  <div class="day-stat" style="color:#2563eb;">🚗 2.5h</div>
+                  <div class="day-stat" style="color:#2563eb;">🚗 3h30</div>
                   <div class="day-stat" style="color:#ea580c;">🌡️ 9°C</div>
                   <span class="state-badge" style="background:#ef4444">AZ</span>
                   <button class="road-story-btn" onclick="event.stopPropagation(); showRoadStory(5);">🛣️ Road Story</button>
@@ -4729,7 +4752,7 @@
               <div class="info-grid">
                 <div class="info-box drive">
                   <div class="label" style="color:#1e40af;">🚗 Drive Time</div>
-                  <div class="value" style="color:#1e3a8a;">2.5 hours</div>
+                  <div class="value" style="color:#1e3a8a;">3h 30min</div>
                 </div>
                 <div class="info-box weather">
                   <div class="label" style="color:#c2410c;">🌡️ Weather</div>
@@ -5014,7 +5037,7 @@
               </div>
               <div class="day-right">
                 <div class="day-stats">
-                  <div class="day-stat" style="color:#2563eb;">🚗 2.25h</div>
+                  <div class="day-stat" style="color:#2563eb;">🚗 3h45</div>
                   <div class="day-stat" style="color:#ea580c;">🌡️ 11°C</div>
                   <span class="state-badge" style="background:#22c55e">UT</span>
                   <button class="road-story-btn" onclick="event.stopPropagation(); showRoadStory(6);">🛣️ Road Story</button>
@@ -5028,7 +5051,7 @@
               <div class="info-grid">
                 <div class="info-box drive">
                   <div class="label" style="color:#1e40af;">🚗 Drive Time</div>
-                  <div class="value" style="color:#1e3a8a;">2.25 hours</div>
+                  <div class="value" style="color:#1e3a8a;">3h 45min</div>
                 </div>
                 <div class="info-box weather">
                   <div class="label" style="color:#c2410c;">🌡️ Weather</div>
@@ -5612,7 +5635,7 @@
               </div>
               <div class="day-right">
                 <div class="day-stats">
-                  <div class="day-stat" style="color:#2563eb;">🚗 0h</div>
+                  <div class="day-stat" style="color:#2563eb;">🚗 2h20</div>
                   <div class="day-stat" style="color:#ea580c;">🌡️ 10°C</div>
                   <span class="state-badge" style="background:#ef4444">AZ</span>
                   <button class="road-story-btn" onclick="event.stopPropagation(); showRoadStory(8);">🔍 Explore</button>
@@ -5626,7 +5649,7 @@
               <div class="info-grid">
                 <div class="info-box drive">
                   <div class="label" style="color:#1e40af;">🚗 Drive Time</div>
-                  <div class="value" style="color:#1e3a8a;">0 hours</div>
+                  <div class="value" style="color:#1e3a8a;">2h 20min</div>
                 </div>
                 <div class="info-box weather">
                   <div class="label" style="color:#c2410c;">🌡️ Weather</div>
@@ -5896,7 +5919,7 @@
               </div>
               <div class="day-right">
                 <div class="day-stats">
-                  <div class="day-stat" style="color:#2563eb;">🚗 6h</div>
+                  <div class="day-stat" style="color:#2563eb;">🚗 6h40</div>
                   <div class="day-stat" style="color:#ea580c;">🌡️ 18°C</div>
                   <span class="state-badge" style="background:#ef4444">AZ</span>
                   <button class="road-story-btn" onclick="event.stopPropagation(); showRoadStory(9);">🛣️ Road Story</button>
@@ -5910,7 +5933,7 @@
               <div class="info-grid">
                 <div class="info-box drive">
                   <div class="label" style="color:#1e40af;">🚗 Drive Time</div>
-                  <div class="value" style="color:#1e3a8a;">6 hours</div>
+                  <div class="value" style="color:#1e3a8a;">6h 40min</div>
                 </div>
                 <div class="info-box weather">
                   <div class="label" style="color:#c2410c;">🌡️ Weather</div>
@@ -6232,7 +6255,7 @@
               </div>
               <div class="day-right">
                 <div class="day-stats">
-                  <div class="day-stat" style="color:#2563eb;">🚗 7h</div>
+                  <div class="day-stat" style="color:#2563eb;">🚗 8h30</div>
                   <div class="day-stat" style="color:#ea580c;">🌡️ 14°C</div>
                   <span class="state-badge" style="background:#a855f7">TX</span>
                   <button class="road-story-btn" onclick="event.stopPropagation(); showRoadStory(10);">🛣️ Road Story</button>
@@ -6246,7 +6269,7 @@
               <div class="info-grid">
                 <div class="info-box drive">
                   <div class="label" style="color:#1e40af;">🚗 Drive Time</div>
-                  <div class="value" style="color:#1e3a8a;">7 hours</div>
+                  <div class="value" style="color:#1e3a8a;">8h 30min</div>
                 </div>
                 <div class="info-box weather">
                   <div class="label" style="color:#c2410c;">🌡️ Weather</div>
@@ -6553,7 +6576,7 @@
               </div>
               <div class="day-right">
                 <div class="day-stats">
-                  <div class="day-stat" style="color:#2563eb;">🚗 6h</div>
+                  <div class="day-stat" style="color:#2563eb;">🚗 5h20</div>
                   <div class="day-stat" style="color:#ea580c;">🌡️ 14°C</div>
                   <span class="state-badge" style="background:#a855f7">TX</span>
                   <button class="road-story-btn" onclick="event.stopPropagation(); showRoadStory(11);">🛣️ Road Story</button>
@@ -6567,7 +6590,7 @@
               <div class="info-grid">
                 <div class="info-box drive">
                   <div class="label" style="color:#1e40af;">🚗 Drive Time</div>
-                  <div class="value" style="color:#1e3a8a;">6 hours</div>
+                  <div class="value" style="color:#1e3a8a;">5h 20min</div>
                 </div>
                 <div class="info-box weather">
                   <div class="label" style="color:#c2410c;">🌡️ Weather</div>
@@ -6917,10 +6940,10 @@
         day: 1, dayOffset: 0,
         from: 'Round Rock, TX', to: 'White Sands, NM',
         fromHe: 'ראונד רוק', toHe: 'וייט סנדס',
-        driveHours: 10, distanceKm: 680, state: 'NM', stateClass: 'nm',
+        driveHours: 12, distanceKm: 680, state: 'NM', stateClass: 'nm',
         weatherHigh: { c: 11, f: 52 }, weatherLow: { c: -2, f: 28 },
         sleepCity: 'Alamogordo, NM', sleepCityHe: 'אלמוגורדו',
-        navigationUrl: 'https://www.google.com/maps/dir/Round+Rock,TX/Fort+Stockton,TX/Alamogordo,NM/White+Sands+National+Park',
+        navigationUrl: 'https://www.google.com/maps/dir/Round+Rock,TX/Buc-ees+New+Braunfels,TX/Fort+Stockton,TX/Alamogordo,NM/White+Sands+National+Park/Fairfield+Inn+Alamogordo,NM',
         mainDestination: {
           name: 'White Sands National Park', nameHe: 'פארק וייט סנדס',
           elevation: { m: 1200, ft: 4000 },
@@ -6952,14 +6975,14 @@
           ]},
         ],
         highlight: 'Sunset at White Sands - otherworldly!', highlightHe: 'שקיעה בוייט סנדס - מעולם אחר!',
-        tips: ['Fill gas in Fort Stockton AND Alamogordo', 'Download offline maps'], tipsHe: ['תדלקו בפורט סטוקטון וגם באלמוגורדו', 'הורידו מפות אופליין'],
+        tips: ['Fill gas in Fort Stockton AND Alamogordo', 'Download offline maps', '⚠️ LONGEST DAY (12h)! Start at 5:00 AM', 'Skip Guadalupe Peak saves 1.5h'], tipsHe: ['תדלקו בפורט סטוקטון וגם באלמוגורדו', 'הורידו מפות אופליין', '⚠️ היום הארוך ביותר (12 שעות)! צאו ב-5:00', 'דילוג על Guadalupe Peak חוסך 1.5 שעות'],
         hotel: { name: 'Fairfield Inn Alamogordo', price: '$100-120', phone: '(575) 437-0088' },
       },
       {
         day: 2, dayOffset: 1,
         from: 'White Sands', to: 'Santa Fe, NM',
         fromHe: 'וייט סנדס', toHe: 'סנטה פה',
-        driveHours: 3.5, distanceKm: 420, state: 'NM', stateClass: 'nm',
+        driveHours: 4.33, distanceKm: 420, state: 'NM', stateClass: 'nm',
         weatherHigh: { c: 7, f: 45 }, weatherLow: { c: -6, f: 22 },
         sleepCity: 'Santa Fe, NM', sleepCityHe: 'סנטה פה',
         signal: 'weak',
@@ -6993,14 +7016,14 @@
           ]},
         ],
         highlight: 'Sunrise at White Sands + Santa Fe evening', highlightHe: 'זריחה בוייט סנדס + ערב בסנטה פה',
-        tips: ['Get to White Sands by 6:15 AM', 'Book The Shed dinner'], tipsHe: ['הגיעו לוייט סנדס עד 6:15', 'הזמינו ב-The Shed'],
+        tips: ['Get to White Sands by 6:15 AM', 'Book The Shed dinner', '💡 Carrizozo Lava adds only 20min', 'Altitude 7,200ft - drink water!'], tipsHe: ['הגיעו לוייט סנדס עד 6:15', 'הזמינו ב-The Shed', '💡 Carrizozo מוסיף רק 20 דקות', 'גובה 2,200 מ\' - שתו מים!'],
         hotel: { name: 'Drury Plaza Hotel', price: '$150-180', phone: '(505) 424-2175', bonus: 'FREE evening food & drinks!', bonusHe: 'אוכל ושתייה חינם בערב!' },
       },
       {
         day: 3, dayOffset: 2,
         from: 'Santa Fe', to: 'Santa Fe',
         fromHe: 'סנטה פה', toHe: 'סנטה פה',
-        driveHours: 0, distanceKm: 0, state: 'NM', stateClass: 'nm',
+        driveHours: 0.5, distanceKm: 0, state: 'NM', stateClass: 'nm',
         weatherHigh: { c: 9, f: 48 }, weatherLow: { c: -4, f: 25 },
         sleepCity: 'Santa Fe, NM', sleepCityHe: 'סנטה פה',
         signal: 'good',
@@ -7033,7 +7056,7 @@
           ]},
         ],
         highlight: 'Meow Wolf immersive art experience!', highlightHe: 'חוויה אימרסיבית ב-Meow Wolf!',
-        tips: ['BOOK MEOW WOLF IN ADVANCE!', 'Try Frito Pie'], tipsHe: ['הזמינו MEOW WOLF מראש!', 'נסו Frito Pie'],
+        tips: ['BOOK MEOW WOLF IN ADVANCE!', 'Try Frito Pie', '💡 Only 30min city driving', 'Free hotel happy hour!'], tipsHe: ['הזמינו MEOW WOLF מראש!', 'נסו Frito Pie', '💡 רק 30 דקות נסיעה בעיר', 'Happy hour חינם במלון!'],
         hotel: { name: 'Drury Plaza Hotel', price: '$150-180', phone: '(505) 424-2175' },
       },
       {
@@ -7041,7 +7064,7 @@
         specialDay: 'christmasEve',
         from: 'Santa Fe, NM', to: 'Monument Valley',
         fromHe: 'סנטה פה', toHe: 'מוניומנט ואלי',
-        driveHours: 6, distanceKm: 480, state: 'AZ/UT', stateClass: 'az',
+        driveHours: 6.1, distanceKm: 480, state: 'AZ/UT', stateClass: 'az',
         weatherHigh: { c: 7, f: 45 }, weatherLow: { c: -6, f: 22 },
         sleepCity: 'Monument Valley', sleepCityHe: 'מוניומנט ואלי',
         signal: 'none',
@@ -7075,7 +7098,7 @@
           ]},
         ],
         highlight: 'Christmas Eve sunset at Monument Valley!', highlightHe: 'שקיעת ערב חג במוניומנט ואלי!',
-        tips: ['Download offline maps before Farmington', 'The View FULL - see alternatives above!'], tipsHe: ['הורידו מפות לפני פארמינגטון', 'The View מלא - ראו אלטרנטיבות למעלה!'],
+        tips: ['Download offline maps before Farmington', 'The View FULL - see alternatives above!', '⚠️ Farmington = LAST gas for 160km!', 'Navajo Nation = different time zone'], tipsHe: ['הורידו מפות לפני פארמינגטון', 'The View מלא - ראו אלטרנטיבות למעלה!', '⚠️ פארמינגטון = תדלוק אחרון ל-160 ק"מ!', 'ארץ נאוואחו = אזור זמן שונה'],
         hotel: { name: '⚠️ See alternatives above!', price: '$150-250', phone: '', bonus: 'Goulding\'s Lodge recommended!', bonusHe: 'מומלץ: Goulding\'s Lodge!' },
       },
       {
@@ -7083,7 +7106,7 @@
         specialDay: 'christmas',
         from: 'Monument Valley', to: 'Page, AZ',
         fromHe: 'מוניומנט ואלי', toHe: 'פייג\'',
-        driveHours: 2.5, distanceKm: 200, state: 'AZ', stateClass: 'az',
+        driveHours: 3.5, distanceKm: 200, state: 'AZ', stateClass: 'az',
         weatherHigh: { c: 9, f: 48 }, weatherLow: { c: -2, f: 28 },
         sleepCity: 'Page, AZ', sleepCityHe: 'פייג\'',
         navigationUrl: 'https://www.google.com/maps/dir/Monument+Valley/Mexican+Hat,UT/Page,AZ/Horseshoe+Bend',
@@ -7117,14 +7140,14 @@
           ]},
         ],
         highlight: 'Christmas Day: Forrest Gump + Horseshoe Bend!', highlightHe: 'חג המולד: פורסט גאמפ + Horseshoe Bend!',
-        tips: ['Christmas - CALL restaurants ahead!', 'Many places closed - plan meals!'], tipsHe: ['חג המולד - התקשרו למסעדות!', 'הרבה סגור - תכננו ארוחות!'],
+        tips: ['Christmas - CALL restaurants ahead!', 'Many places closed - plan meals!', '💡 17-Mile Drive adds 2-3h but worth it!', 'Forrest Gump Point is iconic!'], tipsHe: ['חג המולד - התקשרו למסעדות!', 'הרבה סגור - תכננו ארוחות!', '💡 17-Mile Drive מוסיף 2-3 שעות אבל שווה!', 'Forrest Gump Point איקוני!'],
         hotel: { name: 'Hyatt Place Page', price: '$150-180', phone: '(928) 645-8851' },
       },
       {
         day: 6, dayOffset: 5,
         from: 'Page, AZ', to: 'Zion NP, UT',
         fromHe: 'פייג\'', toHe: 'זאיון',
-        driveHours: 2.25, distanceKm: 190, state: 'UT', stateClass: 'ut',
+        driveHours: 3.75, distanceKm: 190, state: 'UT', stateClass: 'ut',
         weatherHigh: { c: 11, f: 52 }, weatherLow: { c: -2, f: 28 },
         sleepCity: 'Springdale, UT', sleepCityHe: 'ספרינגדייל',
         signal: 'weak',
@@ -7158,7 +7181,7 @@
           ]},
         ],
         highlight: 'Horseshoe Sunrise + Zion Tunnel!', highlightHe: 'זריחה ב-Horseshoe + מנהרת זאיון!',
-        tips: ['Waterholes Canyon - free alternative to Antelope!', 'Navajo Bridge is FREE'], tipsHe: ['Waterholes Canyon - אלטרנטיבה חינמית!', 'גשר נאוואחו חינם'],
+        tips: ['Waterholes Canyon - free alternative to Antelope!', 'Navajo Bridge is FREE', '💡 Multiple stops add time but worth it!', 'Horseshoe sunrise different from sunset'], tipsHe: ['Waterholes Canyon - אלטרנטיבה חינמית!', 'גשר נאוואחו חינם', '💡 עצירות מרובות מוסיפות זמן אבל שוות!', 'זריחה ב-Horseshoe שונה משקיעה'],
         hotel: { name: 'Hampton Inn Springdale', price: '$140-170', phone: '(435) 772-0700' },
       },
       {
@@ -7199,14 +7222,14 @@
           ]},
         ],
         highlight: 'First Grand Canyon view + Hopi sunset!', highlightHe: 'מבט ראשון + שקיעה ב-Hopi Point!',
-        tips: ['Book Bright Angel months ahead!', 'Dress warm - can be -2°C at rim!'], tipsHe: ['הזמינו Bright Angel מראש!', 'התלבשו חם - יכול להיות מינוס 2 בקצה!'],
+        tips: ['Book Bright Angel months ahead!', 'Dress warm - can be -2°C at rim!', '💡 Kanab is good gas stop before GC', 'Desert View = first emotional GC view!'], tipsHe: ['הזמינו Bright Angel מראש!', 'התלבשו חם - יכול להיות מינוס 2 בקצה!', '💡 קנאב תחנת דלק טובה לפני GC', 'Desert View = מבט ראשון מרגש!'],
         hotel: { name: 'Bright Angel Lodge ⭐⭐', price: '$180-220', phone: '(928) 638-2631', bonus: 'Steps from the rim!', bonusHe: 'צעדים מהקניון!' },
       },
       {
         day: 8, dayOffset: 7,
         from: 'Grand Canyon', to: 'Grand Canyon',
         fromHe: 'גרנד קניון', toHe: 'גרנד קניון',
-        driveHours: 0, distanceKm: 0, state: 'AZ', stateClass: 'az',
+        driveHours: 2.33, distanceKm: 0, state: 'AZ', stateClass: 'az',
         weatherHigh: { c: 10, f: 50 }, weatherLow: { c: -2, f: 28 },
         sleepCity: 'Grand Canyon Village', sleepCityHe: 'גרנד קניון',
         signal: 'weak',
@@ -7239,14 +7262,14 @@
           ]},
         ],
         highlight: 'Full GC day - sunrise, hike, sunset!', highlightHe: 'יום שלם - זריחה, טיול, שקיעה!',
-        tips: ['South Kaibab may be icy - bring traction!', 'Reserve El Tovar dinner'], tipsHe: ['השביל עלול להיות קפוא!', 'הזמינו ארוחה ב-El Tovar'],
+        tips: ['South Kaibab may be icy - bring traction!', 'Reserve El Tovar dinner', '💡 Desert View Drive adds 2h - stunning!', 'Each viewpoint unique - worth the time'], tipsHe: ['השביל עלול להיות קפוא!', 'הזמינו ארוחה ב-El Tovar', '💡 Desert View Drive מוסיף 2 שעות - מדהים!', 'כל תצפית ייחודית - שווה את הזמן'],
         hotel: { name: 'Bright Angel Lodge', price: '$180-220', phone: '(928) 638-2631' },
       },
       {
         day: 9, dayOffset: 8,
         from: 'Grand Canyon', to: 'Saguaro NP',
         fromHe: 'גרנד קניון', toHe: 'סגוארו',
-        driveHours: 6, distanceKm: 520, state: 'AZ', stateClass: 'az',
+        driveHours: 6.67, distanceKm: 520, state: 'AZ', stateClass: 'az',
         weatherHigh: { c: 18, f: 65 }, weatherLow: { c: 4, f: 40 },
         sleepCity: 'Tucson, AZ', sleepCityHe: 'טוסון',
         signal: 'good',
@@ -7280,14 +7303,14 @@
           ]},
         ],
         highlight: 'Sedona red rocks + Saguaro cacti!', highlightHe: 'סלעי סדונה + קקטוסים!',
-        tips: ['Finally warm! 18°C in Tucson', 'Try chimichanga at El Charro'], tipsHe: ['סוף סוף חם! 18 מעלות', 'נסו צ\'ימיצ\'נגה ב-El Charro'],
+        tips: ['Finally warm! 18°C in Tucson', 'Try chimichanga at El Charro', '💡 Sedona adds 1h - Chapel is iconic!', 'Saguaro sunset worth the detour'], tipsHe: ['סוף סוף חם! 18 מעלות', 'נסו צ\'ימיצ\'נגה ב-El Charro', '💡 סדונה מוסיפה שעה - Chapel איקוני!', 'שקיעה בסגוארו שווה את הסטייה'],
         hotel: { name: 'Hilton Tucson East', price: '$120-150', phone: '(520) 721-5600' },
       },
       {
         day: 10, dayOffset: 9,
         from: 'Saguaro NP', to: 'Fort Stockton, TX',
         fromHe: 'סגוארו', toHe: 'פורט סטוקטון',
-        driveHours: 7, distanceKm: 700, state: 'TX', stateClass: 'tx',
+        driveHours: 8.5, distanceKm: 700, state: 'TX', stateClass: 'tx',
         weatherHigh: { c: 14, f: 58 }, weatherLow: { c: 4, f: 40 },
         sleepCity: 'Fort Stockton, TX', sleepCityHe: 'פורט סטוקטון',
         signal: 'good',
@@ -7321,7 +7344,7 @@
           ]},
         ],
         highlight: 'Almost home! One more sleep.', highlightHe: 'כמעט בבית! עוד לילה אחד.',
-        tips: ['7 hours - balanced drive', 'Fort Stockton has basic amenities'], tipsHe: ['7 שעות - נסיעה מאוזנת', 'יש שירותים בסיסיים'],
+        tips: ['8.5 hours - LONG DAY! Start early (7:50 AM)', 'Fort Stockton has basic amenities', '⚠️ Longest return day - take breaks!', 'Las Cruces & El Paso good for gas/food'], tipsHe: ['8.5 שעות - יום ארוך! צאו מוקדם (7:50)', 'יש שירותים בסיסיים', '⚠️ יום החזרה הארוך ביותר - קחו הפסקות!', 'לאס קרוסס ואל פאסו טובים לתדלוק/אוכל'],
         hotel: { name: 'Hampton Inn Fort Stockton', price: '$80-100', phone: '(432) 336-8500' },
       },
       {
@@ -7329,7 +7352,7 @@
         specialDay: 'home',
         from: 'Fort Stockton, TX', to: 'Round Rock, TX',
         fromHe: 'פורט סטוקטון', toHe: 'ראונד רוק',
-        driveHours: 6, distanceKm: 500, state: 'TX', stateClass: 'tx',
+        driveHours: 5.33, distanceKm: 500, state: 'TX', stateClass: 'tx',
         weatherHigh: { c: 14, f: 58 }, weatherLow: { c: 4, f: 40 },
         sleepCity: 'HOME!', sleepCityHe: 'הביתה!',
         signal: 'good',
@@ -7363,7 +7386,7 @@
           ]},
         ],
         highlight: 'HOME for New Year\'s Eve! 🎆', highlightHe: 'בבית לסילבסטר! 🎆',
-        tips: ['Only 6 hours - arrive early!', 'Time to celebrate New Year\'s!'], tipsHe: ['רק 6 שעות - מגיעים מוקדם!', 'זמן לחגוג את השנה החדשה!'],
+        tips: ['Only 5h 20min - shortest day! Arrive by 3:20 PM', 'Time to celebrate New Year\'s!', '💡 Fredericksburg nice lunch stop', 'Hill Country = home turf!'], tipsHe: ['רק 5:20 שעות - היום הקצר! הגעה עד 15:20', 'זמן לחגוג את השנה החדשה!', '💡 פרדריקסברג עצירת צהריים נחמדה', 'Hill Country = שטח בית!'],
         hotel: { name: 'YOUR BED! 🛏️🎆', price: 'Free!', phone: '' },
       },
     ];
@@ -8249,7 +8272,7 @@
               <div style="font-size:0.75rem;color:#92400e;">${isHe ? 'ימים' : 'Days'}</div>
             </div>
             <div style="background:#dbeafe;padding:12px;border-radius:12px;text-align:center;">
-              <div style="font-size:1.5rem;font-weight:700;">4h</div>
+              <div style="font-size:1.5rem;font-weight:700;">5h</div>
               <div style="font-size:0.75rem;color:#1e40af;">${isHe ? 'ממוצע/יום' : 'Avg/Day'}</div>
             </div>
             <div style="background:#dcfce7;padding:12px;border-radius:12px;text-align:center;">
@@ -8265,17 +8288,17 @@
         
         // Day by day breakdown
         const dayDetails = [
-          { day: 1, hours: 10, load: 100, type: isHe ? 'נהיגה כבדה' : 'Heavy drive', icon: '🚗' },
-          { day: 2, hours: 3.5, load: 50, type: isHe ? 'מאוזן' : 'Balanced', icon: '⚖️' },
-          { day: 3, hours: 0, load: 20, type: isHe ? '😴 מנוחה' : '😴 Rest', icon: '🎨' },
-          { day: 4, hours: 6, load: 80, type: isHe ? 'נהיגה + שקיעה' : 'Drive + Sunset', icon: '🌅' },
-          { day: 5, hours: 2, load: 40, type: isHe ? 'קצר + אטרקציות' : 'Short + Attractions', icon: '📸' },
-          { day: 6, hours: 2.25, load: 50, type: 'Page → Zion', icon: '⛰️' },
+          { day: 1, hours: 12, load: 100, type: isHe ? 'נהיגה כבדה' : 'Heavy drive', icon: '🚗' },
+          { day: 2, hours: 4.3, load: 55, type: isHe ? 'מאוזן' : 'Balanced', icon: '⚖️' },
+          { day: 3, hours: 0.5, load: 20, type: isHe ? '😴 מנוחה' : '😴 Rest', icon: '🎨' },
+          { day: 4, hours: 6.1, load: 80, type: isHe ? 'נהיגה + שקיעה' : 'Drive + Sunset', icon: '🌅' },
+          { day: 5, hours: 3.5, load: 45, type: isHe ? 'קצר + אטרקציות' : 'Short + Attractions', icon: '📸' },
+          { day: 6, hours: 3.75, load: 50, type: 'Page → Zion', icon: '⛰️' },
           { day: 7, hours: 5, load: 70, type: isHe ? 'מאוזן' : 'Balanced', icon: '🏜️' },
-          { day: 8, hours: 0, load: 30, type: isHe ? '😴 מנוחה (הליכות)' : '😴 Rest (hikes)', icon: '🥾' },
-          { day: 9, hours: 6, load: 80, type: 'Sedona + Saguaro', icon: '🌵' },
-          { day: 10, hours: 7, load: 85, type: isHe ? 'נסיעה ארוכה' : 'Long drive', icon: '🚗' },
-          { day: 11, hours: 6, load: 75, type: isHe ? '🏠 הביתה!' : '🏠 Home!', icon: '🏠' },
+          { day: 8, hours: 2.3, load: 35, type: isHe ? '😴 מנוחה (הליכות)' : '😴 Rest (hikes)', icon: '🥾' },
+          { day: 9, hours: 6.7, load: 85, type: 'Sedona + Saguaro', icon: '🌵' },
+          { day: 10, hours: 8.5, load: 95, type: isHe ? 'נסיעה ארוכה' : 'Long drive', icon: '🚗' },
+          { day: 11, hours: 5.3, load: 70, type: isHe ? '🏠 הביתה!' : '🏠 Home!', icon: '🏠' },
         ];
         
         content += `
@@ -8355,7 +8378,7 @@
               <div style="font-size:0.75rem;color:#1e40af;">km ${isHe ? 'סה"כ' : 'total'}</div>
             </div>
             <div style="background:#f3e8ff;padding:12px;border-radius:12px;text-align:center;">
-              <div style="font-size:1.5rem;font-weight:700;">~48h</div>
+              <div style="font-size:1.5rem;font-weight:700;">~57h</div>
               <div style="font-size:0.75rem;color:#7c3aed;">${isHe ? 'שעות נהיגה' : 'driving'}</div>
             </div>
             <div style="background:#dcfce7;padding:12px;border-radius:12px;text-align:center;">
